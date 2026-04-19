@@ -22,7 +22,28 @@ import Layout from '../layouts/Layout.astro';
     '> Location: Spain',
     '> Status: Online',
     '',
-    'Bienvenido a mi dominio personal.',
+    'Este es mi dominio personal, aquí encontrarás un poco de todo.',
+    '',
+    'Si quieres saber más sobre el Marcos Ramírez programador/ingeniero:',
+    '> [SOBRE_MI]',
+    '',
+    'Si quieres saber sobre mí a título más personal:',
+    '> [SOBRE_MI] (sección personal)',
+    '',
+    'El motivo de existir de esta página es que desde hace un tiempo,',
+    'me dedico a intentar posicionar en Google mejor que mis tocayos:',
+    '',
+    '> Marcos Ramírez (el de las motos)',
+    '> Marcos Ramírez (el de YouTube clickbait)',
+    '> Marcos Ramírez (el protagonista de la novela)',
+    '',
+    'Así que, aquí podrás encontrar enlaces a mis redes sociales,',
+    'y por ejemplo, una lista de cosas que me puedes regalar:',
+    '> [CUMPLE] (regalos para mi cumpleaños)',
+    '',
+    'También puedes descargar mi Curriculum:',
+    '> [MI_CV] (en Word, PDF, etc...)',
+    '',
     'Usa el menú de arriba para navegar.',
     '',
     '> Esperando comando...'
@@ -92,7 +113,19 @@ import Layout from '../layouts/Layout.astro';
     
     const line = lines[lineIndex];
     const p = document.createElement('p');
-    p.textContent = line;
+    
+    // Convertir [ENLACE] en enlaces clickables
+    let processedLine = line;
+    if (line.includes('[')) {
+      processedLine = line
+        .replace(/\[SOBRE_MI\]/g, '<a href="/sobre-mi" class="link">[SOBRE_MI]</a>')
+        .replace(/\[CUMPLE\]/g, '<a href="/cumpleanos" class="link">[CUMPLE]</a>')
+        .replace(/\[MI_CV\]/g, '<a href="https://linkedin.com/in/marcosramirez" target="_blank" class="link">[MI_CV]</a>');
+      p.innerHTML = processedLine;
+    } else {
+      p.textContent = line;
+    }
+    
     if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('╚')) {
       p.className = 'prompt';
     }
@@ -126,5 +159,15 @@ import Layout from '../layouts/Layout.astro';
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+  }
+  
+  #terminal .link {
+    color: #33ff33;
+    text-decoration: none;
+  }
+  
+  #terminal .link:hover {
+    background: #33ff33;
+    color: #000;
   }
 </style>
