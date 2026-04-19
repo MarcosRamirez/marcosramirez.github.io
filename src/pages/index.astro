@@ -8,59 +8,80 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
   const lines = [
-    { text: 'Initializing system...', delay: 300 },
-    { text: 'Loading modules...', delay: 400 },
-    { text: 'Checking network...', delay: 350 },
-    { text: 'Connecting to database...', delay: 500 },
-    { text: 'Ready.', delay: 200 },
-    { text: '', delay: 100 },
-    { text: '╔═══════════════════════════════════════╗', delay: 50 },
-    { text: '║         MARCOS RAMÍREZ v1.0           ║', delay: 50 },
-    { text: '╚═══════════════════════════════════════╝', delay: 50 },
-    { text: '', delay: 100 },
-    { text: '> Occupation: Software Engineer', delay: 100 },
-    { text: '> Location: Spain', delay: 100 },
-    { text: '> Status: Online', delay: 100 },
-    { text: '', delay: 200 },
-    { text: 'Bienvenido a mi dominio personal.', delay: 100 },
-    { text: 'Usa el menú de arriba para navegar.', delay: 100 },
-    { text: '', delay: 200 },
-    { text: '> Esperando comando...', delay: 100 },
-    { text: '_', isCursor: true, delay: 500 }
+    'Initializing system...',
+    'Loading modules...',
+    'Checking network...',
+    'Connecting to database...',
+    'Ready.',
+    '',
+    '╔═══════════════════════════════════════╗',
+    '║         MARCOS RAMÍREZ v1.0           ║',
+    '╚═══════════════════════════════════════╝',
+    '',
+    '> Occupation: Software Engineer',
+    '> Location: Spain',
+    '> Status: Online',
+    '',
+    'Bienvenido a mi dominio personal.',
+    'Usa el menú de arriba para navegar.',
+    '',
+    '> Esperando comando...'
   ];
 
   const terminal = document.getElementById('terminal');
   let lineIndex = 0;
-
-  function typeLine() {
-    if (lineIndex >= lines.length) return;
+  let charIndex = 0;
+  let currentLine = '';
+  
+  function typeChar() {
+    if (lineIndex >= lines.length) {
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor blink';
+      terminal.appendChild(cursor);
+      return;
+    }
     
     const line = lines[lineIndex];
     
-    if (line.isCursor) {
-      const cursor = document.createElement('span');
-      cursor.className = 'cursor';
-      terminal.appendChild(cursor);
-    } else {
+    if (charIndex === 0) {
       const p = document.createElement('p');
-      p.textContent = line.text;
-      if (line.text.startsWith('>') || line.text.startsWith('╔') || line.text.startsWith('║') || line.text.startsWith('╚')) {
+      if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('║') || line.startsWith('╚')) {
         p.className = 'prompt';
       }
+      if (line === '') {
+        p.innerHTML = '&nbsp;';
+      }
       terminal.appendChild(p);
+      currentLine = line;
     }
     
-    lineIndex++;
-    setTimeout(typeLine, line.delay);
+    const currentP = terminal.lastElementChild;
+    
+    if (line === '') {
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeChar, 150);
+    } else if (charIndex < line.length) {
+      currentP.textContent = line.substring(0, charIndex + 1);
+      charIndex++;
+      setTimeout(typeChar, 30 + Math.random() * 30);
+    } else {
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeChar, 200);
+    }
   }
 
-  setTimeout(typeLine, 500);
+  setTimeout(typeChar, 500);
 </script>
 
 <style>
   .cursor {
-    animation: blink 1s step-end infinite;
     display: inline-block;
+  }
+  
+  .blink {
+    animation: blink 1s step-end infinite;
   }
   
   @keyframes blink {
