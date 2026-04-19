@@ -25,6 +25,7 @@ import Link from "../components/Link.astro";
       <li>> Nací el <span class="highlight">3 de Febrero de 1977</span> (admito regalos)</li>
       <li>> <span class="highlight">Neurodivergente</span>: AACC + TDAH + TEA (doble excepcionalidad)</li>
       <li>> Llevo más de <span class="highlight">25 años</span> dedicándome al desarrollo web</li>
+      <li>> <Link href="https://linkedin.com/in/marcosramirez" target="_blank">[MI_CV]</Link></li>
     </ul>
     
     <p class="prompt" data-section>// HISTORIA:</p>
@@ -50,14 +51,21 @@ import Link from "../components/Link.astro";
       </p>
     </div>
     
+    <p class="prompt" data-section>// ESTILO_DE_VIDA:</p>
+    <ul class="lifestyle">
+      <li>> No como nada ultra procesado</li>
+      <li>> Ejercicio regular</li>
+      <li>> Paso de redes sociales (incluido LinkedIn)</li>
+      <li>> Mi tiempo de uso del móvil: menos de <span class="highlight">30 min/día</span></li>
+    </ul>
+    
     <p class="prompt" data-section>// AFICIONES:</p>
     <ul class="hobbies">
-      <li>> Paso de redes sociales (incluido LinkedIn)</li>
       <li>> Juego al poker y al ajedrez</li>
+      <li>> Montaña: senderismo y MTB</li>
       <li>> Me gusta el cine y las series</li>
       <li>> Videojuegos de sigilo, aventuras gráficas, simuladores</li>
       <li>> Puzles y juegos de estrategia</li>
-      <li>> Mi tiempo de uso del móvil: menos de <span class="highlight">30 min/día</span></li>
     </ul>
     
     <p class="prompt">> Más información pronto... <span class="blink">_</span></p>
@@ -65,13 +73,13 @@ import Link from "../components/Link.astro";
 </Layout>
 
 <style>
-  .info-list, .hobbies {
+  .info-list, .hobbies, .lifestyle {
     list-style: none;
     padding: 0;
     margin: 1rem 0;
   }
   
-  .info-list li, .hobbies li {
+  .info-list li, .hobbies li, .lifestyle li {
     margin: 8px 0;
     line-height: 1.6;
   }
