@@ -25,21 +25,23 @@ import Layout from "../layouts/Layout.astro";
   </ul>
   
   <p class="prompt" data-section>// SINOPSIS:</p>
-  <p>
-    <span class="prompt">></span> "Marcos Ramírez" es la tercera novela del escritor costarricense <span class="highlight">Carlos Luis Fallas</span> (1909-1966), considerada una obra maestra de la literatura latinoamericana.
-  </p>
-  <p>
-    Publicada en 1952, esta obra autobiográfica narra las aventuras de un niño campesino de El Llano de Alajuela durante su crecimiento. A través de sus ojos, el lector descubre la vida rural costarricense, las tradiciones populares y los valores comunitarios de la época.
-  </p>
-  <p>
-    La historia <span class="highlight">transcurre durante la Dictadura de los Hermanos Tinoco</span> (1917-1919) y la guerra entre Costa Rica y Panamá en 1921, eventos que marcan profundamente a los personajes y dan forma a la narrativa.
-  </p>
-  <p>
-    Ganadora del <span class="highlight">Premio Iberoamericano de Novela</span> de la Fundación William Faulkner en 1962, ha sido traducida a múltiples idiomas y adaptada al cine y la televisión.
-  </p>
-  <p>
-    En 1980 se convirtió en una <span class="highlight">serie de televisión de 13 capítulos</span>, llevando la historia a nuevas generaciones de lectores.
-  </p>
+  <div class="synopsis">
+    <p>
+      <span class="prompt">></span> "Marcos Ramírez" es la tercera novela del escritor costarricense <span class="highlight">Carlos Luis Fallas</span> (1909-1966), considerada una obra maestra de la literatura latinoamericana.
+    </p>
+    <p>
+      Publicada en 1952, esta obra autobiográfica narra las aventuras de un niño campesino de El Llano de Alajuela durante su crecimiento. A través de sus ojos, el lector descubre la vida rural costarricense, las tradiciones populares y los valores comunitarios de la época.
+    </p>
+    <p>
+      La historia <span class="highlight">transcurre durante la Dictadura de los Hermanos Tinoco</span> (1917-1919) y la guerra entre Costa Rica y Panamá en 1921, eventos que marcan profundamente a los personajes y dan forma a la narrativa.
+    </p>
+    <p>
+      Ganadora del <span class="highlight">Premio Iberoamericano de Novela</span> de la Fundación William Faulkner en 1962, ha sido traducida a múltiples idiomas y adaptada al cine y la televisión.
+    </p>
+    <p>
+      En 1980 se convirtió en una <span class="highlight">serie de televisión de 13 capítulos</span>, llevando la historia a nuevas generaciones de lectores.
+    </p>
+  </div>
   
   <p class="prompt">> Precio Kindle: 5,69€ <span class="blink">_</span></p>
   <p><a href="https://amzn.to/3uvPljc" target="_blank" class="cta-button">[COMPRAR AHORA]</a></p>
@@ -76,6 +78,13 @@ import Layout from "../layouts/Layout.astro";
     margin: 10px 0;
     padding: 10px 15px;
     border: 1px dashed #33ff33;
+  }
+  .synopsis {
+    margin: 1.5rem 0;
+    line-height: 1.8;
+  }
+  .synopsis p {
+    margin: 1rem 0;
   }
   .highlight {
     color: #33ff33;
