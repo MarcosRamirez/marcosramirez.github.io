@@ -15,14 +15,30 @@ const {
   description,
   keywords = '',
   image = '/og-default.png',
-  url = Astro.url.href,
+  url,
   type = 'website',
   publishedTime,
   author = 'Marcos Ramírez'
 } = Astro.props;
 
-const canonicalURL = new URL(url, Astro.site);
-const socialImageURL = new URL(image, Astro.site);
+// Use provided url or current page URL, with fallback for site
+const baseUrl = Astro.site ? Astro.site.origin : 'https://marcosramirez.github.io';
+const currentUrl = url || Astro.url.href || baseUrl;
+
+// Handle relative URLs by adding base URL
+let canonicalURL;
+try {
+  canonicalURL = new URL(currentUrl);
+} catch {
+  canonicalURL = new URL(baseUrl);
+}
+
+let socialImageURL;
+try {
+  socialImageURL = new URL(image, baseUrl);
+} catch {
+  socialImageURL = new URL('/og-default.png', baseUrl);
+}
 ---
 
 <!-- Essential Meta Tags -->
