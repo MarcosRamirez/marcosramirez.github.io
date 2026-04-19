@@ -31,23 +31,16 @@ import Layout from '../layouts/Layout.astro';
   const terminal = document.getElementById('terminal');
   let lineIndex = 0;
   let charIndex = 0;
-  let cursor;
   
-  function createCursor() {
-    cursor = document.createElement('span');
-    cursor.className = 'cursor blink';
-    return cursor;
-  }
-  
-  function removeCursor() {
-    if (cursor && cursor.parentNode) {
-      cursor.remove();
-    }
-  }
+  // Crear cursor una sola vez y reutilizarlo
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor';
+  cursor.textContent = '▋';
+  terminal.appendChild(cursor);
 
   function typeChar() {
     if (lineIndex >= 5) {
-      removeCursor();
+      cursor.style.display = 'none';
       typeLine();
       return;
     }
@@ -56,26 +49,23 @@ import Layout from '../layouts/Layout.astro';
     
     if (charIndex === 0) {
       const p = document.createElement('p');
-      if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('║') || line.startsWith('╚')) {
+      if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('╚')) {
         p.className = 'prompt';
       }
-      terminal.appendChild(p);
-      terminal.appendChild(createCursor());
+      terminal.insertBefore(p, cursor);
     }
     
     const currentP = terminal.querySelector('p:last-of-type');
-    removeCursor();
     
     if (line === '') {
       currentP.innerHTML = '&nbsp;';
-      terminal.appendChild(createCursor());
       lineIndex++;
       charIndex = 0;
       setTimeout(typeChar, 150);
     } else if (charIndex < line.length) {
       currentP.textContent = line.substring(0, charIndex + 1);
+      cursor.style.display = 'inline';
       charIndex++;
-      terminal.appendChild(createCursor());
       setTimeout(typeChar, 30 + Math.random() * 40);
     } else {
       lineIndex++;
@@ -86,33 +76,40 @@ import Layout from '../layouts/Layout.astro';
   
   function typeLine() {
     if (lineIndex >= lines.length) {
-      const finalCursor = document.createElement('span');
-      finalCursor.className = 'cursor blink';
-      terminal.appendChild(finalCursor);
+      cursor.textContent = '_';
+      cursor.style.display = 'inline';
+      cursor.classList.add('blink');
       return;
     }
     
     const line = lines[lineIndex];
     const p = document.createElement('p');
     p.textContent = line;
-    if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('║') || line.startsWith('╚')) {
+    if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('╚')) {
       p.className = 'prompt';
     }
     if (line === '') {
       p.innerHTML = '&nbsp;';
     }
-    terminal.appendChild(p);
+    terminal.insertBefore(p, cursor);
     
     lineIndex++;
     setTimeout(typeLine, 150);
   }
 
+  // Ocultar cursor inicialmente
+  cursor.style.display = 'none';
   setTimeout(typeChar, 500);
 </script>
 
 <style>
+  #terminal {
+    min-height: 300px;
+  }
+  
   .cursor {
-    display: inline-block;
+    color: #33ff33;
+    font-weight: bold;
   }
   
   .blink {
