@@ -6,14 +6,14 @@ const pathname = Astro.url.pathname;
   <div class="navbar">
     <a href="/" class="brand">MARCOS_RAMIREZ v0.1a</a>
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">[MENU]</label>
-    <nav class="nav-menu">
+    <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú">[MENU]</label>
+    <nav id="nav-menu" class="nav-menu">
       <a href="/" class:list={{ active: pathname === '/' }} aria-current={pathname === '/' ? 'page' : undefined}>[HOME]</a>
       <a href="/sobre-mi" class:list={{ active: pathname.startsWith('/sobre-mi') }} aria-current={pathname.startsWith('/sobre-mi') ? 'page' : undefined}>[SOBRE_MI]</a>
       <a href="/contacto" class:list={{ active: pathname.startsWith('/contacto') }} aria-current={pathname.startsWith('/contacto') ? 'page' : undefined}>[CONTACTO]</a>
-      <a href="/marcos-ramirez-la-novela" class:list={{ active: pathname.startsWith('/marcos-ramirez-la-novela') }} aria-current={pathname.startsWith('/marcos-ramirez-la-novela') ? 'page' : undefined}>[NOVELA]</a> 
+      <a href="/marcos-ramirez-la-novela" class:list={{ active: pathname.startsWith('/marcos-ramirez-la-novela') }} aria-current={pathname.startsWith('/marcos-ramirez-la-novela') ? 'page' : undefined}>[NOVELA]</a>
       <a href="/cumpleanos" class:list={{ active: pathname.startsWith('/cumpleanos') }} aria-current={pathname.startsWith('/cumpleanos') ? 'page' : undefined}>[CUMPLE]</a>
-      <a href="https://blog.marcosramirez.info" target="_blank">[BLOG]</a> 
+      <a href="https://blog.marcosramirez.info" target="_blank">[BLOG]</a>
       <a href="https://github.com/MarcosRamirez" target="_blank">[GITHUB]</a>
     </nav>
   </div>
@@ -28,10 +28,12 @@ const pathname = Astro.url.pathname;
     padding: 0 20px;
   }
 
+  @media (min-width: 769px) {
   .navbar nav {
     display: flex;
     gap: 15px;
   }
+}
 
   .navbar a {
     border: none;
@@ -59,6 +61,7 @@ const pathname = Astro.url.pathname;
     display: none;
     cursor: pointer;
     font-size: 1rem;
+    color: #33ff33;
   }
 
   .menu-toggle {
@@ -68,6 +71,7 @@ const pathname = Astro.url.pathname;
   @media (max-width: 768px) {
     .navbar {
       flex-wrap: wrap;
+      position: relative;
     }
 
     .nav-menu {
@@ -77,6 +81,7 @@ const pathname = Astro.url.pathname;
       position: absolute;
       top: 60px;
       left: 0;
+      z-index: 1000;
       padding: 20px;
       border: 1px dashed #33ff33;
       background: #0a0a0a;
@@ -85,18 +90,22 @@ const pathname = Astro.url.pathname;
     .menu-icon {
       display: block;
     }
-
-    #menu-toggle:checked ~ .nav-menu {
-      display: flex;
-    }
   }
-  
+
   @media (max-width: 480px) {
     .navbar a {
       font-size: 14px;
     }
     .brand {
       font-size: 1rem;
+    }
+  }
+</style>
+
+<style is:global>
+  @media (max-width: 768px) {
+    #menu-toggle:checked ~ #nav-menu {
+      display: flex;
     }
   }
 </style>
