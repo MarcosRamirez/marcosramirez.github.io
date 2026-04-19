@@ -1,3 +1,38 @@
-[![Deploy to GitHub Pages](https://github.com/MarcosRamirez/marcosramirez.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/MarcosRamirez/marcosramirez.github.io/actions/workflows/deploy.yml)
+# Marcos Ramírez - Web Personal
 
-Marcos Ramirez Personal web
+Mi dominio personal con estética terminal ochentero.
+
+## 🖥️stack
+
+- **Astro 4.x** con Tailwind CSS
+- **TypeScript**
+- **GitHub Pages** (deploy automático)
+
+## 🚀 Desarrollo
+
+```bash
+npm run dev      # Servidor de desarrollo
+npm run build   # Build (incluye typecheck)
+npm run preview # Preview del build
+```
+
+## 📁 Estructura
+
+```
+src/
+├── pages/        # Páginas (.astro)
+├── components/   # Componentes reutilizables
+├── layouts/      # Layoutsbase
+└── styles.css   # Estilos globales
+```
+
+## 🎨 Estética
+
+- Terminal retro años 80
+- Verde phosphor (#33ff33) sobre negro
+- Efectos de typing animation
+- Diseño responsive
+
+## 📝 Licencia
+
+MIT
