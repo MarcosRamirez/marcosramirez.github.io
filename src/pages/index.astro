@@ -31,13 +31,24 @@ import Layout from '../layouts/Layout.astro';
   const terminal = document.getElementById('terminal');
   let lineIndex = 0;
   let charIndex = 0;
-  let currentLine = '';
+  let cursor;
   
+  function createCursor() {
+    cursor = document.createElement('span');
+    cursor.className = 'cursor blink';
+    return cursor;
+  }
+  
+  function removeCursor() {
+    if (cursor && cursor.parentNode) {
+      cursor.remove();
+    }
+  }
+
   function typeChar() {
-    if (lineIndex >= lines.length) {
-      const cursor = document.createElement('span');
-      cursor.className = 'cursor blink';
-      terminal.appendChild(cursor);
+    if (lineIndex >= 5) {
+      removeCursor();
+      typeLine();
       return;
     }
     
@@ -48,28 +59,52 @@ import Layout from '../layouts/Layout.astro';
       if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('║') || line.startsWith('╚')) {
         p.className = 'prompt';
       }
-      if (line === '') {
-        p.innerHTML = '&nbsp;';
-      }
       terminal.appendChild(p);
-      currentLine = line;
+      terminal.appendChild(createCursor());
     }
     
-    const currentP = terminal.lastElementChild;
+    const currentP = terminal.querySelector('p:last-of-type');
+    removeCursor();
     
     if (line === '') {
+      currentP.innerHTML = '&nbsp;';
+      terminal.appendChild(createCursor());
       lineIndex++;
       charIndex = 0;
       setTimeout(typeChar, 150);
     } else if (charIndex < line.length) {
       currentP.textContent = line.substring(0, charIndex + 1);
       charIndex++;
-      setTimeout(typeChar, 30 + Math.random() * 30);
+      terminal.appendChild(createCursor());
+      setTimeout(typeChar, 30 + Math.random() * 40);
     } else {
       lineIndex++;
       charIndex = 0;
       setTimeout(typeChar, 200);
     }
+  }
+  
+  function typeLine() {
+    if (lineIndex >= lines.length) {
+      const finalCursor = document.createElement('span');
+      finalCursor.className = 'cursor blink';
+      terminal.appendChild(finalCursor);
+      return;
+    }
+    
+    const line = lines[lineIndex];
+    const p = document.createElement('p');
+    p.textContent = line;
+    if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('║') || line.startsWith('╚')) {
+      p.className = 'prompt';
+    }
+    if (line === '') {
+      p.innerHTML = '&nbsp;';
+    }
+    terminal.appendChild(p);
+    
+    lineIndex++;
+    setTimeout(typeLine, 150);
   }
 
   setTimeout(typeChar, 500);
