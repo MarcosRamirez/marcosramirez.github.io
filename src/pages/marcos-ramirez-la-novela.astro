@@ -6,32 +6,57 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Marcos Ramírez: la novela" description="novela, marcos,ramirez" keywords="novela, marcos,ramirez, pdf, ebook, epub">
 <section>
   <h1>> MARCOS_RAMIREZ</h1>
-  <h2>Novela de Carlos Luis Fallas</h2>
+  <h2>Novela clásica de Carlos Luis Fallas</h2>
   
-  <p class="prompt">Buscas el libro?</p>
-  <p><a href="https://amzn.to/3uvPljc" target="_blank">[COMPRAR]</a> o <Link href="https://letmegooglethat.com/?q=filetype%3APDF+Marcos+Ram%C3%ADrez">[BUSCAR_PDF]</Link></p>
+  <p class="prompt">Estás buscando este libro?</p>
   
-  <p class="prompt">Sinopsis:</p>
+  <p class="prompt">// OPCIONES:</p>
+  <ul class="buy-options">
+    <li>
+      <span class="highlight">[1]</span> 
+      <a href="https://amzn.to/3uvPljc" target="_blank">Comprar en Amazon</a> 
+      <span class="sub">- versión impresa y Kindle</span>
+    </li>
+    <li>
+      <span class="highlight">[2]</span> 
+      <Link href="https://letmegooglethat.com/?q=filetype%3APDF+Marcos+Ram%C3%ADrez">Buscarla gratis</Link>
+      <span class="warning-text"> - OJO: pueden multarte hasta 600€ <span class="blink">!</span></span>
+    </li>
+  </ul>
+  
+  <p class="prompt" data-section>// SINOPSIS:</p>
   <p>
-    Marcos Ramirez es la tercera novela del escritor costarricense Carlos Luis Fallas (1909-1966). 
-    Publicada en 1952, es una obra autobiografica que narra las aventuras de un nino campesino de El Llano de Alajuela.
+    <span class="prompt">></span> "Marcos Ramírez" es la tercera novela del escritor costarricense <span class="highlight">Carlos Luis Fallas</span> (1909-1966), considerada una obra maestra de la literatura latinoamericana.
   </p>
   <p>
-    La historia Transcurre durante la Dictadura de los Hermanos Tinoco y la guerra entre Costa Rica y Panama en 1921.
-    Es una de las obras mas importantes de la literatura costarricense.
+    Publicada en 1952, esta obra autobiográfica narra las aventuras de un niño campesino de El Llano de Alajuela durante su crecimiento. A través de sus ojos, el lector descubre la vida rural costarricense, las tradiciones populares y los valores comunitarios de la época.
   </p>
   <p>
-    Traducida a varios idiomas, recibio en 1962 el Premio Iberoamericano de Novela de la Fundacion William Faulkner.
+    La historia <span class="highlight">transcurre durante la Dictadura de los Hermanos Tinoco</span> (1917-1919) y la guerra entre Costa Rica y Panamá en 1921, eventos que marcan profundamente a los personajes y dan forma a la narrativa.
   </p>
   <p>
-    En 1980 fue convertida en una serie de television de 13 capitulos.
+    Ganadora del <span class="highlight">Premio Iberoamericano de Novela</span> de la Fundación William Faulkner en 1962, ha sido traducida a múltiples idiomas y adaptada al cine y la televisión.
   </p>
+  <p>
+    En 1980 se convirtió en una <span class="highlight">serie de televisión de 13 capítulos</span>, llevando la historia a nuevas generaciones de lectores.
+  </p>
+  
+  <p class="prompt">> Precio Kindle: 5,69€ <span class="blink">_</span></p>
+  <p><a href="https://amzn.to/3uvPljc" target="_blank" class="cta-button">[COMPRAR AHORA]</a></p>
+  
+  <p class="prompt" data-section>// POR QUÉ LEERLA:</p>
+  <ul class="reasons">
+    <li>> Una de las mejores novelas latinoamericanas del siglo XX</li>
+    <li>> Historia que te transporta a la Costa Rica de los años 20</li>
+    <li>> Un clásico que todo hispanohablante debería leer</li>
+  </ul>
+  
+  <p class="note">* Enlace de afiliado - Tu compra apoya el sitio</p>
 </section>
 </Layout>
 
 <style>
   section {
-    padding: 20px;
   }
   h1 {
     font-size: 2rem;
@@ -41,5 +66,75 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1.2rem;
     color: #1a8c1a;
     margin-bottom: 2rem;
+  }
+  .buy-options {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .buy-options li {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 1px dashed #33ff33;
+  }
+  .highlight {
+    color: #33ff33;
+    font-weight: bold;
+  }
+  .sub {
+    color: #1a8c1a;
+    font-size: 0.9rem;
+  }
+  .warning-text {
+    color: #ff9933;
+  }
+  .warning-text .blink {
+    color: #ff3333;
+    animation: blink 0.8s step-end infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .reasons {
+    list-style: none;
+    padding: 0;
+  }
+  .reasons li {
+    margin: 12px 0;
+    padding: 10px;
+    border-left: 3px solid #33ff33;
+    background: rgba(51, 255, 51, 0.05);
+    color: #33ff33;
+  }
+  
+  p[data-section] {
+    color: #33ff33;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .cta-button {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 15px 30px;
+    border: 2px solid #33ff33;
+    background: #33ff33;
+    color: #000 !important;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .cta-button:hover {
+    background: #1a8c1a;
+    color: #000 !important;
+  }
+  .note {
+    font-size: 0.8rem;
+    color: #1a8c1a;
+    margin-top: 30px;
   }
 </style>

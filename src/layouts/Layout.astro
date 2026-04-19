@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/Footer/Footer.astro';
+import Header from '../components/Header.astro';
 const { title, description, keywords } = Astro.props;
 ---
 
@@ -12,15 +13,7 @@ const { title, description, keywords } = Astro.props;
     <meta name="description" content={description} />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">INICIO</a>
-        <a href="/sobre-mi">SOBRE_MI</a>
-        <a href="/contacto">CONTACTO</a>
-        <a href="/cumpleanos">CUMPLE</a>
-        <a href="/marcos-ramirez-la-novela">NOVELA</a>
-      </nav>
-    </header>
+    <Header />
     
     <main>
       <slot />

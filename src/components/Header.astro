@@ -1,6 +1,5 @@
 ---
-const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1); // Remove leading slash
+const pathname = Astro.url.pathname;
 ---
 
 <header>
@@ -9,12 +8,13 @@ const currentPath = pathname.slice(1); // Remove leading slash
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="menu-icon">[MENU]</label>
     <nav class="nav-menu">
-      <a href="/sobre-mi" class:list={{ active: currentPath === 'sobre-mi' }}>[SOBRE_MI]</a>
-      <a href="/contacto" class:list={{ active: currentPath === 'contacto' }}>[CONTACTO]</a>
+      <a href="/" class:list={{ active: pathname === '/' }} aria-current={pathname === '/' ? 'page' : undefined}>[HOME]</a>
+      <a href="/sobre-mi" class:list={{ active: pathname.startsWith('/sobre-mi') }} aria-current={pathname.startsWith('/sobre-mi') ? 'page' : undefined}>[SOBRE_MI]</a>
+      <a href="/contacto" class:list={{ active: pathname.startsWith('/contacto') }} aria-current={pathname.startsWith('/contacto') ? 'page' : undefined}>[CONTACTO]</a>
       <a href="https://blog.marcosramirez.info" target="_blank">[BLOG]</a> 
       <a href="https://github.com/MarcosRamirez" target="_blank">[GITHUB]</a>
-      <a href="/marcos-ramirez-la-novela" class:list={{ active: currentPath === 'marcos-ramirez-la-novela' }}>[NOVELA]</a> 
-      <a href="/cumpleanos" class:list={{ active: currentPath === 'cumpleanos' }}>[CUMPLE]</a>
+      <a href="/marcos-ramirez-la-novela" class:list={{ active: pathname.startsWith('/marcos-ramirez-la-novela') }} aria-current={pathname.startsWith('/marcos-ramirez-la-novela') ? 'page' : undefined}>[NOVELA]</a> 
+      <a href="/cumpleanos" class:list={{ active: pathname.startsWith('/cumpleanos') }} aria-current={pathname.startsWith('/cumpleanos') ? 'page' : undefined}>[CUMPLE]</a>
     </nav>
   </div>
 </header>
@@ -37,18 +37,17 @@ const currentPath = pathname.slice(1); // Remove leading slash
     border: none;
     text-decoration: none;
     color: #33ff33;
+    transition: all 0.2s;
   }
 
   .navbar a:hover {
-    background: transparent;
-    color: #1a8c1a;
-    text-shadow: 0 0 10px #33ff33;
-  }
-
-  .navbar a.active {
     background: #33ff33;
     color: #000;
-    text-decoration: none;
+  }
+
+  .navbar a[aria-current="page"] {
+    background: #33ff33;
+    color: #000;
   }
 
   .brand {
