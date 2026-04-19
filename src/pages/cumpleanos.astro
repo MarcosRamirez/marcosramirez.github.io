@@ -16,23 +16,23 @@ import Layout from '../layouts/Layout.astro';
     <li data-key="1" data-action="mailto:marcos@marcosramirez.info?subject=Felicitacion">
       [1] Felicitarme
     </li>
-    <li data-key="2" data-action="https://www.paypal.com/donate/?hosted_button_id=ARHMLHJREVJ48" target="_blank">
-      [2] Invitar a una caña
+    <li data-key="2">
+      <a href="https://www.paypal.com/donate/?hosted_button_id=ARHMLHJREVJ48" target="_blank" rel="noopener">[2] Invitar a una caña</a>
     </li>
-    <li data-key="3" data-action="https://www.amazon.es/hz/wishlist/ls/2ICAR6M2LD175?ref_=wl_share" target="_blank">
-      [3] Libros técnicos
+    <li data-key="3">
+      <a href="https://www.amazon.es/hz/wishlist/ls/2ICAR6M2LD175?ref_=wl_share" target="_blank" rel="noopener">[3] Libros técnicos</a>
     </li>
-    <li data-key="4" data-action="https://www.amazon.es/hz/wishlist/ls/K1B6A0ERHMI?ref_=wl_share" target="_blank">
-      [4] Montaña
+    <li data-key="4">
+      <a href="https://www.amazon.es/hz/wishlist/ls/K1B6A0ERHMI?ref_=wl_share" target="_blank" rel="noopener">[4] Montaña</a>
     </li>
-    <li data-key="5" data-action="https://www.amazon.es/hz/wishlist/ls/3W4Z9QV85RRO5?ref_=wl_share" target="_blank">
-      [5] Bici
+    <li data-key="5">
+      <a href="https://www.amazon.es/hz/wishlist/ls/3W4Z9QV85RRO5?ref_=wl_share" target="_blank" rel="noopener">[5] Bici</a>
     </li>
-    <li data-key="6" data-action="https://www.amazon.es/hz/wishlist/ls/2QNS1H3JEUH0V?ref_=wl_share" target="_blank">
-      [6] Ropa
+    <li data-key="6">
+      <a href="https://www.amazon.es/hz/wishlist/ls/2QNS1H3JEUH0V?ref_=wl_share" target="_blank" rel="noopener">[6] Ropa</a>
     </li>
-    <li data-key="7" data-action="https://www.amazon.es/hz/wishlist/ls/1S1NVYBRXUSQX?ref_=wl_share" target="_blank">
-      [7] Chorradas
+    <li data-key="7">
+      <a href="https://www.amazon.es/hz/wishlist/ls/1S1NVYBRXUSQX?ref_=wl_share" target="_blank" rel="noopener">[7] Chorradas</a>
     </li>
   </ul>
   
@@ -40,9 +40,12 @@ import Layout from '../layouts/Layout.astro';
   <p class="prompt">> Gracias por pensar en mi :D<span class="blink">_</span></p>
   
   <script>
-    function handleAction(item) {
+    function handleAction(item: Element) {
+      if (!(item instanceof HTMLElement)) return;
+      
       const action = item.getAttribute('data-action');
-      const target = item.getAttribute('target');
+      const link = item.querySelector('a');
+      const target = link?.getAttribute('target');
       
       if (action) {
         item.style.background = '#33ff33';
@@ -66,7 +69,7 @@ import Layout from '../layouts/Layout.astro';
       }
     });
 
-    document.querySelectorAll('.gift-list li').forEach(item => {
+    document.querySelectorAll('.gift-list li').forEach((item) => {
       item.addEventListener('click', () => handleAction(item));
     });
   </script>
