@@ -1,4 +1,7 @@
-## Skill: Generación de Commits en Español (Estilo Directo)
+---
+name: git-commits
+description: Genera mensajes de commit en español con Conventional Commits y Gitmojis
+---
 
 ### ⚠️ REGLAS OBLIGATORIAS
 - **SIEMPRE** usa Conventional Commits
