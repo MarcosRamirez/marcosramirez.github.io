@@ -29,3 +29,32 @@ const { title, description, keywords } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const main = document.querySelector('main');
+    if (!main) return;
+
+    const elements = main.querySelectorAll('h1, h2, p, ul, ol, li, form, input, textarea, button, a, img, section, div');
+    
+    elements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(10px)';
+    });
+
+    let index = 0;
+    function showNext() {
+      if (index >= elements.length) return;
+      
+      const el = elements[index];
+      el.style.transition = 'opacity 0.3s, transform 0.3s';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      
+      index++;
+      setTimeout(showNext, 80 + Math.random() * 100);
+    }
+
+    setTimeout(showNext, 300);
+  });
+</script>

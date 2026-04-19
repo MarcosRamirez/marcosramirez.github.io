@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Link from '../components/Link.astro';
 ---
 
 <Layout title="No sabes que regalarme?" description="sugerencias para hacer un regalo de cumpleaños a Marcos Ramírez" keywords="regalos,cumpleaños">
@@ -9,31 +8,87 @@ import Link from '../components/Link.astro';
   
   <p class="prompt">¿No sabes que regalarme? _</p>
   
-  <p>Algunas ideas:</p>
+  <br>
   
-  <ul>
-    <li>Felicitarme (en persona o virtualmente)</li>
-    <li>Invitarme a una caña (<a href="https://www.paypal.com/donate/?hosted_button_id=ARHMLHJREVJ48" target="_blank">[DONAR]</a>)</li>
-    <li>Regalos de mis listas de Amazon:</li>
-    <ul>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/2ICAR6M2LD175?ref_=wl_share" target="_blank">[LIBROS_TECNICOS]</a></li>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/K1B6A0ERHMI?ref_=wl_share" target="_blank">[MONTAÑA]</a></li>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/3W4Z9QV85RRO5?ref_=wl_share" target="_blank">[BICI]</a></li>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/2QNS1H3JEUH0V?ref_=wl_share" target="_blank">[ROPA]</a></li>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/1S1NVYBRXUSQX?ref_=wl_share" target="_blank">[CHORRADAS]</a></li>
-    </ul>
+  <p class="prompt">// OPCIONES:</p>
+  
+  <ul class="gift-list">
+    <li data-key="1" data-action="mailto:marcos@marcosramirez.info?subject=Felicitacion">
+      [1] Felicitarme
+    </li>
+    <li data-key="2" data-action="https://www.paypal.com/donate/?hosted_button_id=ARHMLHJREVJ48" target="_blank">
+      [2] Invitar a una caña
+    </li>
+    <li data-key="3" data-action="https://www.amazon.es/hz/wishlist/ls/2ICAR6M2LD175?ref_=wl_share" target="_blank">
+      [3] Libros técnicos
+    </li>
+    <li data-key="4" data-action="https://www.amazon.es/hz/wishlist/ls/K1B6A0ERHMI?ref_=wl_share" target="_blank">
+      [4] Montaña
+    </li>
+    <li data-key="5" data-action="https://www.amazon.es/hz/wishlist/ls/3W4Z9QV85RRO5?ref_=wl_share" target="_blank">
+      [5] Bici
+    </li>
+    <li data-key="6" data-action="https://www.amazon.es/hz/wishlist/ls/2QNS1H3JEUH0V?ref_=wl_share" target="_blank">
+      [6] Ropa
+    </li>
+    <li data-key="7" data-action="https://www.amazon.es/hz/wishlist/ls/1S1NVYBRXUSQX?ref_=wl_share" target="_blank">
+      [7] Chorradas
+    </li>
   </ul>
   
-  <p class="prompt">Gracias por pensar en mi :D<span class="blink">_</span></p>
+  <br>
+  <p class="prompt">> Gracias por pensar en mi :D<span class="blink">_</span></p>
 </section>
 </Layout>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    const key = e.key.toLowerCase();
+    const item = document.querySelector(`[data-key="${key}"]`);
+    
+    if (item) {
+      const action = item.getAttribute('data-action');
+      const target = item.getAttribute('target');
+      
+      if (action) {
+        item.style.background = '#33ff33';
+        item.style.color = '#000';
+        setTimeout(() => {
+          if (target === '_blank') {
+            window.open(action, '_blank');
+          } else {
+            window.location.href = action;
+          }
+        }, 150);
+      }
+    }
+  });
+</script>
 
 <style>
   .blink {
     animation: blink 1s step-end infinite;
   }
+  
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+  }
+  
+  .gift-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .gift-list li {
+    margin: 12px 0;
+    padding: 8px 12px;
+    border: 1px dashed #33ff33;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .gift-list li:hover {
+    background: #1a8c1a;
   }
 </style>

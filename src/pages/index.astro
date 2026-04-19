@@ -3,8 +3,68 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Marcos Ramírez" description="Web personal" keywords="Marcos Ramirez">
-  <h1>Marcos Ramírez</h1>
-  <p>> Software Engineer</p>
-  <p>Bienvenido a mi dominio personal.</p>
-  <p>Usa el menú de arriba para navegar.</p>
+  <div id="terminal"></div>
 </Layout>
+
+<script>
+  const lines = [
+    { text: 'Initializing system...', delay: 300 },
+    { text: 'Loading modules...', delay: 400 },
+    { text: 'Checking network...', delay: 350 },
+    { text: 'Connecting to database...', delay: 500 },
+    { text: 'Ready.', delay: 200 },
+    { text: '', delay: 100 },
+    { text: '╔═══════════════════════════════════════╗', delay: 50 },
+    { text: '║         MARCOS RAMÍREZ v1.0           ║', delay: 50 },
+    { text: '╚═══════════════════════════════════════╝', delay: 50 },
+    { text: '', delay: 100 },
+    { text: '> Occupation: Software Engineer', delay: 100 },
+    { text: '> Location: Spain', delay: 100 },
+    { text: '> Status: Online', delay: 100 },
+    { text: '', delay: 200 },
+    { text: 'Bienvenido a mi dominio personal.', delay: 100 },
+    { text: 'Usa el menú de arriba para navegar.', delay: 100 },
+    { text: '', delay: 200 },
+    { text: '> Esperando comando...', delay: 100 },
+    { text: '_', isCursor: true, delay: 500 }
+  ];
+
+  const terminal = document.getElementById('terminal');
+  let lineIndex = 0;
+
+  function typeLine() {
+    if (lineIndex >= lines.length) return;
+    
+    const line = lines[lineIndex];
+    
+    if (line.isCursor) {
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      terminal.appendChild(cursor);
+    } else {
+      const p = document.createElement('p');
+      p.textContent = line.text;
+      if (line.text.startsWith('>') || line.text.startsWith('╔') || line.text.startsWith('║') || line.text.startsWith('╚')) {
+        p.className = 'prompt';
+      }
+      terminal.appendChild(p);
+    }
+    
+    lineIndex++;
+    setTimeout(typeLine, line.delay);
+  }
+
+  setTimeout(typeLine, 500);
+</script>
+
+<style>
+  .cursor {
+    animation: blink 1s step-end infinite;
+    display: inline-block;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
