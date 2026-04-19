@@ -38,40 +38,40 @@ import Layout from '../layouts/Layout.astro';
   
   <br>
   <p class="prompt">> Gracias por pensar en mi :D<span class="blink">_</span></p>
+  
+  <script>
+    function handleAction(item) {
+      const action = item.getAttribute('data-action');
+      const target = item.getAttribute('target');
+      
+      if (action) {
+        item.style.background = '#33ff33';
+        item.style.color = '#000';
+        setTimeout(() => {
+          if (target === '_blank') {
+            window.open(action, '_blank');
+          } else {
+            window.location.href = action;
+          }
+        }, 150);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const key = e.key.toLowerCase();
+      const item = document.querySelector(`[data-key="${key}"]`);
+      
+      if (item) {
+        handleAction(item);
+      }
+    });
+
+    document.querySelectorAll('.gift-list li').forEach(item => {
+      item.addEventListener('click', () => handleAction(item));
+    });
+  </script>
 </section>
 </Layout>
-
-<script>
-  function handleAction(item) {
-    const action = item.getAttribute('data-action');
-    const target = item.getAttribute('target');
-    
-    if (action) {
-      item.style.background = '#33ff33';
-      item.style.color = '#000';
-      setTimeout(() => {
-        if (target === '_blank') {
-          window.open(action, '_blank');
-        } else {
-          window.location.href = action;
-        }
-      }, 150);
-    }
-  }
-
-  document.addEventListener('keydown', (e) => {
-    const key = e.key.toLowerCase();
-    const item = document.querySelector(`[data-key="${key}"]`);
-    
-    if (item) {
-      handleAction(item);
-    }
-  });
-
-  document.querySelectorAll('.gift-list li').forEach(item => {
-    item.addEventListener('click', () => handleAction(item));
-  });
-</script>
 
 <style>
   .blink {
