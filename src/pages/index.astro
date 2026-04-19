@@ -1,38 +1,170 @@
 ---
-import ImageText from "../components/ImageText.astro";
-import Link from "../components/Link.astro";
-import Layout from "../layouts/Layout.astro"
+import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Marcos Ramirez" description="web personal de Marcos Ramirez" keywords="Marcos Ramírez, Ramirez, web, personal, blog">
-	<section class="flex content-center flex-col w-auto">
-  <img class="w-52 align-middle" src="/images/avatar.png" alt="Marcos Ramírez">
-  <h1 class="text-white text-6xl">Marcos Ramírez</h1>
-  <h2 class="text-white text-3xl pb-10">Software Engineer, Poker Player, Puzzle Addict!</h2>
-	
-		<p class="text-pretty text-base">
-			Este es mi dominio personal, aquí encontrarás un poco de todo, si quieres saber más sobre el 
-			<Link href="https://marcosramirez.dev">Marcos Ramírez</Link> programador/ingeniero, haz click en el <Link href="https://marcosramirez.dev">enlace</Link>. 
-		</p>	
-
-		<p class="text-pretty text-base">Si quieres saber sobre mi a titulo mas personal <Link href="/sobre-mi">haz click</Link></p>
-		<p class="text-pretty text-base">
-		El motivo de existir de esta pagina es que desde hace un tiempo, me dedico a intentar posicionar en Google mejor que la cantidad de tocayos "famosos" que tengo:
-		<ul>
-			<li><strong>Marcos Ramírez</strong> el de las motos</li>
-			<li><strong>Marcos Ramírez</strong> el que hace videos clickbait en YouTube</li>
-			<li><strong>Marcos Ramírez</strong> el protagonista de <Link href="/marcos-ramirez-la-novela">la novela</Link></li>
-		</ul>
-	</p>
-	
-		
-<p>
-		Así que, de momento, en esta página, podrás encontrar enlaces a mis redes sociales, para que quede claro que no tengo nada que ver con ninguno.
-		Y por ejemplo, una lista de <Link href="/cumpleanos">cosas que me puedes regalar para mi cumpleaños</Link> ;)
-</p>	
-		Aunque probablemente estés aquí por que quieres <Link href="https://marcosramirez.dev">descargar mi Curriculum</Link> en Word, PDF, etc...
-		
-		O, por que quieres saber más sobre mí.
-	</section>
+<Layout title="Marcos Ramírez" description="Web personal" keywords="Marcos Ramirez">
+  <div id="terminal"></div>
 </Layout>
 
+<script>
+  const lines = [
+    'Initializing system...',
+    'Loading modules...',
+    'Checking network...',
+    'Connecting to database...',
+    '> Ready.',
+    '',
+    '╔════════════════════════════════╗',
+    '║  MARCOS RAMÍREZ v0.1a         ║',
+    '╚════════════════════════════════╝',
+    '',
+    '> Occupation: Software Engineer',
+    '> Location: Spain',
+    '> Status: Online',
+    '',
+    'Este es mi dominio personal, aquí encontrarás un poco de todo.',
+    '',
+    'Si quieres saber más sobre mí (programador/ingeniero y persona):',
+    '> [SOBRE_MI]',
+    '',
+    'El motivo de existir de esta página es que desde hace un tiempo,',
+    'me dedico a intentar posicionar en Google mejor que mis tocayos:',
+    '',
+    '> Marcos Ramírez (el de las motos)',
+    '> Marcos Ramírez (el de YouTube clickbait)',
+    '> Marcos Ramírez (el protagonista de la novela)',
+    '',
+    'Así que, aquí podrás encontrar enlaces a mis redes sociales,',
+    'y por ejemplo, una lista de cosas que me puedes regalar:',
+    '> [CUMPLE] (regalos para mi cumpleaños)',
+    '',
+    'También puedes descargar mi Curriculum:',
+    '> [MI_CV] (en Word, PDF, etc...)',
+    '',
+    'Usa el menú de arriba para navegar.',
+    '',
+    '> Esperando comando...'
+  ];
+
+  const terminal = document.getElementById('terminal');
+  let lineIndex = 0;
+  let charIndex = 0;
+  let currentP;
+  
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor';
+  cursor.textContent = '▋';
+
+  function typeChar() {
+    if (lineIndex >= 5) {
+      if (currentP && currentP.contains(cursor)) {
+        currentP.removeChild(cursor);
+      }
+      typeLine();
+      return;
+    }
+    
+    const line = lines[lineIndex];
+    
+    if (charIndex === 0) {
+      currentP = document.createElement('p');
+      if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('╚')) {
+        currentP.className = 'prompt';
+      }
+      currentP.appendChild(cursor);
+      terminal.appendChild(currentP);
+    }
+    
+    if (line === '') {
+      currentP.innerHTML = '&nbsp;';
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeChar, 150);
+    } else if (charIndex < line.length) {
+      // Solo actualizar el texto, no tocar el cursor que ya está dentro
+      const textSpan = document.createElement('span');
+      textSpan.className = 'typing-text';
+      textSpan.textContent = line.substring(0, charIndex + 1);
+      
+      // Reconstruir contenido: texto + cursor
+      currentP.innerHTML = '';
+      currentP.appendChild(textSpan);
+      currentP.appendChild(cursor);
+      
+      charIndex++;
+      setTimeout(typeChar, 30 + Math.random() * 40);
+    } else {
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeChar, 200);
+    }
+  }
+  
+  function typeLine() {
+    if (lineIndex >= lines.length) {
+      cursor.textContent = '_';
+      cursor.classList.add('blink');
+      terminal.appendChild(cursor);
+      return;
+    }
+    
+    const line = lines[lineIndex];
+    const p = document.createElement('p');
+    
+    // Convertir [ENLACE] en enlaces clickables
+    let processedLine = line;
+    if (line.includes('[')) {
+      processedLine = line
+        .replace(/\[SOBRE_MI\]/g, '<a href="/sobre-mi" class="link">[SOBRE_MI]</a>')
+        .replace(/\[CUMPLE\]/g, '<a href="/cumpleanos" class="link">[CUMPLE]</a>')
+        .replace(/\[MI_CV\]/g, '<a href="https://linkedin.com/in/marcosramirez" target="_blank" class="link">[MI_CV]</a>');
+      p.innerHTML = processedLine;
+    } else {
+      p.textContent = line;
+    }
+    
+    if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('╚')) {
+      p.className = 'prompt';
+    }
+    if (line === '') {
+      p.innerHTML = '&nbsp;';
+    }
+    terminal.appendChild(p);
+    
+    lineIndex++;
+    setTimeout(typeLine, 150);
+  }
+
+  setTimeout(typeChar, 500);
+</script>
+
+<style>
+  #terminal {
+    min-height: 300px;
+  }
+  
+  .cursor {
+    color: #33ff33;
+    font-weight: bold;
+    display: inline;
+  }
+  
+  .blink {
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  #terminal .link {
+    color: #33ff33;
+    text-decoration: none;
+  }
+  
+  #terminal .link:hover {
+    background: #33ff33;
+    color: #000;
+  }
+</style>

@@ -1,20 +1,114 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Link from "../components/Link.astro"
+import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
+---
 
---- 
+<Layout
+  title="Sobre mi"
+  keywords="about,sobre,mi,Marcos,Ramírez,Ramirez"
+  description="Información personal sobre Marcos Ramírez"
+>
+  <section>
+    <h1>> QUIEN_ES Marcos_Ramirez</h1>
 
-<Layout title="Sobre mi" keywords="about,sobre,mi,Marcos,Ramírez,Ramirez" description="Información personal sobre Marcos Ramírez">
+    <p class="prompt">Soy un informático de la época del pleistoceno...</p>
 
-  <section class="top-2 place-content-start">
-
-    <h1 class="text-6xl text-white p-10">Quien es Marcos Ramirez</h1>
-    <p class="text-base text-pretty text-white">
-
-      Pues soy un informático de la época del pleistoceno casi ya...
-      
-      Mi primer contacto con un PC fué un <Link href="https://es.wikipedia.org/wiki/Dragon_32/64" target="_blank">Dragon 32</Link>, calculad lo viejo que soy, asi que... sed pacientes, que en breve tendréis la historia completa.
+    <p>
+      Mi primer contacto con un PC fue un <Link
+        href="https://es.wikipedia.org/wiki/Dragon_32/64"
+        target="_blank">Dragon 32</Link
+      >, calculad lo viejo que soy, así que... sed pacientes.
     </p>
+    
+    <p class="prompt" data-section>// DATOS_BÁSICOS:</p>
+    <ul class="info-list">
+      <li>> Nací el <span class="highlight">3 de Febrero de 1967</span> (<Link href="/cumpleanos">admito regalos</Link>)</li>
+      <li>> <span class="highlight">Neurodivergente</span>: AACC + TDAH + TEA (doble excepcionalidad)</li>
+      <li>> Llevo más de <span class="highlight">25 años</span> dedicándome al desarrollo web</li>
+      <li>> <Link href="https://linkedin.com/in/marcosramirez" target="_blank">[MI_CV]</Link></li>
+    </ul>
+    
+    <p class="prompt" data-section>// HISTORIA:</p>
+    <div class="history">
+      <p>
+        <span class="prompt">></span> Aprendí a programar cuando no existían Google, ni Stack Overflow.
+        Mi primer lenguaje (1988) fue <span class="highlight">COBOL</span>, en una academia de barrio,
+        con un profesor militar. Posteriormente aprendí Basic, Pascal y C.
+      </p>
+      <p>
+        <span class="prompt">></span> En los 90 fui miembro de <span class="highlight">FCC</span>, grupo líder de la
+        Warez Scene española. Tenía contacto con Mentes Inquietas (que posteriormente
+        fundaron !H). En esa época programaba PPEs y tradings con líneas telefónicas.
+      </p>
+      <p>
+        <span class="prompt">></span> Tudo ello simultaneado con mis primeros servidores Apache,
+        mis trasteos con PHP y mis primeras webs de afiliados. Mi añorada
+        <Link href="https://es.wikipedia.org/wiki/Slackware" target="_blank">Slackware</Link>
+        (aún conservo uno de mis primeros servidores).
+      </p>
+      <p>
+        <span class="prompt">></span> Todo sobre una línea ADSL de <span class="highlight">256k</span> xD
+      </p>
+    </div>
+    
+    <p class="prompt" data-section>// ESTILO_DE_VIDA:</p>
+    <ul class="lifestyle">
+      <li>> No como nada ultra procesado</li>
+      <li>> Ejercicio regular</li>
+      <li>> Paso de redes sociales (incluido LinkedIn)</li>
+      <li>> Mi tiempo de uso del móvil: menos de <span class="highlight">30 min/día</span></li>
+    </ul>
+    
+    <p class="prompt" data-section>// AFICIONES:</p>
+    <ul class="hobbies">
+      <li>> Juego al poker y al ajedrez</li>
+      <li>> Montaña: senderismo y MTB</li>
+      <li>> Cine, series y libros de terror y ciencia ficción</li>
+      <li>> Videojuegos de sigilo, aventuras gráficas, simuladores</li>
+      <li>> Puzles y juegos de estrategia</li>
+    </ul>
+    
+    <p class="prompt">> Más información pronto... <span class="blink">_</span></p>
   </section>
-
 </Layout>
+
+<style>
+  .info-list, .hobbies, .lifestyle {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  
+  .info-list li, .hobbies li, .lifestyle li {
+    margin: 8px 0;
+    line-height: 1.6;
+  }
+  
+  .highlight {
+    color: #33ff33;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .highlight:hover {
+    background: #33ff33;
+    color: #000;
+  }
+  
+  .history {
+    margin: 1.5rem 0;
+    line-height: 1.8;
+  }
+  
+  .history p {
+    margin: 1rem 0;
+  }
+  
+  p[data-section] {
+    color: #33ff33;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+</style>

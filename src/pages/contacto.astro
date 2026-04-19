@@ -3,66 +3,49 @@ import Layout from '../layouts/Layout.astro';
 import Link from '../components/Link.astro';
 ---
 
-<Layout title="Contacto con Marcos Ramírez" 
-description="contacto, reuniones, telefono, mail" keywords="contacto, reuniones">
+<Layout title="Contacto con Marcos Ramírez" description="contacto, reuniones, telefono, mail" keywords="contacto, reuniones">
 
-<section class="place-items-center">
-
+<section>
+  <h1>> CONTACTO</h1>
   
-  <h1 class="text-6xl text-white"> Enviame un mensaje </h1>
+  <p class="prompt">Puedes enviarme un mensaje:</p>
   
-  <p class="text-pretty text-base text-white">Si quieres ponerte en contacto conmigo, puedes hacerlo rellenando el siguiente formulario:</p>
-  <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-    
+  <form action="https://api.web3forms.com/submit" method="POST" class="terminal-form">
     <input type="hidden" name="access_key" value="255f9892-5746-425e-a8a2-acdfdd1d8bab">
     
     <div class="form-group">
-      <label for="name">Nombre:</label>
+      <label for="name">[NOMBRE]:</label>
       <input type="text" id="name" name="name" required>
     </div>
 
-  <div class="form-group">
-    <label for="email">Correo Electrónico:</label>
-    <input type="email" id="email" name="email" required>
-  </div>
+    <div class="form-group">
+      <label for="email">[EMAIL]:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
 
-  <div class="form-group">
-    <label for="message">Mensaje:</label>
-    <textarea id="message" name="message" required></textarea>
-  </div>
-  
-  <input type="hidden" name="redirect" value="https://web3forms.com/success">
-  <button type="submit" class="submit-button">Enviar</button>
-  
-</form>
-
-<section class="place-items-center">
-
-  <h2 class="text-3xl text-white">¿Quieres que hablemos?</h2>
-  <p class="text-pretty text-white text-base">
+    <div class="form-group">
+      <label for="message">[MENSAJE]:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
     
-    Si lo que quieres es que hablemos (por teléfono o por videoconferencia) puedes <a href="#" data-cal-link="marcosramirez/en-que-puedo-ayudarte" data-cal-namespace="en-que-puedo-ayudarte" data-cal-config='{"layout":"month_view"}'>reservar una reunión conmigo</a>.
-  </p>
-  
-  <!-- Cal element-click embed code begins -->
-  <script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "en-que-puedo-ayudarte", {origin:"https://cal.com"});
-  
-  Cal.ns["en-que-puedo-ayudarte"]("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+    <input type="hidden" name="redirect" value="https://web3forms.com/success">
+    <button type="submit" class="terminal-button">[ENVIAR]</button>
+  </form>
+
+  <p class="prompt">O Reserva una reunion:</p>
+  <a href="#" data-cal-link="marcosramirez/en-que-puedo-ayudarte" class="terminal-link">[RESERVAR_CITA]</a>
+</section>
+
+<script type="text/javascript">
+(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "en-que-puedo-ayudarte", {origin:"https://cal.com"});
+Cal.ns["en-que-puedo-ayudarte"]("ui", {"styles":{"branding":{"brandColor":"#33ff33"}},"hideEventTypeDetails":false,"layout":"month_view"});
 </script>
-<!-- Cal element-click embed code ends -->
 
-<button class="text-white bg-blue-500 p-2 rounded" data-cal-link="marcosramirez/en-que-puedo-ayudarte" data-cal-namespace="en-que-puedo-ayudarte" data-cal-config='{"layout":"month_view"}'>
-  Reserva una reunión
-</button>
-</section>
-
-</section>
 </Layout>
 
 <style>
-  .contact-form {
+  .terminal-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -77,26 +60,50 @@ description="contacto, reuniones, telefono, mail" keywords="contacto, reuniones"
 
   .form-group label {
     margin-bottom: 0.5rem;
-    font-weight: bold;
   }
 
   .form-group input,
   .form-group textarea {
     padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #33ff33;
+    border-radius: 0;
+    background: #0a0a0a;
+    color: #33ff33;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
   }
 
-  .submit-button {
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px #33ff33;
+  }
+
+  .terminal-button {
     padding: 0.75rem;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
+    background: transparent;
+    color: #33ff33;
+    border: 1px solid #33ff33;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
     cursor: pointer;
   }
 
-  .submit-button:hover {
-    background-color: #0056b3;
+  .terminal-button:hover {
+    background: #33ff33;
+    color: #0a0a0a;
+  }
+
+  .terminal-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #33ff33;
+    color: #33ff33;
+    text-decoration: none;
+  }
+
+  .terminal-link:hover {
+    background: #33ff33;
+    color: #0a0a0a;
   }
 </style>
