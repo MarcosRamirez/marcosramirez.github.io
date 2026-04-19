@@ -47,9 +47,14 @@ import Layout from '../layouts/Layout.astro';
   ];
 
   const terminal = document.getElementById('terminal');
+  if (!terminal) throw new Error('Terminal not found');
+  
+  // Assign to a const after null check
+  const terminalEl = terminal;
+  
   let lineIndex = 0;
   let charIndex = 0;
-  let currentP;
+  let currentP: HTMLElement | null = null;
   
   const cursor = document.createElement('span');
   cursor.className = 'cursor';
@@ -72,15 +77,15 @@ import Layout from '../layouts/Layout.astro';
         currentP.className = 'prompt';
       }
       currentP.appendChild(cursor);
-      terminal.appendChild(currentP);
+      terminalEl.appendChild(currentP);
     }
     
     if (line === '') {
-      currentP.innerHTML = '&nbsp;';
+      if (currentP) currentP.innerHTML = '&nbsp;';
       lineIndex++;
       charIndex = 0;
       setTimeout(typeChar, 150);
-    } else if (charIndex < line.length) {
+    } else if (charIndex < line.length && currentP) {
       // Solo actualizar el texto, no tocar el cursor que ya está dentro
       const textSpan = document.createElement('span');
       textSpan.className = 'typing-text';
@@ -104,7 +109,7 @@ import Layout from '../layouts/Layout.astro';
     if (lineIndex >= lines.length) {
       cursor.textContent = '_';
       cursor.classList.add('blink');
-      terminal.appendChild(cursor);
+      terminalEl.appendChild(cursor);
       return;
     }
     
@@ -129,7 +134,7 @@ import Layout from '../layouts/Layout.astro';
     if (line === '') {
       p.innerHTML = '&nbsp;';
     }
-    terminal.appendChild(p);
+    terminalEl.appendChild(p);
     
     lineIndex++;
     setTimeout(typeLine, 150);
