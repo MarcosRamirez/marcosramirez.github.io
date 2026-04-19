@@ -31,16 +31,17 @@ import Layout from '../layouts/Layout.astro';
   const terminal = document.getElementById('terminal');
   let lineIndex = 0;
   let charIndex = 0;
+  let currentP;
   
-  // Crear cursor una sola vez y reutilizarlo
   const cursor = document.createElement('span');
   cursor.className = 'cursor';
   cursor.textContent = '▋';
-  terminal.appendChild(cursor);
 
   function typeChar() {
     if (lineIndex >= 5) {
-      cursor.style.display = 'none';
+      if (currentP && currentP.contains(cursor)) {
+        currentP.removeChild(cursor);
+      }
       typeLine();
       return;
     }
@@ -48,14 +49,13 @@ import Layout from '../layouts/Layout.astro';
     const line = lines[lineIndex];
     
     if (charIndex === 0) {
-      const p = document.createElement('p');
+      currentP = document.createElement('p');
       if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('╚')) {
-        p.className = 'prompt';
+        currentP.className = 'prompt';
       }
-      terminal.insertBefore(p, cursor);
+      currentP.appendChild(cursor);
+      terminal.appendChild(currentP);
     }
-    
-    const currentP = terminal.querySelector('p:last-of-type');
     
     if (line === '') {
       currentP.innerHTML = '&nbsp;';
@@ -63,8 +63,16 @@ import Layout from '../layouts/Layout.astro';
       charIndex = 0;
       setTimeout(typeChar, 150);
     } else if (charIndex < line.length) {
-      currentP.textContent = line.substring(0, charIndex + 1);
-      cursor.style.display = 'inline';
+      // Solo actualizar el texto, no tocar el cursor que ya está dentro
+      const textSpan = document.createElement('span');
+      textSpan.className = 'typing-text';
+      textSpan.textContent = line.substring(0, charIndex + 1);
+      
+      // Reconstruir contenido: texto + cursor
+      currentP.innerHTML = '';
+      currentP.appendChild(textSpan);
+      currentP.appendChild(cursor);
+      
       charIndex++;
       setTimeout(typeChar, 30 + Math.random() * 40);
     } else {
@@ -77,8 +85,8 @@ import Layout from '../layouts/Layout.astro';
   function typeLine() {
     if (lineIndex >= lines.length) {
       cursor.textContent = '_';
-      cursor.style.display = 'inline';
       cursor.classList.add('blink');
+      terminal.appendChild(cursor);
       return;
     }
     
@@ -91,14 +99,12 @@ import Layout from '../layouts/Layout.astro';
     if (line === '') {
       p.innerHTML = '&nbsp;';
     }
-    terminal.insertBefore(p, cursor);
+    terminal.appendChild(p);
     
     lineIndex++;
     setTimeout(typeLine, 150);
   }
 
-  // Ocultar cursor inicialmente
-  cursor.style.display = 'none';
   setTimeout(typeChar, 500);
 </script>
 
@@ -110,6 +116,7 @@ import Layout from '../layouts/Layout.astro';
   .cursor {
     color: #33ff33;
     font-weight: bold;
+    display: inline;
   }
   
   .blink {
