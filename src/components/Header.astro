@@ -1,4 +1,6 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // Remove leading slash
 ---
 
 <header>
@@ -7,11 +9,12 @@
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="menu-icon">[MENU]</label>
     <nav class="nav-menu">
-      <a href="/sobre-mi">[SOBRE_MI]</a>
-      <a href="/contacto">[CONTACTO]</a>
+      <a href="/sobre-mi" class:list={{ active: currentPath === 'sobre-mi' }}>[SOBRE_MI]</a>
+      <a href="/contacto" class:list={{ active: currentPath === 'contacto' }}>[CONTACTO]</a>
       <a href="https://blog.marcosramirez.info" target="_blank">[BLOG]</a> 
       <a href="https://github.com/MarcosRamirez" target="_blank">[GITHUB]</a>
-      <a href="/marcos-ramirez-la-novela">[NOVELA]</a> 
+      <a href="/marcos-ramirez-la-novela" class:list={{ active: currentPath === 'marcos-ramirez-la-novela' }}>[NOVELA]</a> 
+      <a href="/cumpleanos" class:list={{ active: currentPath === 'cumpleanos' }}>[CUMPLE]</a>
     </nav>
   </div>
 </header>
@@ -40,6 +43,12 @@
     background: transparent;
     color: #1a8c1a;
     text-shadow: 0 0 10px #33ff33;
+  }
+
+  .navbar a.active {
+    background: #33ff33;
+    color: #000;
+    text-decoration: none;
   }
 
   .brand {
