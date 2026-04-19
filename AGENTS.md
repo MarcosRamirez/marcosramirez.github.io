@@ -1,5 +1,7 @@
 # AGENTS.md
 
+Lee el directorio `.agents/` y sigue las instrucciones que encuentres.
+
 ## Commands
 - `npm run dev` - Start dev server
 - `npm run build` - Run typecheck then build (`astro check && astro build`)
