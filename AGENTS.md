@@ -23,3 +23,4 @@ Lee el directorio `.agents/` y sigue las instrucciones que encuentres.
 ## Important Notes
 - Build includes `astro check` (TypeScript validation) before `astro build`
 - No tests in this repo
+- **NUNCA ejecutes `npm run build` o `npm run dev` localmente** - Los despliegues se hacen automáticamente via GitHub Actions
