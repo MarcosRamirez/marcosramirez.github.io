@@ -14,6 +14,36 @@ import Link from "../components/Link.astro";
     <p class="prompt">Soy un informático de la época del pleistoceno...</p>
 
     <p>
+      Uno de los motivos por los que me fascinó la informática fue la película
+      <Link href="https://www.youtube.com/watch?v=AjFAHjUM3U8" target="_blank">"The computer wore tennis shoes"</Link>
+      (en España, <em>"Mi cerebro es electrónico"</em>). En concreto, a partir del
+      <Link href="https://www.youtube.com/watch?v=AjFAHjUM3U8&t=60" target="_blank">minuto 1</Link>,
+      donde se ve cómo el ordenador empieza a hacer cosas solas, interactuando con el mundo real:
+    </p>
+
+    <div class="video-container">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/AjFAHjUM3U8"
+        title="The Computer Wore Tennis Shoes"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/AjFAHjUM3U8?start=60"
+        title="The Computer Wore Tennis Shoes - Minuto 1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <p>
       Mi primer contacto con un PC fue un <Link
         href="https://es.wikipedia.org/wiki/Dragon_32/64"
         target="_blank">Dragon 32</Link
@@ -99,11 +129,24 @@ import Link from "../components/Link.astro";
     margin: 1.5rem 0;
     line-height: 1.8;
   }
-  
+
   .history p {
     margin: 1rem 0;
   }
-  
+
+  .video-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+
+  .video-container iframe {
+    flex: 1;
+    min-width: 280px;
+    max-width: 560px;
+  }
+
   p[data-section] {
     color: #33ff33;
     text-decoration: underline;
