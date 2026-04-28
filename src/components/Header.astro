@@ -11,7 +11,7 @@ const pathname = Astro.url.pathname;
       <a href="/" class:list={{ active: pathname === '/' }} aria-current={pathname === '/' ? 'page' : undefined}>[HOME]</a>
       <a href="/sobre-mi" class:list={{ active: pathname.startsWith('/sobre-mi') }} aria-current={pathname.startsWith('/sobre-mi') ? 'page' : undefined}>[SOBRE_MI]</a>
       <a href="/contacto" class:list={{ active: pathname.startsWith('/contacto') }} aria-current={pathname.startsWith('/contacto') ? 'page' : undefined}>[CONTACTO]</a>
-      <a href="/marcos-ramirez-la-novela" class:list={{ active: pathname.startsWith('/marcos-ramirez-la-novela') }} aria-current={pathname.startsWith('/marcos-ramirez-la-novela') ? 'page' : undefined}>[NOVELA]</a>
+      <a href="/novela-carlos-luis-fallas" class:list={{ active: pathname.startsWith('/novela-carlos-luis-fallas') }} aria-current={pathname.startsWith('/novela-carlos-luis-fallas') ? 'page' : undefined}>[NOVELA]</a>
       <a href="/cumpleanos" class:list={{ active: pathname.startsWith('/cumpleanos') }} aria-current={pathname.startsWith('/cumpleanos') ? 'page' : undefined}>[CUMPLE]</a>
       <a href="https://blog.marcosramirez.info" target="_blank">[BLOG]</a>
       <a href="https://github.com/MarcosRamirez" target="_blank">[GITHUB]</a>
