@@ -1,0 +1,86 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  author?: string;
+}
+
+const {
+  title,
+  description,
+  keywords = '',
+  image = '/og-default.png',
+  url,
+  type = 'website',
+  publishedTime,
+  author = 'Marcos Ramírez'
+} = Astro.props;
+
+// Use provided url or current page URL, with fallback for site
+const baseUrl = Astro.site ? Astro.site.origin : 'https://marcosramirez.github.io';
+const currentUrl = url || Astro.url.href || baseUrl;
+
+// Handle relative URLs by adding base URL
+let canonicalURL;
+try {
+  canonicalURL = new URL(currentUrl);
+} catch {
+  canonicalURL = new URL(baseUrl);
+}
+
+let socialImageURL;
+try {
+  socialImageURL = new URL(image, baseUrl);
+} catch {
+  socialImageURL = new URL('/og-default.png', baseUrl);
+}
+---
+
+<!-- Essential Meta Tags -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content={Astro.generator} />
+<meta name="description" content={description} />
+{keywords && <meta name="keywords" content={keywords} />}
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Title -->
+<title>{title}</title>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:site_name" content="Marcos Ramírez" />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{author && <meta property="article:author" content={author} />}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={socialImageURL} />
+
+<!-- Robots -->
+<meta name="robots" content="index, follow" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#33ff33" />
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />

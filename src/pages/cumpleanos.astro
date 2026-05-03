@@ -1,29 +1,105 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Link from '../components/Link.astro';
 ---
 
-<Layout title="No sabes que regalarme por mi cumpleaños?" 
-description="sugerencias para hacer un regalo de cumpleaños a Marcos Ramírez" keywords="regalos,cumpleaños">
-<h1>¿No sabes que regalarme por mi cumpleaños?</h1>
+<Layout title="No sabes que regalarme?" description="sugerencias para hacer un regalo de cumpleaños a Marcos Ramírez" keywords="regalos,cumpleaños">
+<section>
+  <h1>> REGALOS_CUMPLEAÑOS</h1>
+  
+  <p class="prompt">¿No sabes que regalarme? _</p>
+  
+  <br>
+  
+  <p class="prompt">// OPCIONES:</p>
+  
+  <ul class="gift-list">
+    <li data-key="1" data-action="mailto:marcos@marcosramirez.info?subject=Felicitacion">
+      [1] Felicitarme
+    </li>
+    <li data-key="2">
+      <a href="https://www.paypal.com/donate/?hosted_button_id=ARHMLHJREVJ48" target="_blank" rel="noopener">[2] Invitar a una caña</a>
+    </li>
+    <li data-key="3">
+      <a href="https://www.amazon.es/hz/wishlist/ls/2ICAR6M2LD175?ref_=wl_share" target="_blank" rel="noopener">[3] Libros técnicos</a>
+    </li>
+    <li data-key="4">
+      <a href="https://www.amazon.es/hz/wishlist/ls/K1B6A0ERHMI?ref_=wl_share" target="_blank" rel="noopener">[4] Montaña</a>
+    </li>
+    <li data-key="5">
+      <a href="https://www.amazon.es/hz/wishlist/ls/3W4Z9QV85RRO5?ref_=wl_share" target="_blank" rel="noopener">[5] Bici</a>
+    </li>
+    <li data-key="6">
+      <a href="https://www.amazon.es/hz/wishlist/ls/2QNS1H3JEUH0V?ref_=wl_share" target="_blank" rel="noopener">[6] Ropa</a>
+    </li>
+    <li data-key="7">
+      <a href="https://www.amazon.es/hz/wishlist/ls/1S1NVYBRXUSQX?ref_=wl_share" target="_blank" rel="noopener">[7] Chorradas</a>
+    </li>
+  </ul>
+  
+  <br>
+  <p class="prompt">> Gracias por pensar en mi :D<span class="blink">_</span></p>
+  
+  <script>
+    function handleAction(item: Element) {
+      if (!(item instanceof HTMLElement)) return;
+      
+      const action = item.getAttribute('data-action');
+      const link = item.querySelector('a');
+      const target = link?.getAttribute('target');
+      
+      if (action) {
+        item.style.background = '#33ff33';
+        item.style.color = '#000';
+        setTimeout(() => {
+          if (target === '_blank') {
+            window.open(action, '_blank');
+          } else {
+            window.location.href = action;
+          }
+        }, 150);
+      }
+    }
 
-<p>Vaya... parece que quieres tener un poco más de información sobre qué regalarme 😁</p>
-<p>Estupendo, voy a darte algunas ideas:</p>
+    document.addEventListener('keydown', (e) => {
+      const key = e.key.toLowerCase();
+      const item = document.querySelector(`[data-key="${key}"]`);
+      
+      if (item) {
+        handleAction(item);
+      }
+    });
 
-<ul>
-  <li>Simplemente, felicítame (en persona, o virtualmente)</li>
-  <li>O invítame a una caña (en persona, o <a href="https://www.paypal.com/donate/?hosted_button_id=ARHMLHJREVJ48">virtualmente</a>)</li>
-  <li>O, si quieres tener un detalle, y no sabes que... puedes regalarme algo de mis listas de Amazon:</li>
-    <ul>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/2ICAR6M2LD175?ref_=wl_share" rel="nofollow" target="_blank">Libros técnicos</a></li>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/K1B6A0ERHMI?ref_=wl_share" rel="nofollow" target="_blank">Cosas para la montaña</a></li>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/3W4Z9QV85RRO5?ref_=wl_share" rel="nofollow" target="_blank">Cosas para la bici</a></li>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/2QNS1H3JEUH0V?ref_=wl_share" rel="nofollow" target="_blank">Ropa</a></li>
-      <li><a href="https://www.amazon.es/hz/wishlist/ls/1S1NVYBRXUSQX?ref_=wl_share" rel="nofollow" target="_blank">Chorradas varias que se me antojan 🤣🤣</a></li>
-      <li><Link href='https://ringconn.com/'> </li>
-    </ul>
-</ul>
-
-<h2>Muchas gracias!</h2>
-
+    document.querySelectorAll('.gift-list li').forEach((item) => {
+      item.addEventListener('click', () => handleAction(item));
+    });
+  </script>
+</section>
 </Layout>
+
+<style>
+  .blink {
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  .gift-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .gift-list li {
+    margin: 12px 0;
+    padding: 8px 12px;
+    border: 1px dashed #33ff33;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .gift-list li:hover {
+    background: #1a8c1a;
+  }
+</style>

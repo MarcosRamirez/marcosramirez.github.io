@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
+---
+
+<Layout
+  title="Lucía - Mi Asistente IA"
+  keywords="Lucía,IA,asistente,inteligencia artificial,clawbot"
+  description="Conoce a Lucía, mi asistente de inteligencia artificial potenciado con ClawBot"
+>
+  <section>
+    <h1>> QUIEN_ES Lucia</h1>
+
+    <p class="prompt">Mi asistente de inteligencia artificial...</p>
+
+    <p>
+      <span class="prompt">></span> Lucía es mi <span class="highlight">asistente personal de IA</span>,
+      potenciada con <Link href="https://clawbot.es" target="_blank">ClawBot</Link>.
+      No es un simple chatbot, es una extensión de mi capacidad de trabajo.
+    </p>
+    
+    <p class="prompt" data-section>// CAPACIDADES:</p>
+    <ul class="info-list">
+      <li>> <span class="highlight">Escritura de posts</span>: Me ayuda a redactar contenido para blogs, redes sociales y documentación</li>
+      <li>> <span class="highlight">Programación</span>: Asiste en código, depuración, refactorización y explicación de algoritmos</li>
+      <li>> <span class="highlight">Atención telefónica</span>: Gestiona llamadas, responde consultas y deriva según criticidad</li>
+      <li>> <span class="highlight">Investación</span>: Busca información, resume documentos y extrae datos relevantes</li>
+      <li>> <span class="highlight">Traducción</span>: Traduce contenido entre múltiples idiomas</li>
+      <li>> <span class="highlight">Análisis</span>: Procesa datos, genera informes y presenta conclusiones</li>
+    </ul>
+    
+    <p class="prompt" data-section>// TECNOLOGÍA:</p>
+    <div class="history">
+      <p>
+        <span class="prompt">></span> Lucía está construida sobre la plataforma <span class="highlight">ClawBot</span>,
+        que proporciona capacidades avanzadas de procesamiento de lenguaje natural y integración con herramientas.
+      </p>
+      <p>
+        <span class="prompt">></span> Utiliza modelos de lenguaje de última generación para entender y generar texto
+        natural, manteniendo coherencia y contexto en conversaciones largas.
+      </p>
+      <p>
+        <span class="prompt">></span> Se integra con mis flujos de trabajo diarios, desde correo electrónico
+        hasta gestión de proyectos y atención al cliente.
+      </p>
+    </div>
+    
+    <p class="prompt" data-section>// CÓMO_TRABAJAMOS:</p>
+    <ul class="lifestyle">
+      <li>> Ella maneja tareas rutinarias mientras me centro en decisiones creativas</li>
+      <li>> Reviso y apruebo todo el contenido antes de publicarlo</li>
+      <li>> Aprende de mis preferencias y estilo personal</li>
+      <li>> Me avisa de lo importante, decide lo trivial</li>
+    </ul>
+    
+    <p class="prompt">> Pregunta sobre Lucía: <a href="/contacto" class="highlight">contacto</a> <span class="blink">_</span></p>
+  </section>
+</Layout>
+
+<style>
+  .info-list, .lifestyle {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  
+  .info-list li, .lifestyle li {
+    margin: 8px 0;
+    line-height: 1.6;
+  }
+  
+  .highlight {
+    color: #33ff33;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .highlight:hover {
+    background: #33ff33;
+    color: #000;
+  }
+  
+  .history {
+    margin: 1.5rem 0;
+    line-height: 1.8;
+  }
+  
+  .history p {
+    margin: 1rem 0;
+  }
+  
+  p[data-section] {
+    color: #33ff33;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+</style>

@@ -1,34 +1,77 @@
 ---
-const { title, description, keywords } = Astro.props;
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer/Footer.astro"
-import GoogleAnalytics from "../components/GoogleAnalytics.astro"
+import Footer from '../components/Footer/Footer.astro';
+import Header from '../components/Header.astro';
+import SEO from '../components/SEO.astro';
+
+const { title, description, keywords, image, type } = Astro.props;
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link href="/styles.css" rel="stylesheet" /> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} /> 
-    <meta name="author" content="Marcos Ramírez" />
-    <meta name="generator" content={"Marcos Ramirez with: " + Astro.generator} />
-    <meta name="keywords" content={keywords} />
+  <head>
+    <SEO 
+      title={title}
+      description={description}
+      keywords={keywords}
+      image={image}
+      type={type}
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="screen-on crt-on">
+    <div class="crt-wrapper">
+      <div class="scanlines"></div>
+      <Header />
+      
+      <main>
+        <slot />
+      </main>
 
-    <GoogleAnalytics gtagId='G-3XNP18HWLJ' />
-
-		<title>{title}</title>
-
-
-	</head>
-	<body>
-    <Header />
-    <main>
-     <slot />
-	  </main>
-
-    <Footer />
-	
-	</body>
+      <Footer />
+    </div>
+  </body>
 </html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('screen-flicker');
+    setTimeout(() => {
+      document.body.classList.remove('screen-flicker');
+    }, 300);
+
+    const main = document.querySelector('main');
+    if (!main) return;
+
+    const elements = main.querySelectorAll('h1, h2, p, ul, ol, li, form, input, textarea, button, a, img, section, div');
+
+    elements.forEach((el: Element) => {
+      if (el instanceof HTMLElement) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(10px)';
+      }
+    });
+
+    let index = 0;
+    function showNext() {
+      if (index >= elements.length) return;
+
+      const el = elements[index];
+      if (el instanceof HTMLElement) {
+        el.style.transition = 'opacity 0.3s, transform 0.3s';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }
+
+      index++;
+      setTimeout(showNext, 80 + Math.random() * 100);
+    }
+
+    setTimeout(showNext, 300);
+  });
+</script>
+
+<style>
+  .crt-wrapper {
+    position: relative;
+    min-height: 100vh;
+  }
+</style>
