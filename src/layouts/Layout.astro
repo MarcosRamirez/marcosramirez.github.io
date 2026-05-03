@@ -17,24 +17,32 @@ const { title, description, keywords, image, type } = Astro.props;
     />
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body>
-    <Header />
-    
-    <main>
-      <slot />
-    </main>
+  <body class="screen-on crt-on">
+    <div class="crt-wrapper">
+      <div class="scanlines"></div>
+      <Header />
+      
+      <main>
+        <slot />
+      </main>
 
-    <Footer />
+      <Footer />
+    </div>
   </body>
 </html>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('screen-flicker');
+    setTimeout(() => {
+      document.body.classList.remove('screen-flicker');
+    }, 300);
+
     const main = document.querySelector('main');
     if (!main) return;
 
     const elements = main.querySelectorAll('h1, h2, p, ul, ol, li, form, input, textarea, button, a, img, section, div');
-    
+
     elements.forEach((el: Element) => {
       if (el instanceof HTMLElement) {
         el.style.opacity = '0';
@@ -45,14 +53,14 @@ const { title, description, keywords, image, type } = Astro.props;
     let index = 0;
     function showNext() {
       if (index >= elements.length) return;
-      
+
       const el = elements[index];
       if (el instanceof HTMLElement) {
         el.style.transition = 'opacity 0.3s, transform 0.3s';
         el.style.opacity = '1';
         el.style.transform = 'translateY(0)';
       }
-      
+
       index++;
       setTimeout(showNext, 80 + Math.random() * 100);
     }
@@ -60,3 +68,10 @@ const { title, description, keywords, image, type } = Astro.props;
     setTimeout(showNext, 300);
   });
 </script>
+
+<style>
+  .crt-wrapper {
+    position: relative;
+    min-height: 100vh;
+  }
+</style>

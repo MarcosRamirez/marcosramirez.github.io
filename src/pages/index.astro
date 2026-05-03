@@ -3,141 +3,191 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Marcos Ramírez" description="Web personal" keywords="Marcos Ramirez">
-  <div id="terminal"></div>
+  <pre id="terminal"></pre>
 </Layout>
 
 <script>
-  const lines = [
-    'Initializing system...',
-    'Loading modules...',
-    'Checking network...',
-    'Connecting to database...',
-    '> Ready.',
+  const bootSequence = [
+    { text: 'BIOS Date 01/01/99 14:22:51 Ver: 08.00.12', speed: 20 },
+    { text: 'CPU: AMD Ryzen 7 5800X @ 4.2GHz', speed: 15 },
+    { text: 'Memory Test: 16384K OK', speed: 10 },
+    { text: '', speed: 100 },
+    { text: 'Initializing Video Adapter...', speed: 20 },
+    { text: 'VGA ROM dated 01/15/99', speed: 15 },
+    { text: '', speed: 50 },
+    { text: 'Checking HDD0: WDC WD5000AAKX...', speed: 20 },
+    { text: 'HDD0: 500GB OK', speed: 10 },
+    { text: 'Checking CD-ROM...', speed: 15 },
+    { text: 'No CD-ROM found', speed: 10 },
+    { text: '', speed: 80 },
+    { text: 'Loading OS...', speed: 30 },
+    { text: '[████████████████] 100%', speed: 50 },
+    { text: 'Mounting filesystem...', speed: 30 },
+    { text: '[████████████████] 100%', speed: 50 },
+    { text: '', speed: 100 },
+    { text: 'Starting network services...', speed: 20 },
+    { text: 'DHCP: 192.168.1.42 assigned', speed: 15 },
+    { text: 'DNS: 8.8.8.8 resolved', speed: 10 },
+    { text: '', speed: 80 },
+    { text: '> SYSTEM READY.', speed: 50, glow: true },
+    { text: '', speed: 200 },
+  ];
+
+const mainContent = [
+    '+---------------------------------------------------------------------+',
+    '|                                                                     |',
+    '|     MARCOS RAMIREZ                                                  |',
+    '|                                                                     |',
+    '|                        v1.0.1 [BUILD 1999]                          |',
+    '+---------------------------------------------------------------------+',
     '',
-    '╔════════════════════════════════╗',
-    '║  MARCOS RAMÍREZ v0.1a         ║',
-    '╚════════════════════════════════╝',
+    '-----------------------------------------------------------------------',
     '',
-    '> Occupation: Software Engineer',
-    '> Location: Spain',
-    '> Status: Online',
+    '> OCCUPATION:    Software Engineer',
+    '> LOCATION:      Spain, Earth, Solar System',
+    '> STATUS:        ONLINE',
+    '> UPTIME:        ' + Math.floor((Date.now() / 1000 / 60 / 60 / 24 / 365)) + ' years',
     '',
-    'Este es mi dominio personal, aquí encontrarás un poco de todo.',
+    '-----------------------------------------------------------------------',
     '',
-    'Si quieres saber más sobre mí (programador/ingeniero y persona):',
-    '> [SOBRE_MI]',
+    'Este es mi dominio digital. Bienvenido al sistema.',
     '',
-    'El motivo de existir de esta página es que desde hace un tiempo,',
-    'me dedico a intentar posicionar en Google mejor que mis tocayos:',
+    'Si quieres explorar tus archivos:',
+    '  -> [SOBRE_MI]     -> Datos del operador',
     '',
-    '> Marcos Ramírez (el de las motos)',
-    '> Marcos Ramírez (el de YouTube clickbait)',
-    '> Marcos Ramírez (el protagonista de la novela)',
+    'El motivo de existir esta pagina:',
+    'Mi objetivo es posicionar mejor en Google que:',
     '',
-    'Así que, aquí podrás encontrar enlaces a mis redes sociales,',
-    'y por ejemplo, una lista de cosas que me puedes regalar:',
-    '> [CUMPLE] (regalos para mi cumpleaños)',
+    '  * Marcos Ramirez (el de las motos de trial)',
+    '  * Marcos Ramirez (el YouTuber clickbait)',
+    '  * Marcos Ramirez (el personaje de novela)',
     '',
-    'También puedes descargar mi Curriculum:',
-    '> [MI_CV] (en Word, PDF, etc...)',
+    'Tambien tengo una lista de deseos por si quieres regalarme algo:',
+    '  -> [CUMPLE]       -> Wishlist de cumpleanos',
     '',
-    'Usa el menú de arriba para navegar.',
+    'Mi historial profesional:',
+    '  -> [MI_CV]        -> Curriculum vitae (LinkedIn)',
     '',
-    '> Esperando comando...'
+    'Usa el menu de navegacion para explorar el sistema.',
+    '',
+    '----------------------------------------------------------------------',
+    '',
   ];
 
   const terminal = document.getElementById('terminal');
   if (!terminal) throw new Error('Terminal not found');
-  
-  // Assign to a const after null check
+
   const terminalEl = terminal;
-  
   let lineIndex = 0;
   let charIndex = 0;
-  let currentP: HTMLElement | null = null;
-  
-  const cursor = document.createElement('span');
-  cursor.className = 'cursor';
-  cursor.textContent = '▋';
+  let phase = 'boot';
 
-  function typeChar() {
-    if (lineIndex >= 5) {
-      if (currentP && currentP.contains(cursor)) {
-        currentP.removeChild(cursor);
-      }
-      typeLine();
-      return;
-    }
-    
-    const line = lines[lineIndex];
-    
-    if (charIndex === 0) {
-      currentP = document.createElement('p');
-      if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('╚')) {
-        currentP.className = 'prompt';
-      }
-      currentP.appendChild(cursor);
-      terminalEl.appendChild(currentP);
-    }
-    
-    if (line === '') {
-      if (currentP) currentP.innerHTML = '&nbsp;';
-      lineIndex++;
-      charIndex = 0;
-      setTimeout(typeChar, 150);
-    } else if (charIndex < line.length && currentP) {
-      // Solo actualizar el texto, no tocar el cursor que ya está dentro
-      const textSpan = document.createElement('span');
-      textSpan.className = 'typing-text';
-      textSpan.textContent = line.substring(0, charIndex + 1);
-      
-      // Reconstruir contenido: texto + cursor
-      currentP.innerHTML = '';
-      currentP.appendChild(textSpan);
-      currentP.appendChild(cursor);
-      
-      charIndex++;
-      setTimeout(typeChar, 30 + Math.random() * 40);
-    } else {
-      lineIndex++;
-      charIndex = 0;
-      setTimeout(typeChar, 200);
-    }
-  }
-  
-  function typeLine() {
-    if (lineIndex >= lines.length) {
-      cursor.textContent = '_';
-      cursor.classList.add('blink');
-      terminalEl.appendChild(cursor);
-      return;
-    }
-    
-    const line = lines[lineIndex];
+  function createLineElement(text: string, isGlow = false): HTMLParagraphElement {
     const p = document.createElement('p');
-    
-    // Convertir [ENLACE] en enlaces clickables
-    let processedLine = line;
-    if (line.includes('[')) {
-      processedLine = line
-        .replace(/\[SOBRE_MI\]/g, '<a href="/sobre-mi" class="link">[SOBRE_MI]</a>')
-        .replace(/\[CUMPLE\]/g, '<a href="/cumpleanos" class="link">[CUMPLE]</a>')
-        .replace(/\[MI_CV\]/g, '<a href="https://linkedin.com/in/marcosramirezparicio" target="_blank" class="link">[MI_CV]</a>');
-      p.innerHTML = processedLine;
-    } else {
-      p.textContent = line;
-    }
-    
-    if (line.startsWith('>') || line.startsWith('╔') || line.startsWith('╚')) {
+    if (text.startsWith('>') || text.startsWith('╔') || text.startsWith('║') || text.startsWith('╚') || text.startsWith('━') || text.startsWith('═') || text.startsWith('→') || text.startsWith('  •')) {
       p.className = 'prompt';
     }
-    if (line === '') {
+    if (isGlow) {
+      p.classList.add('glow-text');
+    }
+    if (text.includes('████████')) {
+      p.classList.add('progress-bar');
+    }
+    if (text === '') {
       p.innerHTML = '&nbsp;';
     }
-    terminalEl.appendChild(p);
-    
-    lineIndex++;
-    setTimeout(typeLine, 150);
+    return p;
+  }
+
+  function typeChar() {
+    if (phase !== 'boot') return;
+
+    const currentLine = bootSequence[lineIndex];
+
+    if (charIndex === 0) {
+      const p = createLineElement(currentLine.text, currentLine.glow);
+      terminalEl.appendChild(p);
+    }
+
+    const p = terminalEl.lastElementChild as HTMLParagraphElement;
+    if (!p) return;
+
+    if (currentLine.text === '') {
+      lineIndex++;
+      charIndex = 0;
+      if (lineIndex >= bootSequence.length) {
+        phase = 'main';
+        setTimeout(showMainContent, 300);
+      } else {
+        setTimeout(typeChar, currentLine.speed);
+      }
+      return;
+    }
+
+    if (charIndex < currentLine.text.length) {
+      p.textContent = currentLine.text.substring(0, charIndex + 1);
+      charIndex++;
+      setTimeout(typeChar, currentLine.speed);
+    } else {
+      lineIndex++;
+      charIndex = 0;
+      if (lineIndex >= bootSequence.length) {
+        phase = 'main';
+        setTimeout(showMainContent, 300);
+      } else {
+        setTimeout(typeChar, currentLine.speed);
+      }
+    }
+  }
+
+  function showMainContent() {
+    let lineIdx = 0;
+
+    function typeLine() {
+      if (lineIdx >= mainContent.length) {
+        // All content shown - add final line with cursor
+        const finalP = document.createElement('p');
+        finalP.className = 'prompt';
+        finalP.innerHTML = '> Esperando comando...<span class="final-cursor">█</span>';
+        terminalEl.appendChild(finalP);
+        return;
+      }
+
+      const line = mainContent[lineIdx];
+      const p = document.createElement('p');
+
+      if (line.includes('[')) {
+        let processedLine = line
+          .replace(/\[SOBRE_MI\]/g, '<a href="/sobre-mi" class="link">[SOBRE_MI]</a>')
+          .replace(/\[CUMPLE\]/g, '<a href="/cumpleanos" class="link">[CUMPLE]</a>')
+          .replace(/\[MI_CV\]/g, '<a href="https://linkedin.com/in/marcosramirezparicio" target="_blank" class="link">[MI_CV]</a>');
+        p.innerHTML = processedLine;
+      } else {
+        p.textContent = line;
+      }
+
+      if (line.startsWith('>') || line.startsWith('+') || line.startsWith('|') || line.startsWith('-') || line.startsWith('*') || line.startsWith('  -')) {
+        p.className = 'prompt';
+      }
+      if (line === '') {
+        p.innerHTML = '&nbsp;';
+      }
+
+      p.style.opacity = '0';
+      p.style.transform = 'translateY(10px)';
+      p.style.transition = 'opacity 0.2s, transform 0.2s';
+      terminalEl.appendChild(p);
+
+      requestAnimationFrame(() => {
+        p.style.opacity = '1';
+        p.style.transform = 'translateY(0)';
+      });
+
+      lineIdx++;
+      setTimeout(typeLine, 30 + Math.random() * 50);
+    }
+
+    typeLine();
   }
 
   setTimeout(typeChar, 500);
@@ -146,30 +196,58 @@ import Layout from '../layouts/Layout.astro';
 <style>
   #terminal {
     min-height: 300px;
-  }
-  
-  .cursor {
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 1.2;
+    white-space: pre;
+    margin: 0;
+    background: transparent;
     color: #33ff33;
-    font-weight: bold;
-    display: inline;
+    overflow-x: visible;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
   }
-  
-  .blink {
-    animation: blink 1s step-end infinite;
+
+  :global(#terminal p) {
+    margin: 0;
+    font-family: inherit;
+    line-height: 1.2;
   }
-  
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-  
-  #terminal .link {
+
+  :global(#terminal .link) {
     color: #33ff33;
     text-decoration: none;
+    font-weight: bold;
   }
-  
-  #terminal .link:hover {
+
+  :global(#terminal .link:hover) {
     background: #33ff33;
     color: #000;
+    text-shadow: none;
+  }
+
+  :global(#terminal .arrow) {
+    color: #33ff33;
+    margin-right: 8px;
+  }
+
+  :global(.progress-bar) {
+    letter-spacing: 2px;
+  }
+
+  :global(.glow-text) {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      text-shadow: 0 0 5px #33ff33, 0 0 10px #33ff33;
+    }
+    50% {
+      text-shadow: 0 0 10px #33ff33, 0 0 20px #33ff33, 0 0 30px #33ff33;
+    }
   }
 </style>

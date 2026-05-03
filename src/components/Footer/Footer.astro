@@ -2,7 +2,7 @@
 ---
 
 <footer>
-  <span class="copy-left">&copy;</span> 1999-<span id="year"></span> &nbsp;Marcos Ramírez<span class="blink">_</span>
+  <span class="copy-left">&copy;</span> 1999-<span id="year"></span> Marcos Ramírez<span class="cursor-glow">_</span>
 </footer>
 
 <script>
@@ -14,12 +14,13 @@
 
 <style>
   footer {
-    background-color: #0a0a0a;
+    background-color: #050505;
     color: #33ff33;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
+    text-shadow: 0 0 5px rgba(51, 255, 51, 0.5);
   }
 
   .copy-left {
@@ -35,5 +36,19 @@
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+  }
+
+  @keyframes cursor-glow {
+    0%, 100% {
+      text-shadow: 0 0 5px #33ff33, 0 0 10px #33ff33;
+    }
+    50% {
+      text-shadow: 0 0 10px #33ff33, 0 0 20px #33ff33, 0 0 30px #33ff33;
+    }
+  }
+
+  .cursor-glow {
+    animation: cursor-glow 1.5s ease-in-out infinite;
+    display: inline;
   }
 </style>
