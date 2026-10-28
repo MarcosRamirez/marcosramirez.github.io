@@ -12,6 +12,16 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.7.1] - 2026-10-28
+
+Ficha → Expediente: todo el sitio habla el mismo lenguaje que el Expediente X.
+
+### Cambiado
+
+- Todas las etiquetas de ficha pasan a expediente (01–06 y el bloque de la portada).
+- El registro y la página /inteligencia-artificial usan el mismo nombre.
+- La historia del sitio pasa al registro como prehistoria leída de git en cada compilación.
+
 ## [2.7.0] - 2026-10-28
 
 Expediente X: la página que cuenta cómo se hizo este fichero, y el cierre en el sitio profesional.

@@ -21,6 +21,21 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.7.1',
+    date: '2026-10-28',
+    note: 'Ficha -> Expediente: todo el sitio habla el mismo lenguaje que el Expediente X.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'Todas las etiquetas de ficha pasan a expediente (01-06 y el bloque de la portada).',
+          'El registro y la pagina /inteligencia-artificial usan el mismo nombre.',
+          'La historia del sitio pasa al registro como prehistoria leida de git.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.7.0',
     date: '2026-10-28',
     note: 'Expediente X: la página que cuenta cómo se hizo este fichero, y el cierre en el sitio profesional.',
