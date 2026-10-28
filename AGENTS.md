@@ -2,10 +2,15 @@
 
 Lee el directorio `.agents/` y sigue las instrucciones que encuentres.
 
+## Versionado
+SemVer en `package.json` y registro de cambios en `src/data/changelog.ts` (visible en `/changelog`).
+Antes de cerrar cualquier cambio visible, lee `.agents/skills/versioning/skill.md`.
+
 ## Commands
 - `npm run dev` - Start dev server
 - `npm run build` - Run typecheck then build (`astro check && astro build`)
 - `npm run preview` - Preview production build
+- `npm run version:check` - Comprueba que `package.json`, `CHANGELOG.md` y `src/data/changelog.ts` tienen la misma versión
 
 ## Tech Stack
 - Astro 4.x with Tailwind CSS

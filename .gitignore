@@ -19,3 +19,8 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# herramienta local de diseño y borradores de PR
+.opencode/
+.impeccable/
+pr-description.md

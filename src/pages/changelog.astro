@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_VERSION } from '../version';
+import { releases } from '../data/changelog';
+
+const formato = new Intl.DateTimeFormat('es-ES', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+const fecha = (iso: string) => formato.format(new Date(`${iso}T12:00:00Z`));
+---
+
+<Layout
+  title="Changelog — Marcos Ramírez"
+  description="Registro de cambios del sitio de Marcos Ramírez: cada versión, con lo que se añadió, cambió, corrigió o quitó."
+>
+  <div class="page">
+    <header class="page__head">
+      <p class="label">Ficha <span>06</span> · registro</p>
+      <h1>Changelog</h1>
+      <p class="prompt" aria-hidden="true">marcos@marcosramirez.info:~$ tail -f CHANGELOG.md</p>
+      <p class="page__lede">
+        Cada versión de este fichero, con lo que cambió. La que lleva el sello de la portada
+        es la que está en pie.
+      </p>
+    </header>
+
+    <ol class="log">
+      {
+        releases.map((release) => (
+          <li class="log__item" id={`v${release.version.replace(/\./g, '-')}`}>
+            <div class="log__head">
+              <h2 class="log__version">{release.version}</h2>
+              {release.version === SITE_VERSION && <span class="log__now">En pie</span>}
+              <time class="log__date" datetime={release.date}>{fecha(release.date)}</time>
+            </div>
+
+            {release.note && <p class="log__note">{release.note}</p>}
+
+            <dl class="record">
+              {release.groups.map((group) => (
+                <div>
+                  <dt>{group.kind}</dt>
+                  <dd>
+                    <ul class="log__list">
+                      {group.items.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</Layout>

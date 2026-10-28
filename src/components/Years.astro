@@ -1,0 +1,9 @@
+---
+import { yearsSince } from "../data/career";
+
+const { since, label = "años" } = Astro.props;
+const years = yearsSince(since);
+const text = `${years}\u00a0${label}`;
+---
+
+<span class="years" data-years-since={since} data-years-label={label}>{text}</span>
