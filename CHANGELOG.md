@@ -12,6 +12,15 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.7.2] - 2026-10-28
+
+Expediente X en el índice, con todo el sitio en expediente.
+
+### Cambiado
+
+- Expediente X añadido al índice de expedientes (X).
+- Ficha → Expediente completado: 01–06, portada y registro.
+
 ## [2.7.1] - 2026-10-28
 
 Ficha → Expediente: todo el sitio habla el mismo lenguaje que el Expediente X.

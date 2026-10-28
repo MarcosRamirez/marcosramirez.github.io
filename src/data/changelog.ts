@@ -21,6 +21,12 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.7.2',
+    date: '2026-10-28',
+    note: 'Expediente X en el índice.',
+    groups: [{ kind: 'Cambiado', items: ['Expediente X añadido al índice de expedientes.'] }],
+  },
+  {
     version: '2.7.1',
     date: '2026-10-28',
     note: 'Ficha -> Expediente: todo el sitio habla el mismo lenguaje que el Expediente X.',
