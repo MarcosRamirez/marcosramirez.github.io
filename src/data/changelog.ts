@@ -21,6 +21,31 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.7.0',
+    date: '2026-10-28',
+    note: 'Expediente X: la página que cuenta cómo se hizo este fichero, y el cierre en el sitio profesional.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          'Página /inteligencia-artificial: de un ordenador que abría puertas en 1969 a un agente escribiendo el CSS.',
+          'Expediente X en la portada, con su bloque al final de la serie.',
+          'Cierre del expediente con marcosramirez.dev: el mismo oficio, pero facturando.',
+          'Registro: «Antes de las versiones», los commits anteriores leídos de git en cada compilación.',
+          'Releases de GitHub: cada versión nueva se publica con las notas de este registro.',
+        ],
+      },
+      {
+        kind: 'Cambiado',
+        items: [
+          'Menú con [IA] y tecla F4 en el pie.',
+          'El registro enlaza a la página: cómo se hizo esta versión.',
+          'La película se cuenta por lo que hace el ordenador —abrir, cerrar, llamar a la tienda—, sin el minuto 1:10.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.5.0',
     date: '2026-10-28',
     note: 'Los años de oficio se calculan solos: 1988 y 1992 ya no son números escritos a mano.',
@@ -200,7 +225,7 @@ export const releases: Release[] = [
   {
     version: '2.0.0',
     date: '2026-10-28',
-    note: 'Primera versión con registro. El sitio anterior no tenía número.',
+    note: 'Primera versión con registro. El sitio anterior no tenía número: la serie 2.0.0–2.4.0 se numeró al cerrar el rediseño, en una sola tanda, así que comparte fecha y no tiene un commit por versión.',
     groups: [
       {
         kind: 'Añadido',

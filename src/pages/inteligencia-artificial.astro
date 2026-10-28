@@ -1,0 +1,268 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
+import Years from "../components/Years.astro";
+import { SITE_VERSION } from "../version";
+import { releases } from "../data/changelog";
+
+const description = `Cómo está hecha la versión ${SITE_VERSION} de este sitio: la IA escribió el código, yo puse el criterio. De un ordenador que abría puertas en una película de 1969 a un agente escribiendo CSS.`;
+---
+
+<Layout
+  title="Inteligencia artificial — cómo se hizo este sitio · Marcos Ramírez"
+  keywords="inteligencia artificial, IA, programar con IA, agentes, Copilot, Claude Code, OpenCode, cómo se hizo"
+  description={description}
+>
+  <div class="page">
+    <header class="page__head">
+      <p class="label">Expediente <span>X</span> · la IA</p>
+      <h1>El ordenador hace cosas solas</h1>
+      <p class="page__lede">
+        Un niño de los ochenta vio en <em>Mi cerebro es electrónico</em> un ordenador que abría
+        puertas, cerraba la ventana porque llovía, dejaba entrar al gato y llamaba a la tienda
+        para que nadie tuviera que salir a comprar. Cuatro décadas después, un ordenador escribe
+        el CSS de este fichero. La ciencia ficción se cumplió; con menos robots humanoides y más
+        hojas de estilo.
+      </p>
+    </header>
+
+    <div class="page__cols">
+      <div class="page__main">
+        <section class="sec">
+          <h2>La escena</h2>
+          <div class="prose">
+            <p>
+              En <em>The computer wore tennis shoes</em> (1969, aquí
+              <em>Mi cerebro es electrónico</em>) un ordenador abre una puerta, cierra la ventana
+              porque está lloviendo, deja entrar al gato y llama a la tienda para hacer la
+              compra. Nadie se moja. En un Dragon 32 nada de eso era posible, y aun así ahí
+              estaba el futuro: no una máquina que calcula, sino una que hace cosas solas.
+            </p>
+            <p>
+              Lo conté largo en
+              <Link href="https://blog.marcosramirez.info/el-futuro-que-sonabamos/"
+                >El futuro que soñábamos</Link
+              >: los que nos gustaba esto éramos los frikis, y los mismos que se reían acabaron
+              pidiéndonos que les configuráramos el móvil. La escena también está en
+              <Link href="/sobre-mi">la historia de este fichero</Link>, con el vídeo a un clic.
+            </p>
+            <p>
+              Lo que faltaba por contar es esto: aquel ordenador que hacía cosas solas es el que
+              ha escrito esta página.
+            </p>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2>El reparto</h2>
+          <div class="prose">
+            <p>
+              Empecé a soltar el teclado en 2024. Primero Copilot escribió lo aburrido; después
+              un agente se llevó la tarea entera. Hoy el reparto es este:
+            </p>
+          </div>
+          <ul class="list-rows">
+            <li>
+              <span class="highlight">Yo</span>
+              <span class="sub">· la dirección: qué se construye, con qué tono y qué se tira</span>
+            </li>
+            <li>
+              <span class="highlight">La máquina</span>
+              <span class="sub">· el CSS, los componentes, las páginas, el registro y las capturas</span>
+            </li>
+            <li>
+              <span class="highlight">Nadie</span>
+              <span class="sub">· los datos: ni clientes, ni testimonios, ni métricas</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="page__aside">
+        <div>
+          <p class="label">El expediente</p>
+          <dl class="record">
+            <div>
+              <dt>Versión</dt>
+              <dd><a href="/changelog">{SITE_VERSION}</a></dd>
+            </div>
+            <div>
+              <dt>Copilot</dt>
+              <dd>2024</dd>
+            </div>
+            <div>
+              <dt>Agentes</dt>
+              <dd>2025</dd>
+            </div>
+            <div>
+              <dt>Herramientas</dt>
+              <dd>Copilot · Cursor · Claude Code · OpenCode</dd>
+            </div>
+            <div>
+              <dt>En casa</dt>
+              <dd><a href="/lucia">Lucía</a>, con modelos locales</dd>
+            </div>
+            <div>
+              <dt>Trabajo</dt>
+              <dd>
+                <a href="https://marcosramirez.dev" target="_blank" rel="noopener">marcosramirez.dev</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>Astro · CSS propio · GitHub Pages</dd>
+            </div>
+            <div>
+              <dt>Código</dt>
+              <dd>
+                <a href="https://github.com/MarcosRamirez/marcosramirez.github.io" target="_blank" rel="noopener"
+                  >GitHub</a
+                >
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div>
+          <p class="label">Lo que no delego</p>
+          <ul class="list-rows">
+            <li>El criterio: qué es bueno y qué es relleno</li>
+            <li>Los datos: nada inventado, aunque quede más vistoso</li>
+            <li>La última palabra sobre lo que se publica</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <section class="sec" style="margin-top: clamp(38px, 4.6vw, 58px)">
+      <h2>Cómo se hizo la {SITE_VERSION}</h2>
+      <div class="prose">
+        <p>
+          No hay un brief de veinte páginas: hay una frase por cambio. «El subtítulo debe
+          empezar por un informático». «Esto pasa del 00 al 02, arréglalo». «Los años,
+          calcúlalos, no los escribas». De cada frase sale código, una comprobación de tipos,
+          una captura a 1440 y otra a 390, y un veredicto.
+        </p>
+        <p>
+          Un agente escribe rápido y no tiene gusto. El gusto sigue siendo mío. La versión sube
+          cuando el cambio entra y queda escrita en el <Link href="/changelog">registro</Link>:
+          no es un adorno, es la forma de saber qué se rompió y cuándo.
+        </p>
+      </div>
+
+      <dl class="record record--row">
+        <div>
+          <dt>Versión</dt>
+          <dd>{SITE_VERSION}</dd>
+        </div>
+        <div>
+          <dt>Entregas</dt>
+          <dd>{releases.length} desde la 2.0.0</dd>
+        </div>
+        <div>
+          <dt>Estilo</dt>
+          <dd>1.834 líneas de CSS</dd>
+        </div>
+        <div>
+          <dt>Tipos</dt>
+          <dd>0 errores en astro check</dd>
+        </div>
+        <div>
+          <dt>Detector</dt>
+          <dd>0 anti-patrones</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="sec">
+      <h2>Dónde se equivocó</h2>
+      <div class="prose">
+        <p>Esto no es un folleto. La máquina se equivocó, y las tres veces se vio mirando.</p>
+      </div>
+      <ul class="list-rows">
+        <li>
+          <span class="highlight">Un rótulo de más</span>
+          <span class="sub"
+            >· puso «Anécdota» encima de un titular. El detector lo tumbó: un rótulo así no se
+            gana el sitio.</span
+          >
+        </li>
+        <li>
+          <span class="highlight">Dragon 32, partido</span>
+          <span class="sub">· dejó el nombre del cacharro en dos líneas, «Dragon» y «32»</span>
+        </li>
+        <li>
+          <span class="highlight">Un salto en la serie</span>
+          <span class="sub"
+            >· numeró del expediente 00 al 02 sin decir nada. Lo cazó el dueño del sitio, no la
+            máquina.</span
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>Dos años así</h2>
+      <div class="prose">
+        <p>
+          Antes de esto llegué a aburrirme programando. No por dificultad: por repetición. Tests
+          que verifican lo que ya funcionaba, variables renombradas para el linter, la misma
+          validación de formulario por décima vez.
+        </p>
+        <p>
+          Copilot empezó a escribir lo aburrido hace <Years since={2024} label="años" />. Los
+          agentes llegaron después y se llevaron la tarea entera, no solo la línea. Lo que
+          recuperé no fue tiempo: fueron las ganas.
+        </p>
+        <p>
+          Está contado largo en
+          <Link href="https://blog.marcosramirez.info/ia-devolvio-ilusion-programar/"
+            >La Inteligencia Artificial me devolvió la ilusión por programar</Link
+          >.
+        </p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Esta página también</h2>
+      <div class="prose">
+        <p>
+          El texto es mío: lo dicté, lo corregí y quité lo que sonaba a folleto. El HTML lo
+          escribió el agente. El fuente está en
+          <Link href="https://github.com/MarcosRamirez/marcosramirez.github.io/blob/main/src/pages/inteligencia-artificial.astro"
+            >GitHub</Link
+          >, con el historial de versiones al lado, por si prefieres comprobarlo sin creerme.
+        </p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>El expediente que sí factura</h2>
+      <div class="prose">
+        <p>
+          Esto es afición: un fichero que se publica gratis y no vende nada. Lo que hago para
+          vivir está en <Link href="https://marcosramirez.dev">marcosramirez.dev</Link>:
+          digitalización, webs e inteligencia artificial para autónomos y pequeñas empresas. La
+          misma máquina que ha escrito esta página, puesta a atender el teléfono de un negocio a
+          las once de la noche o a preparar sus reservas.
+        </p>
+        <p>
+          Más de treinta años en tecnología, primera consulta gratis y quince minutos sin humo.
+          Si sigues facturando con Excel y la ley antifraude te pisa los talones, ese es el sitio
+          por el que empezar.
+        </p>
+      </div>
+      <p class="actions">
+        <a class="btn btn--solid" href="https://marcosramirez.dev" target="_blank" rel="noopener"
+          >marcosramirez.dev</a
+        >
+        <a
+          class="btn"
+          href="https://marcosramirez.dev/servicios/inteligencia-artificial/"
+          target="_blank"
+          rel="noopener">IA para tu negocio</a
+        >
+      </p>
+    </section>
+  </div>
+</Layout>

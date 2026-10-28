@@ -20,6 +20,7 @@ const pathname = Astro.url.pathname;
 
     <nav id="nav-menu" class="nav-menu" aria-label="Navegación principal">
       <a href="/sobre-mi" class:list={{ active: pathname.startsWith('/sobre-mi') }} aria-current={pathname.startsWith('/sobre-mi') ? 'page' : undefined}>[SOBRE MÍ]</a>
+      <a href="/inteligencia-artificial" class:list={{ active: pathname.startsWith('/inteligencia-artificial') }} aria-current={pathname.startsWith('/inteligencia-artificial') ? 'page' : undefined}>[IA]</a>
       <a href="/contacto" class:list={{ active: pathname.startsWith('/contacto') }} aria-current={pathname.startsWith('/contacto') ? 'page' : undefined}>[CONTACTO]</a>
       <a href="/novela-carlos-luis-fallas" class:list={{ active: pathname.startsWith('/novela-carlos-luis-fallas') }} aria-current={pathname.startsWith('/novela-carlos-luis-fallas') ? 'page' : undefined}>[NOVELA]</a>
       <a href="/cumpleanos" class:list={{ active: pathname.startsWith('/cumpleanos') }} aria-current={pathname.startsWith('/cumpleanos') ? 'page' : undefined}>[REGALOS]</a>
