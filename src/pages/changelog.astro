@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { SITE_VERSION } from '../version';
 import { releases } from '../data/changelog';
+import { getPrehistory } from '../data/history';
 
 const formato = new Intl.DateTimeFormat('es-ES', {
   day: 'numeric',
@@ -11,11 +12,17 @@ const formato = new Intl.DateTimeFormat('es-ES', {
 });
 
 const fecha = (iso: string) => formato.format(new Date(`${iso}T12:00:00Z`));
+
+const prehistory = getPrehistory();
+const prehistoryTotal = prehistory.reduce((total, year) => total + year.commits.length, 0);
+const firstYear = prehistory.length ? prehistory[prehistory.length - 1].year : '';
+const lastYear = prehistory.length ? prehistory[0].year : '';
+const plural = (n: number) => `${n} commit${n === 1 ? '' : 's'}`;
 ---
 
 <Layout
   title="Changelog — Marcos Ramírez"
-  description="Registro de cambios del sitio de Marcos Ramírez: cada versión, con lo que se añadió, cambió, corrigió o quitó."
+  description="Registro de cambios del sitio de Marcos Ramírez: cada versión con lo que se añadió, cambió, corrigió o quitó, y los commits anteriores leídos del repositorio."
 >
   <div class="page">
     <header class="page__head">
@@ -25,6 +32,10 @@ const fecha = (iso: string) => formato.format(new Date(`${iso}T12:00:00Z`));
       <p class="page__lede">
         Cada versión de este fichero, con lo que cambió. La que lleva el sello de la portada
         es la que está en pie.
+      </p>
+      <p class="note">
+        ¿Cómo se hizo? Lo cuenta el
+        <a href="/inteligencia-artificial">expediente X</a>, con los aciertos y los errores.
       </p>
     </header>
 
@@ -58,5 +69,47 @@ const fecha = (iso: string) => formato.format(new Date(`${iso}T12:00:00Z`));
         ))
       }
     </ol>
+
+    {
+      prehistoryTotal > 0 && (
+        <section class="sec hist">
+          <h2>Antes de las versiones</h2>
+          <div class="prose">
+            <p>
+              El registro empieza con la 2.0.0, el día que el sitio estrenó número. Antes de eso
+              hay {plural(prehistoryTotal)} sin versión, de {firstYear} a {lastYear}: los lee
+              git en cada compilación, así que no hay copia que pueda quedarse atrás.
+            </p>
+          </div>
+
+          <div class="hist__years">
+            {prehistory.map((year) => (
+              <details class="hist__year">
+                <summary>
+                  <span class="hist__year-n">{year.year}</span>
+                  <span class="hist__year-c">{plural(year.commits.length)}</span>
+                </summary>
+                <ol class="hist__list">
+                  {year.commits.map((commit) => (
+                    <li>
+                      <a
+                        class="hist__commit"
+                        href={`https://github.com/MarcosRamirez/marcosramirez.github.io/commit/${commit.hash}`}
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <time datetime={commit.date}>{commit.date.slice(5)}</time>
+                        <code>{commit.short}</code>
+                        <span>{commit.subject}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            ))}
+          </div>
+        </section>
+      )
+    }
   </div>
 </Layout>
