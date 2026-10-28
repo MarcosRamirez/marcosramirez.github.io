@@ -4,96 +4,101 @@ import Link from "../components/Link.astro";
 ---
 
 <Layout
-  title="Lucía - Mi Asistente IA"
+  title="Lucía — Mi asistente IA | Marcos Ramírez"
   keywords="Lucía,IA,asistente,inteligencia artificial,clawbot"
-  description="Conoce a Lucía, mi asistente de inteligencia artificial potenciado con ClawBot"
+  description="Lucía es mi asistente personal de IA sobre ClawBot: escribe, programa, atiende llamadas, investiga y traduce. Reviso y apruebo todo lo que publica."
 >
-  <section>
-    <h1>> QUIEN_ES Lucia</h1>
+  <div class="page">
+    <header class="page__head">
+      <p class="label">Ficha <span>05</span> · asistente</p>
+      <h1>Lucía, mi asistente</h1>
+      <p class="page__lede">
+        No es un chatbot de usar y tirar: es una extensión de mi capacidad de trabajo. Ella
+        lleva lo repetitivo, yo decido lo que se publica.
+      </p>
+    </header>
 
-    <p class="prompt">Mi asistente de inteligencia artificial...</p>
+    <div class="page__cols">
+      <div class="page__main">
+        <section class="sec">
+          <h2>Qué hace</h2>
+          <ul class="list-rows">
+            <li>
+              <span class="highlight">Escritura</span>
+              <span class="sub">· redacta posts para blog, redes y documentación</span>
+            </li>
+            <li>
+              <span class="highlight">Programación</span>
+              <span class="sub">· asiste en código, depura, refactoriza y explica algoritmos</span>
+            </li>
+            <li>
+              <span class="highlight">Atención telefónica</span>
+              <span class="sub">· gestiona llamadas, responde y deriva según criticidad</span>
+            </li>
+            <li>
+              <span class="highlight">Investigación</span>
+              <span class="sub">· busca información, resume documentos y extrae datos</span>
+            </li>
+            <li>
+              <span class="highlight">Traducción</span>
+              <span class="sub">· traduce contenido entre varios idiomas</span>
+            </li>
+            <li>
+              <span class="highlight">Análisis</span>
+              <span class="sub">· procesa datos, genera informes y presenta conclusiones</span>
+            </li>
+          </ul>
+        </section>
 
-    <p>
-      <span class="prompt">></span> Lucía es mi <span class="highlight">asistente personal de IA</span>,
-      potenciada con <Link href="https://clawbot.es" target="_blank">ClawBot</Link>.
-      No es un simple chatbot, es una extensión de mi capacidad de trabajo.
-    </p>
-    
-    <p class="prompt" data-section>// CAPACIDADES:</p>
-    <ul class="info-list">
-      <li>> <span class="highlight">Escritura de posts</span>: Me ayuda a redactar contenido para blogs, redes sociales y documentación</li>
-      <li>> <span class="highlight">Programación</span>: Asiste en código, depuración, refactorización y explicación de algoritmos</li>
-      <li>> <span class="highlight">Atención telefónica</span>: Gestiona llamadas, responde consultas y deriva según criticidad</li>
-      <li>> <span class="highlight">Investación</span>: Busca información, resume documentos y extrae datos relevantes</li>
-      <li>> <span class="highlight">Traducción</span>: Traduce contenido entre múltiples idiomas</li>
-      <li>> <span class="highlight">Análisis</span>: Procesa datos, genera informes y presenta conclusiones</li>
-    </ul>
-    
-    <p class="prompt" data-section>// TECNOLOGÍA:</p>
-    <div class="history">
-      <p>
-        <span class="prompt">></span> Lucía está construida sobre la plataforma <span class="highlight">ClawBot</span>,
-        que proporciona capacidades avanzadas de procesamiento de lenguaje natural y integración con herramientas.
-      </p>
-      <p>
-        <span class="prompt">></span> Utiliza modelos de lenguaje de última generación para entender y generar texto
-        natural, manteniendo coherencia y contexto en conversaciones largas.
-      </p>
-      <p>
-        <span class="prompt">></span> Se integra con mis flujos de trabajo diarios, desde correo electrónico
-        hasta gestión de proyectos y atención al cliente.
-      </p>
+        <section class="sec">
+          <h2>Tecnología</h2>
+          <div class="prose">
+            <p>
+              Lucía está construida sobre la plataforma
+              <Link href="https://clawbot.es" target="_blank">ClawBot</Link>, que aporta
+              procesamiento de lenguaje natural e integración con herramientas.
+            </p>
+            <p>
+              Utiliza modelos de lenguaje de última generación para entender y generar texto,
+              manteniendo coherencia y contexto en conversaciones largas.
+            </p>
+            <p>
+              Se integra con mis flujos de trabajo diarios: correo electrónico, gestión de
+              proyectos y atención al cliente.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="page__aside">
+        <div>
+          <p class="label">Cómo trabajamos</p>
+          <dl class="record">
+            <div>
+              <dt>Reparto</dt>
+              <dd>Ella lleva lo rutinario; yo, las decisiones creativas</dd>
+            </div>
+            <div>
+              <dt>Revisión</dt>
+              <dd>Apruebo todo el contenido antes de publicarlo</dd>
+            </div>
+            <div>
+              <dt>Aprendizaje</dt>
+              <dd>Toma nota de mis preferencias y de mi estilo</dd>
+            </div>
+            <div>
+              <dt>Criterio</dt>
+              <dd>Me avisa de lo importante y resuelve lo trivial</dd>
+            </div>
+          </dl>
+        </div>
+
+        <p class="actions">
+          <a class="btn btn--solid" href="/contacto">[ PREGUNTAR POR LUCÍA ]</a>
+        </p>
+
+        <p class="hint">Pregunta sobre Lucía desde <a href="/contacto">contacto</a></p>
+      </aside>
     </div>
-    
-    <p class="prompt" data-section>// CÓMO_TRABAJAMOS:</p>
-    <ul class="lifestyle">
-      <li>> Ella maneja tareas rutinarias mientras me centro en decisiones creativas</li>
-      <li>> Reviso y apruebo todo el contenido antes de publicarlo</li>
-      <li>> Aprende de mis preferencias y estilo personal</li>
-      <li>> Me avisa de lo importante, decide lo trivial</li>
-    </ul>
-    
-    <p class="prompt">> Pregunta sobre Lucía: <a href="/contacto" class="highlight">contacto</a> <span class="blink">_</span></p>
-  </section>
+  </div>
 </Layout>
-
-<style>
-  .info-list, .lifestyle {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-  }
-  
-  .info-list li, .lifestyle li {
-    margin: 8px 0;
-    line-height: 1.6;
-  }
-  
-  .highlight {
-    color: #33ff33;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .highlight:hover {
-    background: #33ff33;
-    color: #000;
-  }
-  
-  .history {
-    margin: 1.5rem 0;
-    line-height: 1.8;
-  }
-  
-  .history p {
-    margin: 1rem 0;
-  }
-  
-  p[data-section] {
-    color: #33ff33;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-</style>

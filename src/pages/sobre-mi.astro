@@ -1,327 +1,234 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
+import Years from "../components/Years.astro";
+import { yearsCoding } from "../data/career";
+
+const description = `Quién es Marcos Ramírez: informático desde el Dragon 32 y el COBOL de 1988, ${yearsCoding} años picando código, neurodivergente y sin redes sociales.`;
 ---
 
 <Layout
-  title="Sobre mi"
+  title="Sobre mí — Marcos Ramírez"
   keywords="about,sobre,mi,Marcos,Ramírez,Ramirez"
-  description="Información personal sobre Marcos Ramírez"
+  description={description}
 >
-  <section>
-    <h1>> QUIEN_ES Marcos_Ramirez</h1>
+  <div class="page">
+    <header class="page__head">
+      <p class="label">Ficha <span>01</span> · autor</p>
+      <h1>Quién es Marcos Ramírez</h1>
+      <p class="page__lede">
+        Un informático cuyo primer contacto con un PC fue un <span class="nowrap"
+          ><Link href="https://es.wikipedia.org/wiki/Dragon_32/64" target="_blank"
+            >Dragon 32</Link
+          ></span
+        >: calculad lo viejo que soy, así que... sed pacientes.
+      </p>
+    </header>
 
-    <p class="prompt">Soy un informático de la época del pleistoceno...</p>
+    <div class="page__cols">
+      <div class="page__main">
+        <section class="sec">
+          <h2>Historia</h2>
+          <div class="prose">
+            <p>
+              Aprendí a programar cuando no existían Google ni Stack Overflow. Mi primer
+              lenguaje (1988) fue <span class="highlight">COBOL</span>, en una academia de
+              barrio, con un profesor militar. Posteriormente aprendí Basic, Pascal y C.
+            </p>
+            <p>
+              Entre <span class="highlight">1985</span> y 1995, más o menos, era usuario de
+              <span class="highlight">BBS</span>: fui punto de Europa BBS y frecuentaba las
+              profundidades del demoño y Atlantic Ocean. Ahí, vía Chiba City, entré en la Warez
+              Scene. El resto de las BBS no las cito: ya habrá post en el
+              <Link href="https://blog.marcosramirez.info" target="_blank">blog</Link>.
+            </p>
+            <p>
+              En los 90 fui miembro de <span class="highlight">FCC</span>, grupo líder de la
+              Warez Scene española. Tenía contacto con Mentes Inquietas (que posteriormente
+              fundaron !H). En esa época programaba PPEs y tradings con líneas telefónicas.
+            </p>
+            <p>
+              Hacia <span class="highlight">1992</span> descubrí el HTML y los CGI en
+              <span class="highlight">Perl</span>, que por entonces era la única manera de que
+              una página hiciera algo. Ahí dejé de programar para mí y empecé a programar para
+              que lo leyera alguien.
+            </p>
+            <p>
+              En <span class="highlight">1995</span> llegaron PHP y MySQL, y con ellos el mundo
+              de las afiliaciones. Monté webs de afiliado como un loco, hasta juntar unos
+              <span class="highlight">doscientos dominios</span>. Todo ello simultaneado con mis
+              primeros servidores Apache y mi añorada
+              <Link href="https://es.wikipedia.org/wiki/Slackware" target="_blank">Slackware</Link
+              >
+              (aún conservo uno de mis primeros servidores).
+            </p>
+            <p>Todo sobre una línea ADSL de <span class="highlight">256k</span> xD</p>
+          </div>
+        </section>
 
-    <div id="videoModal" class="modal">
-      <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <div class="video-wrapper">
+        <section class="sec">
+          <h2>La película que me marcó</h2>
+          <div class="prose">
+            <p>
+              Y una anécdota: lo que me metió en la informática, como a tantos otros de mi
+              generación, fueron las películas de ciencia ficción. En mi caso, la que más me
+              «marcó» fue
+              <button
+                class="link-btn"
+                data-video="https://www.youtube.com/embed/AjFAHjUM3U8"
+                data-title="The computer wore tennis shoes">The computer wore tennis shoes</button
+              >
+              (en España,
+              <button
+                class="link-btn"
+                data-video="https://www.youtube.com/embed/AjFAHjUM3U8"
+                data-title="Mi cerebro es electrónico">Mi cerebro es electrónico</button
+              >). En concreto, a partir del
+              <span class="nowrap"
+                ><button
+                  class="link-btn"
+                  data-video="https://www.youtube.com/embed/AjFAHjUM3U8?start=70"
+                  data-title="Minuto 1:10">minuto 1:10</button
+                >,</span
+              >
+              donde se ve cómo el ordenador empieza a hacer cosas solas, interactuando con el
+              mundo real.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="page__aside">
+        <div>
+          <p class="label">Datos básicos</p>
+          <dl class="record">
+            <div>
+              <dt>Nacimiento</dt>
+              <dd>3 de febrero · <a href="/cumpleanos">admito regalos</a></dd>
+            </div>
+            <div>
+              <dt>Condición</dt>
+              <dd>Neurodivergente: AACC + TDAH + TEA (doble excepcionalidad)</dd>
+            </div>
+            <div>
+              <dt>Oficio</dt>
+              <dd><Years since={1992} label="años dedicándome al desarrollo web" /></dd>
+            </div>
+            <div>
+              <dt>CV</dt>
+              <dd>
+                <a href="https://es.linkedin.com/in/marcosramirezparicio" target="_blank" rel="noopener"
+                  >LinkedIn</a
+                >
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div>
+          <p class="label">Estilo de vida</p>
+          <ul class="list-rows">
+            <li>No como nada ultra procesado</li>
+            <li>Ejercicio regular</li>
+            <li>Paso de redes sociales (incluido LinkedIn)</li>
+            <li>Mi tiempo de uso del móvil: menos de <span class="highlight">30 min/día</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="label">Aficiones</p>
+          <ul class="list-rows">
+            <li>Juego al poker y al ajedrez</li>
+            <li>Montaña: senderismo y MTB</li>
+            <li>Cine, series y libros de terror y ciencia ficción</li>
+            <li>Videojuegos de sigilo, aventuras gráficas, simuladores</li>
+            <li>Puzles y juegos de estrategia</li>
+          </ul>
+        </div>
+
+        <p class="hint">Más información pronto</p>
+      </aside>
+    </div>
+
+    <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Reproductor de vídeo">
+      <div class="modal__frame">
+        <button class="modal__close" type="button" aria-label="Cerrar vídeo">&times;</button>
+        <div class="modal__video">
           <iframe
             id="modalVideo"
-            width="560"
-            height="315"
             src=""
             title=""
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
       </div>
     </div>
-
-    <p>
-      Mi primer contacto con un PC fue un <Link
-        href="https://es.wikipedia.org/wiki/Dragon_32/64"
-        target="_blank">Dragon 32</Link
-      >, calculad lo viejo que soy, así que... sed pacientes.
-    </p>
-
-    <p class="prompt" data-section>// DATOS_BÁSICOS:</p>
-    <ul class="info-list">
-      <li>
-        > Nací el <span class="highlight">3 de Febrero</span> (<Link
-          href="/cumpleanos">admito regalos</Link
-        >)
-      </li>
-      <li>
-        > <span class="highlight">Neurodivergente</span>: AACC + TDAH + TEA
-        (doble excepcionalidad)
-      </li>
-      <li>
-        > Llevo más de <span class="highlight">25 años</span> dedicándome al desarrollo
-        web
-      </li>
-      <li>
-        > <Link
-          href="https://es.linkedin.com/in/marcosramirezparicio"
-          target="_blank">[MI_CV]</Link
-        >
-      </li>
-    </ul>
-
-    <p class="prompt" data-section>// HISTORIA:</p>
-    <div class="history">
-      <p>
-        Uno de los motivos por los que me fascinó la informática, como a tantos
-        otros de mi generación, fueron las películas de ciencia ficción, en mi
-        caso... la película que más me "marcó" fué
-        <button
-          class="link-btn"
-          data-video="https://www.youtube.com/embed/AjFAHjUM3U8"
-          data-title="The computer wore tennis shoes"
-          >The computer wore tennis shoes</button
-        >
-        (en España, <button
-          class="link-btn"
-          data-video="https://www.youtube.com/embed/AjFAHjUM3U8"
-          data-title="Mi cerebro es electrónico"
-          >Mi cerebro es electrónico</button
-        >) En concreto, a partir del
-        <button
-          class="link-btn"
-          data-video="https://www.youtube.com/embed/AjFAHjUM3U8?start=70"
-          data-title="Minuto 1:10">minuto 1:10</button
-        >, donde se ve cómo el ordenador empieza a hacer cosas solas,
-        interactuando con el mundo real.
-      </p>
-
-      <p>
-        <span class="prompt">></span> Aprendí a programar cuando no existían Google,
-        ni Stack Overflow. Mi primer lenguaje (1988) fue <span class="highlight"
-          >COBOL</span
-        >, en una academia de barrio, con un profesor militar. Posteriormente
-        aprendí Basic, Pascal y C.
-      </p>
-      <p>
-        <span class="prompt">></span> En los 90 fui miembro de <span
-          class="highlight">FCC</span
-        >, grupo líder de la Warez Scene española. Tenía contacto con Mentes
-        Inquietas (que posteriormente fundaron !H). En esa época programaba PPEs
-        y tradings con líneas telefónicas.
-      </p>
-      <p>
-        <span class="prompt">></span> Tudo ello simultaneado con mis primeros servidores
-        Apache, mis trasteos con PHP y mis primeras webs de afiliados. Mi añorada
-        <Link href="https://es.wikipedia.org/wiki/Slackware" target="_blank"
-          >Slackware</Link
-        >
-        (aún conservo uno de mis primeros servidores).
-      </p>
-      <p>
-        <span class="prompt">></span> Todo sobre una línea ADSL de <span
-          class="highlight">256k</span
-        > xD
-      </p>
-    </div>
-
-    <p class="prompt" data-section>// ESTILO_DE_VIDA:</p>
-    <ul class="lifestyle">
-      <li>> No como nada ultra procesado</li>
-      <li>> Ejercicio regular</li>
-      <li>> Paso de redes sociales (incluido LinkedIn)</li>
-      <li>
-        > Mi tiempo de uso del móvil: menos de <span class="highlight"
-          >30 min/día</span
-        >
-      </li>
-    </ul>
-
-    <p class="prompt" data-section>// AFICIONES:</p>
-    <ul class="hobbies">
-      <li>> Juego al poker y al ajedrez</li>
-      <li>> Montaña: senderismo y MTB</li>
-      <li>> Cine, series y libros de terror y ciencia ficción</li>
-      <li>> Videojuegos de sigilo, aventuras gráficas, simuladores</li>
-      <li>> Puzles y juegos de estrategia</li>
-    </ul>
-
-    <p class="prompt">
-      > Más información pronto... <span class="blink">_</span>
-    </p>
-  </section>
+  </div>
 </Layout>
 
-<style>
-  .info-list,
-  .hobbies,
-  .lifestyle {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-  }
+<script>
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo') as HTMLIFrameElement | null;
+  const closeBtn = modal?.querySelector('.modal__close');
 
-  .info-list li,
-  .hobbies li,
-  .lifestyle li {
-    margin: 8px 0;
-    line-height: 1.6;
-  }
+  let lastTrigger: HTMLElement | null = null;
 
-  .highlight {
-    color: #33ff33;
-    font-weight: bold;
-    text-decoration: none;
-  }
+  const close = () => {
+    if (!modal || !video) return;
+    modal.removeAttribute('data-open');
+    // Quitar el src evita que el iframe vacío recargue la página dentro de sí mismo.
+    video.removeAttribute('src');
+    document.body.style.overflow = '';
+    lastTrigger?.focus();
+  };
 
-  .highlight:hover {
-    background: #33ff33;
-    color: #000;
-  }
-
-  .history {
-    margin: 1.5rem 0;
-    line-height: 1.8;
-  }
-
-  .history p {
-    margin: 1rem 0;
-  }
-
-  .link-btn {
-    background: none;
-    border: none;
-    color: #33ff33;
-    cursor: pointer;
-    font: inherit;
-    text-decoration: none;
-    padding: 0;
-    position: relative;
-    border-bottom: 1px solid #33ff33;
-    transition: all 0.2s ease;
-    display: inline-block;
-  }
-
-  .link-btn:hover {
-    background: #33ff33;
-    color: #000;
-    text-decoration: none;
-  }
-
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow: auto;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal-content {
-    position: relative;
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 90vw;
-    max-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    margin: auto; /* para centrar con flex */
-  }
-
-  .modal-close {
-    position: absolute;
-    top: -1.5rem;
-    right: -1.5rem;
-    background: #333;
-    border: 2px solid #fff;
-    font-size: 1.8rem;
-    color: #fff;
-    cursor: pointer;
-    line-height: 1;
-    font-weight: bold;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: background 0.2s ease;
-    z-index: 1001;
-  }
-
-  .modal-close:hover {
-    background: #ff4444;
-    color: white;
-  }
-
-  .video-wrapper {
-    position: relative;
-    width: 90vw;
-    max-width: 560px;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-  }
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (min-aspect-ratio: 16/9) {
-    .video-wrapper {
-      width: calc(90vh * 0.8);
-      padding-bottom: 0;
-      height: calc(90vh * 0.8 * 9 / 16);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .modal-content {
-      padding: 1rem;
-      margin: 1rem;
-    }
-    .video-wrapper {
-      width: 100vw;
-      max-width: none;
-      height: calc(100vw * 9 / 16);
-    }
-  }
-
-  p[data-section] {
-    color: #33ff33;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-</style>
-
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("videoModal");
-    const modalVideo = document.getElementById("modalVideo");
-    const closeBtn = document.querySelector(".modal-close");
-    document.querySelectorAll(".link-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const videoUrl = btn.dataset.video;
-        const separator = videoUrl.includes("?") ? "&" : "?";
-        modalVideo.src = videoUrl + separator + "autoplay=1";
-        modal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      });
+  document.querySelectorAll<HTMLButtonElement>('.link-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!modal || !video) return;
+      const base = btn.dataset.video ?? '';
+      const separator = base.includes('?') ? '&' : '?';
+      video.src = base + separator + 'autoplay=1';
+      video.title = btn.dataset.title ?? 'Vídeo';
+      modal.setAttribute('data-open', 'true');
+      document.body.style.overflow = 'hidden';
+      lastTrigger = btn;
+      modal.querySelector<HTMLButtonElement>('.modal__close')?.focus();
     });
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-      modalVideo.src = "";
-      document.body.style.overflow = "auto";
-    });
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-        modalVideo.src = "";
-        document.body.style.overflow = "auto";
-      }
-    });
+  });
+
+  closeBtn?.addEventListener('click', close);
+
+  modal?.addEventListener('click', (event) => {
+    if (event.target === modal) close();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!modal || !modal.hasAttribute('data-open')) return;
+
+    if (event.key === 'Escape') {
+      close();
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+
+    // El foco se queda dentro de la ficha mientras el vídeo está abierto.
+    const focusables: HTMLElement[] = [];
+    if (closeBtn instanceof HTMLElement) focusables.push(closeBtn);
+    if (video) focusables.push(video);
+    if (focusables.length === 0) return;
+
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+    const inside = active instanceof HTMLElement ? modal.contains(active) : false;
+
+    if (event.shiftKey && (active === first || !inside)) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (active === last || !inside)) {
+      event.preventDefault();
+      first.focus();
+    }
   });
 </script>

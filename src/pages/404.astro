@@ -3,52 +3,34 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="404 - Página no encontrada"
+  title="404 — Ficha no encontrada | Marcos Ramírez"
   keywords="404,error,pagina no encontrada"
-  description="Página no encontrada - Error 404"
+  description="Página no encontrada. La signatura que buscas no está en este fichero."
 >
-  <section>
-    <h1>> ERROR_404</h1>
+  <div class="page">
+    <header class="page__head">
+      <p class="label">Error <span>404</span> · fichero</p>
+      <h1>Esta ficha no está en el catálogo</h1>
+      <p class="page__lede">
+        El recurso solicitado no existe o lo han movido de expediente. El índice está incompleto; no
+        es culpa tuya.
+      </p>
+    </header>
 
-    <p class="prompt">Página no encontrada...</p>
+    <section class="sec">
+      <h2>Posibles causas</h2>
+      <ul class="list-rows">
+        <li>La URL está mal escrita</li>
+        <li>El recurso fue eliminado</li>
+        <li>Estás intentando acceder a un sistema operativo de los 90 sin permisos de root</li>
+      </ul>
+    </section>
 
-    <p>
-      <span class="prompt">></span> El recurso solicitado no existe o ha sido movido.
+    <p class="actions" style="margin-top: 32px">
+      <a class="btn btn--solid" href="/">[ VOLVER AL ÍNDICE ]</a>
+      <a class="btn" href="/contacto">[ ESCRIBIR ]</a>
     </p>
-    
-    <p>
-      <span class="prompt">></span> Possibles causas:
-    </p>
-    <ul class="reasons">
-      <li>> La URL está mal escrita</li>
-      <li>> El recurso fue eliminado</li>
-      <li>> Estás intentando acceder a un sistema operativo de los 90 sin tener permisos de root</li>
-    </ul>
-    
-    <p class="prompt">> Volver al <a href="/" class="highlight">inicio</a> <span class="blink">_</span></p>
-  </section>
+
+    <p class="hint" style="margin-top: 28px">Esperando orden</p>
+  </div>
 </Layout>
-
-<style>
-  .reasons {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-  }
-  
-  .reasons li {
-    margin: 8px 0;
-    line-height: 1.6;
-  }
-  
-  .highlight {
-    color: #33ff33;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .highlight:hover {
-    background: #33ff33;
-    color: #000;
-  }
-</style>

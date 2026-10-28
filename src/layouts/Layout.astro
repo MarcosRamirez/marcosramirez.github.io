@@ -8,70 +8,40 @@ const { title, description, keywords, image, type } = Astro.props;
 
 <html lang="es">
   <head>
-    <SEO 
+    <SEO
       title={title}
       description={description}
       keywords={keywords}
       image={image}
       type={type}
     />
+    <link rel="preload" href="/fonts/departure-mono-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/courier-prime-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body class="screen-on crt-on">
+  <body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+
     <div class="crt-wrapper">
-      <div class="scanlines"></div>
       <Header />
-      
-      <main>
+
+      <main id="contenido">
         <slot />
       </main>
 
       <Footer />
     </div>
+
+    <script>
+      // Los años salen del build, y el sitio solo se reconstruye cuando hay un
+      // push: en enero el número que dejó el build se queda viejo. Se corrige aquí.
+      document.querySelectorAll<HTMLElement>('[data-years-since]').forEach((el) => {
+        const since = Number(el.dataset.yearsSince);
+        if (!Number.isFinite(since)) return;
+
+        const label = el.dataset.yearsLabel ?? '';
+        el.textContent = `${new Date().getFullYear() - since}\u00a0${label}`;
+      });
+    </script>
   </body>
 </html>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('screen-flicker');
-    setTimeout(() => {
-      document.body.classList.remove('screen-flicker');
-    }, 300);
-
-    const main = document.querySelector('main');
-    if (!main) return;
-
-    const elements = main.querySelectorAll('h1, h2, p, ul, ol, li, form, input, textarea, button, a, img, section, div');
-
-    elements.forEach((el: Element) => {
-      if (el instanceof HTMLElement) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(10px)';
-      }
-    });
-
-    let index = 0;
-    function showNext() {
-      if (index >= elements.length) return;
-
-      const el = elements[index];
-      if (el instanceof HTMLElement) {
-        el.style.transition = 'opacity 0.3s, transform 0.3s';
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }
-
-      index++;
-      setTimeout(showNext, 80 + Math.random() * 100);
-    }
-
-    setTimeout(showNext, 300);
-  });
-</script>
-
-<style>
-  .crt-wrapper {
-    position: relative;
-    min-height: 100vh;
-  }
-</style>
