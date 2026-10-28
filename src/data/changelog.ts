@@ -21,6 +21,12 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.7.3',
+    date: '2026-10-28',
+    note: 'Corrección de lenguaje: «El ordenador hace cosas solo» y líneas de código totales.',
+    groups: [{ kind: 'Cambiado', items: ['«El ordenador hace cosas solas» → «El ordenador hace cosas solo».', '11.804 líneas de código en vez de CSS.'] }],
+  },
+  {
     version: '2.7.2',
     date: '2026-10-28',
     note: 'Expediente X en el índice.',

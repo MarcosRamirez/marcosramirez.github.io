@@ -12,6 +12,15 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.7.3] - 2026-10-28
+
+Corrección de lenguaje y registro.
+
+### Cambiado
+
+- «El ordenador hace cosas solas» → «El ordenador hace cosas solo».
+- «Hoja de estilo» → 11.804 líneas de código totales.
+
 ## [2.7.2] - 2026-10-28
 
 Expediente X en el índice, con todo el sitio en expediente.
