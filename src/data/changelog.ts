@@ -59,7 +59,7 @@ export const releases: Release[] = [
       {
         kind: 'Cambiado',
         items: [
-          'Cabecera de la ficha: fuera «España», y ahora dice cuántos años llevo picando código y cuántos ganando pasta con ello.',
+          'Cabecera del expediente: fuera «España», y ahora dice cuántos años llevo picando código y cuántos ganando pasta con ello.',
           'Las descripciones y el apartado «Oficio» de Sobre mí dejan de llevar los 25 años escritos a mano.',
         ],
       },
@@ -150,7 +150,7 @@ export const releases: Release[] = [
         kind: 'Cambiado',
         items: [
           'Título de la portada: «Marcos Ramírez — Ingeniero informático · IA, web y cloud», en vez de 36 caracteres.',
-          'Ocupación en la ficha: inteligencia artificial, desarrollo web y cloud computing, en ese orden.',
+          'Ocupación en el expediente: inteligencia artificial, desarrollo web y cloud computing, en ese orden.',
           'Palabras clave con inteligencia artificial y cloud computing.',
         ],
       },
@@ -159,12 +159,12 @@ export const releases: Release[] = [
   {
     version: '2.2.1',
     date: '2026-10-28',
-    note: 'Un cambio de palabra en la ficha.',
+    note: 'Un cambio de palabra en el expediente.',
     groups: [
       {
         kind: 'Cambiado',
         items: [
-          '«25 años de oficio» pasa a «25 años picando código», en la ficha y en la descripción.',
+          '«25 años de oficio» pasa a «25 años picando código», en el expediente y en la descripción.',
         ],
       },
     ],
@@ -177,7 +177,7 @@ export const releases: Release[] = [
       {
         kind: 'Cambiado',
         items: [
-          'Fichas renumeradas: autor 01, novela 02, regalos 03 y contacto 04.',
+          'Expedientes renumerados: autor 01, novela 02, regalos 03 y contacto 04.',
           'Bloques de la portada en orden ascendente: 00, 02, 03 y 04.',
           '«El nombre en la búsqueda» con puesto, quién y si es Marcos, en vez de etiquetas sueltas.',
           'Índice de cajones: «Tres cajones, un solo ingeniero».',
@@ -230,7 +230,7 @@ export const releases: Release[] = [
       {
         kind: 'Añadido',
         items: [
-          'Ficha de catálogo sobre fósforo P1 y tres cajones numerados.',
+          'Expediente de catálogo sobre fósforo P1 y tres cajones numerados.',
           'Página de registro de cambios, enlazada desde el sello.',
           'Sello con la versión SemVer del sitio.',
           'Barrido vertical de fósforo, como el de un monitor de verdad.',
@@ -240,7 +240,7 @@ export const releases: Release[] = [
         kind: 'Cambiado',
         items: [
           'Rediseño completo: tipografía, retícula, cabecera, pie y formularios.',
-          '«Ingeniero informático» en la ficha, el título, la descripción y los datos.',
+          '«Ingeniero informático» en el expediente, el título, la descripción y los datos.',
           'Cajón 00 reescrito: el piloto es de Moto2 y el único que soy yo es el que firma.',
           'Menú móvil accesible con teclado y modal sin recargar el vídeo al cerrar.',
         ],

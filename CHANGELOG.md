@@ -4,7 +4,7 @@ Todo lo que cambia en este sitio, versión a versión. Formato basado en
 [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y versionado
 [SemVer](https://semver.org/lang/es/).
 
-La versión vive en `package.json` y es la que muestra el sello de la ficha.
+La versión vive en `package.json` y es la que muestra el sello del expediente.
 Este archivo es el espejo en Markdown de `src/data/changelog.ts`, que es lo que
 renderiza `/changelog`: si cambia uno, cambia el otro.
 
@@ -40,7 +40,7 @@ Los años de oficio se calculan solos: 1988 y 1992 ya no son números escritos a
 
 ### Cambiado
 
-- Cabecera de la ficha: fuera «España», y ahora dice cuántos años llevo picando código y cuántos ganando pasta con ello.
+- Cabecera de el expediente: fuera «España», y ahora dice cuántos años llevo picando código y cuántos ganando pasta con ello.
 - Las descripciones y el apartado «Oficio» de Sobre mí dejan de llevar los 25 años escritos a mano.
 
 ## [2.4.0] - 2026-10-28
@@ -99,16 +99,16 @@ Título más largo para la búsqueda y ocupación reordenada.
 ### Cambiado
 
 - Título de la portada: «Marcos Ramírez — Ingeniero informático · IA, web y cloud», en vez de 36 caracteres.
-- Ocupación en la ficha: inteligencia artificial, desarrollo web y cloud computing, en ese orden.
+- Ocupación en el expediente: inteligencia artificial, desarrollo web y cloud computing, en ese orden.
 - Palabras clave con inteligencia artificial y cloud computing.
 
 ## [2.2.1] - 2026-10-28
 
-Un cambio de palabra en la ficha.
+Un cambio de palabra en el expediente.
 
 ### Cambiado
 
-- «25 años de oficio» pasa a «25 años picando código», en la ficha y en la descripción.
+- «25 años de oficio» pasa a «25 años picando código», en el expediente y en la descripción.
 
 ## [2.2.0] - 2026-10-28
 
@@ -116,7 +116,7 @@ Una sola numeración: lo que dice el índice es lo que dice la página.
 
 ### Cambiado
 
-- Fichas renumeradas: autor 01, novela 02, regalos 03 y contacto 04.
+- Expedientes renumeradas: autor 01, novela 02, regalos 03 y contacto 04.
 - Bloques de la portada en orden ascendente: 00, 02, 03 y 04.
 - «El nombre en la búsqueda» con puesto, quién y si es Marcos, en vez de etiquetas sueltas.
 - Índice de cajones: «Tres cajones, un solo ingeniero».
@@ -152,7 +152,7 @@ Primera versión con registro. El sitio anterior no tenía número: la serie 2.0
 
 ### Añadido
 
-- Ficha de catálogo sobre fósforo P1 y tres cajones numerados.
+- Expediente de catálogo sobre fósforo P1 y tres cajones numerados.
 - Página de registro de cambios, enlazada desde el sello.
 - Sello con la versión SemVer del sitio.
 - Barrido vertical de fósforo, como el de un monitor de verdad.
@@ -160,7 +160,7 @@ Primera versión con registro. El sitio anterior no tenía número: la serie 2.0
 ### Cambiado
 
 - Rediseño completo: tipografía, retícula, cabecera, pie y formularios.
-- «Ingeniero informático» en la ficha, el título, la descripción y los datos.
+- «Ingeniero informático» en el expediente, el título, la descripción y los datos.
 - Cajón 00 reescrito: el piloto es de Moto2 y el único que soy yo es el que firma.
 - Menú móvil accesible con teclado y modal sin recargar el vídeo al cerrar.
 
@@ -173,3 +173,4 @@ Primera versión con registro. El sitio anterior no tenía número: la serie 2.0
 ### Quitado
 
 - Metadatos inventados: signatura, terminal numerada y biblioteca ficticia.
+
