@@ -12,6 +12,14 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.7.4]
+
+Corrección de lenguaje: «En línea» en el registro.
+
+### Cambiado
+
+- «En pie» pasa a «En línea» en /changelog.
+
 ## [2.7.3] - 2026-10-28
 
 Corrección de lenguaje y registro.

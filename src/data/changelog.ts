@@ -21,6 +21,12 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.7.4',
+    date: '2026-10-28',
+    note: 'Corrección de lenguaje: «En línea» en el registro.',
+    groups: [{ kind: 'Cambiado', items: ['«En pie» pasa a «En línea» en /changelog.'] }],
+  },
+  {
     version: '2.7.3',
     date: '2026-10-28',
     note: 'Corrección de lenguaje: «El ordenador hace cosas solo» y líneas de código totales.',

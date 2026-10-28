@@ -45,7 +45,7 @@ const plural = (n: number) => `${n} commit${n === 1 ? '' : 's'}`;
           <li class="log__item" id={`v${release.version.replace(/\./g, '-')}`}>
             <div class="log__head">
               <h2 class="log__version">{release.version}</h2>
-              {release.version === SITE_VERSION && <span class="log__now">En pie</span>}
+              {release.version === SITE_VERSION && <span class="log__now">En línea</span>}
               <time class="log__date" datetime={release.date}>{fecha(release.date)}</time>
             </div>
 
