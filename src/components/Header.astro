@@ -26,6 +26,63 @@ const pathname = Astro.url.pathname;
       <a href="/cumpleanos" class:list={{ active: pathname.startsWith('/cumpleanos') }} aria-current={pathname.startsWith('/cumpleanos') ? 'page' : undefined}>[REGALOS]</a>
       <a href="https://blog.marcosramirez.info" target="_blank" rel="noopener">[BLOG]</a>
       <a href="https://github.com/MarcosRamirez" target="_blank" rel="noopener">[GITHUB]</a>
+      <span class="nav-glow" aria-hidden="true"></span>
     </nav>
   </div>
 </header>
+
+<script>
+  // Un solo bloque de fósforo que viaja por el menú: descansa en la sección
+  // actual y se desliza hasta el enlace con hover o foco. Sin JS se queda el
+  // relleno estático de `styles.css`.
+  const nav = document.getElementById('nav-menu');
+  const glow = nav?.querySelector<HTMLElement>('.nav-glow');
+
+  if (nav && glow) {
+    const current = nav.querySelector<HTMLElement>('a[aria-current="page"]');
+    let visible = false;
+
+    const moveTo = (link: HTMLElement | null) => {
+      if (!link) {
+        glow.style.opacity = '0';
+        visible = false;
+        return;
+      }
+
+      // Si estaba apagado, aparece en su sitio en vez de llegar deslizándose.
+      if (!visible) glow.classList.add('is-instant');
+
+      glow.style.setProperty('--x', `${link.offsetLeft}px`);
+      glow.style.setProperty('--y', `${link.offsetTop}px`);
+      glow.style.setProperty('--w', `${link.offsetWidth}px`);
+      glow.style.setProperty('--h', `${link.offsetHeight}px`);
+      glow.style.opacity = '1';
+      visible = true;
+
+      // Forzar el cálculo de estilos para que el salto se aplique sin transición.
+      void glow.offsetWidth;
+      glow.classList.remove('is-instant');
+    };
+
+    const rest = () => {
+      visible = false;
+      moveTo(current);
+    };
+
+    nav.classList.add('is-gliding');
+    rest();
+    // Las fuentes propias cambian el ancho de las etiquetas al cargar.
+    document.fonts?.ready.then(rest);
+    window.addEventListener('resize', rest);
+
+    nav.querySelectorAll<HTMLElement>('a').forEach((link) => {
+      link.addEventListener('pointerenter', () => moveTo(link));
+      link.addEventListener('focus', () => moveTo(link));
+    });
+
+    nav.addEventListener('pointerleave', () => moveTo(current));
+    nav.addEventListener('focusout', (event) => {
+      if (!nav.contains(event.relatedTarget as Node | null)) moveTo(current);
+    });
+  }
+</script>

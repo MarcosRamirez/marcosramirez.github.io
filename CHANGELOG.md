@@ -12,6 +12,14 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.8.2] - 2026-10-29
+
+El bloque del menú se desliza.
+
+### Cambiado
+
+- El bloque encendido del menú se desliza de la sección actual al enlace con hover o foco, invirtiendo las letras a su paso.
+
 ## [2.8.1] - 2026-10-29
 
 Un solo bloque encendido en el menú.

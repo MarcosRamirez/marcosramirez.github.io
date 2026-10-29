@@ -21,6 +21,19 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.8.2',
+    date: '2026-10-29',
+    note: 'El bloque del menú se desliza.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'El bloque encendido del menú se desliza de la sección actual al enlace con hover o foco, invirtiendo las letras a su paso.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.8.1',
     date: '2026-10-29',
     note: 'Un solo bloque encendido en el menú.',

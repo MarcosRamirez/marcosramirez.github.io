@@ -329,6 +329,55 @@ main {
   box-shadow: inset 0 0 0 1px var(--phosphor);
 }
 
+/* Con JS y menú en línea, el relleno deja de pintarse en cada enlace: lo
+   lleva un único bloque (`.nav-glow`, en Header.astro) que se desliza entre
+   ellos. Invierte lo que tiene debajo, así que a mitad de recorrido las
+   letras quedan medio encendidas, como un cursor barriendo la línea. */
+.nav-glow {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .nav-menu.is-gliding {
+    position: relative;
+  }
+
+  .nav-menu.is-gliding a:hover,
+  .nav-menu.is-gliding a:focus-visible,
+  .nav-menu.is-gliding a[aria-current='page'] {
+    background: transparent;
+    color: var(--phosphor);
+  }
+
+  .nav-menu.is-gliding .nav-glow {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--w, 0);
+    height: var(--h, 0);
+    background: var(--phosphor);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(var(--x, 0), var(--y, 0));
+    transition:
+      transform 0.32s var(--ease-out),
+      width 0.32s var(--ease-out),
+      opacity 0.15s linear;
+  }
+
+  .nav-menu.is-gliding .nav-glow.is-instant {
+    transition: none;
+  }
+}
+
+@media (min-width: 1025px) and (prefers-reduced-motion: reduce) {
+  .nav-menu.is-gliding .nav-glow {
+    transition: opacity 0.15s linear;
+  }
+}
+
 .menu-toggle {
   display: none;
   position: absolute;
