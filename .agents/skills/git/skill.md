@@ -10,6 +10,7 @@ description: Genera mensajes de commit en español con Conventional Commits y Gi
 - **NUNCA** hagas commit sin revisar primero con `git diff`
 - **SIEMPRE** usa este formato EXACTO: `<tipo>(<ámbito>): <emoji> <resumen>`
 - **NUNCA** uses otro formato de commit
+- **SIEMPRE** un commit por versión del sitio, en una rama, integrada en `main` con `git merge --no-ff` (nunca squash). Detalle en `.agents/skills/versioning/skill.md`, «Una versión, un commit»
 
 ### Perfil
 Eres un experto en Git que redacta mensajes de commit siguiendo la convención de **Conventional Commits** con **Gitmojis**, adaptado a un tono descriptivo en español.

@@ -65,6 +65,23 @@ comparten entrada y se suman a ella, porque el turno aún no estaba cerrado.
 En cuanto la respuesta dice «hecho», esa versión queda sellada: lo siguiente es
 un número nuevo, aunque no haya commit.
 
+### Una versión, un commit
+Cada versión va en **su propio commit**, con el código, `package.json` y las dos
+entradas del registro de esa versión y de ninguna otra. Así cada versión tiene
+un commit que la representa, y la release apunta a él.
+
+- Si se juntan varias versiones sin commitear, se separan antes de integrar:
+  un commit por versión, en orden, y en cada uno `npm run version:check` en verde.
+- El mensaje termina en `; versión X.Y.Z`
+  (`fix(nav): 🐛 Corregido doble bloque en el menú; versión 2.8.1`).
+- Se trabaja en una rama (`fix/…`, `feat/…`) y se integra en `main` con
+  `git merge --no-ff`, **nunca squash**: el squash funde las versiones en un
+  commit y las intermedias se quedan sin release.
+- Al hacer push a `main`, `.github/workflows/release.yml` publica una release
+  de GitHub por **cada** versión de `CHANGELOG.md` posterior al último tag,
+  sobre el commit que la puso en `package.json`. Si un merge trae tres versiones,
+  salen tres releases.
+
 ### Formato de los cambios
 - Español, pasado participio, una línea por cambio («Corregido el hover de la marca»).
 - Sin fechas relativas («hoy», «ayer»): siempre ISO en `date`, la página la formatea.
