@@ -21,6 +21,20 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.8.1',
+    date: '2026-10-29',
+    note: 'Un solo bloque encendido en el menú.',
+    groups: [
+      {
+        kind: 'Corregido',
+        items: [
+          'Al pasar por otra sección, la actual pasa a contorno y el bloque se muda al hover: ya no hay dos encendidas.',
+          'Foco de teclado visible en los enlaces del menú.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.8.0',
     date: '2026-10-29',
     note: 'SEO: el sitio se presenta con su dominio de verdad.',

@@ -12,6 +12,15 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.8.1] - 2026-10-29
+
+Un solo bloque encendido en el menú.
+
+### Corregido
+
+- Al pasar por otra sección, la actual pasa a contorno y el bloque se muda al hover: ya no hay dos encendidas.
+- Foco de teclado visible en los enlaces del menú.
+
 ## [2.8.0] - 2026-10-29
 
 SEO: el sitio se presenta con su dominio de verdad.
