@@ -12,6 +12,124 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.12.5] - 2026-10-29
+
+El 404 manda a los otros Marcos Ramírez.
+
+### Añadido
+
+- 404: si buscabas a otro Marcos Ramírez, enlaces al piloto, al youtuber y al libro.
+
+### Corregido
+
+- 404: «Este expediente», no «Esta expediente».
+- 404: espaciados en línea pasados a clase.
+
+## [2.12.4] - 2026-10-29
+
+El registro dice lo mismo que su distintivo.
+
+### Corregido
+
+- Registro: la entradilla dice «en línea», como el distintivo de la versión actual.
+
+## [2.12.3] - 2026-10-29
+
+Lucía habla como yo.
+
+### Cambiado
+
+- Lucía: «Tecnología» pasa a «Sobre qué corre», en primera persona y sin jerga de folleto.
+- Lucía: ya no dice que redacta para redes sociales, que no uso.
+
+### Quitado
+
+- Lucía: la segunda llamada a contacto, que repetía el botón.
+
+## [2.12.2] - 2026-10-29
+
+Regalos, repasados.
+
+### Corregido
+
+- Regalos: los atajos 1–7 tampoco saltan dentro de un desplegable o de un texto editable.
+- Regalos: espaciado en línea pasado a clase.
+
+## [2.12.1] - 2026-10-29
+
+El formulario de contacto confirma en casa.
+
+### Corregido
+
+- Contacto: después de enviar el formulario vuelves a la página con un aviso de «Recibido», en vez de acabar en web3forms.
+
+### Añadido
+
+- Contacto: campo trampa para bots en el formulario.
+
+## [2.12.0] - 2026-10-29
+
+El libro, en su sitio dentro de la lucha.
+
+### Añadido
+
+- Expediente 04: cierre «Qué hace este libro aquí», que lo sitúa en la lucha y enlaza al resto de expedientes.
+
+### Cambiado
+
+- Expediente 04: los enlaces a Wikipedia se abren con rel="noopener".
+- Expediente 04: espaciados en línea pasados a clase.
+
+### Quitado
+
+- Expediente 04: el enlace «Volver al expediente del autor», que llevaba al ingeniero y no a Fallas.
+
+## [2.11.0] - 2026-10-29
+
+El ingeniero cuenta cómo perdió el primer puesto.
+
+### Añadido
+
+- Expediente 01: sección «El primer puesto», que cuenta cómo lo perdí y enlaza a los rivales.
+
+### Cambiado
+
+- Expediente 01: retoques de texto («Después vinieron», «ultraprocesado», «póker»).
+
+### Quitado
+
+- Expediente 01: el «Más información pronto» del lateral, que prometía y no daba.
+
+## [2.10.0] - 2026-10-29
+
+El Expediente X cuenta cómo está hecho todo.
+
+### Añadido
+
+- Expediente X: sección «Para qué», que lo une a la lucha por el primer puesto.
+- Expediente X: la cadena completa del dictado al deploy (agente, Impeccable, versión, PR y release).
+- Expediente X: dos errores nuevos en «Dónde se equivocó», el CSS cacheado y las releases huérfanas.
+
+### Cambiado
+
+- Expediente X: titular «Cómo está hecho todo» y meta descripción nueva.
+- Expediente X: datos fijos que se quedaban viejos («11.804 líneas») cambiados por hechos que no caducan.
+
+## [2.9.0] - 2026-10-29
+
+La lucha por el primer puesto.
+
+### Añadido
+
+- Expedientes 02 (el piloto) y 03 (el youtuber), con página propia en /piloto y /youtuber.
+- Caja «La lucha por el primer puesto» en los expedientes, con el actual marcado.
+
+### Cambiado
+
+- La portada cuenta la lucha por recuperar el primer puesto en Google: el índice junto a la ficha pasa a ser la lucha, en el orden ingeniero, piloto, youtuber, libro e IA.
+- La novela pasa a ser el expediente 04, «el libro».
+- Regalos, contacto, Lucía y el registro pasan a ser anexos (A–D) y salen del índice.
+
 ## [2.8.3] - 2026-10-29
 
 El CSS llega con cada versión.

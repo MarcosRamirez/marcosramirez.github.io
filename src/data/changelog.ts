@@ -21,6 +21,187 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.12.5',
+    date: '2026-10-29',
+    note: 'El 404 manda a los otros Marcos Ramírez.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          '404: si buscabas a otro Marcos Ramírez, enlaces al piloto, al youtuber y al libro.',
+        ],
+      },
+      {
+        kind: 'Corregido',
+        items: [
+          '404: «Este expediente», no «Esta expediente».',
+          '404: espaciados en línea pasados a clase.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.12.4',
+    date: '2026-10-29',
+    note: 'El registro dice lo mismo que su distintivo.',
+    groups: [
+      {
+        kind: 'Corregido',
+        items: [
+          'Registro: la entradilla dice «en línea», como el distintivo de la versión actual.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.12.3',
+    date: '2026-10-29',
+    note: 'Lucía habla como yo.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'Lucía: «Tecnología» pasa a «Sobre qué corre», en primera persona y sin jerga de folleto.',
+          'Lucía: ya no dice que redacta para redes sociales, que no uso.',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'Lucía: la segunda llamada a contacto, que repetía el botón.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.12.2',
+    date: '2026-10-29',
+    note: 'Regalos, repasados.',
+    groups: [
+      {
+        kind: 'Corregido',
+        items: [
+          'Regalos: los atajos 1–7 tampoco saltan dentro de un desplegable o de un texto editable.',
+          'Regalos: espaciado en línea pasado a clase.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.12.1',
+    date: '2026-10-29',
+    note: 'El formulario de contacto confirma en casa.',
+    groups: [
+      {
+        kind: 'Corregido',
+        items: [
+          'Contacto: después de enviar el formulario vuelves a la página con un aviso de «Recibido», en vez de acabar en web3forms.',
+        ],
+      },
+      {
+        kind: 'Añadido',
+        items: [
+          'Contacto: campo trampa para bots en el formulario.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.12.0',
+    date: '2026-10-29',
+    note: 'El libro, en su sitio dentro de la lucha.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          'Expediente 04: cierre «Qué hace este libro aquí», que lo sitúa en la lucha y enlaza al resto de expedientes.',
+        ],
+      },
+      {
+        kind: 'Cambiado',
+        items: [
+          'Expediente 04: los enlaces a Wikipedia se abren con rel="noopener".',
+          'Expediente 04: espaciados en línea pasados a clase.',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'Expediente 04: el enlace «Volver al expediente del autor», que llevaba al ingeniero y no a Fallas.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.11.0',
+    date: '2026-10-29',
+    note: 'El ingeniero cuenta cómo perdió el primer puesto.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          'Expediente 01: sección «El primer puesto», que cuenta cómo lo perdí y enlaza a los rivales.',
+        ],
+      },
+      {
+        kind: 'Cambiado',
+        items: [
+          'Expediente 01: retoques de texto («Después vinieron», «ultraprocesado», «póker»).',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'Expediente 01: el «Más información pronto» del lateral, que prometía y no daba.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.10.0',
+    date: '2026-10-29',
+    note: 'El Expediente X cuenta cómo está hecho todo.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          'Expediente X: sección «Para qué», que lo une a la lucha por el primer puesto.',
+          'Expediente X: la cadena completa del dictado al deploy (agente, Impeccable, versión, PR y release).',
+          'Expediente X: dos errores nuevos en «Dónde se equivocó», el CSS cacheado y las releases huérfanas.',
+        ],
+      },
+      {
+        kind: 'Cambiado',
+        items: [
+          'Expediente X: titular «Cómo está hecho todo» y meta descripción nueva.',
+          'Expediente X: datos fijos que se quedaban viejos («11.804 líneas») cambiados por hechos que no caducan.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.9.0',
+    date: '2026-10-29',
+    note: 'La lucha por el primer puesto.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          'Expedientes 02 (el piloto) y 03 (el youtuber), con página propia en /piloto y /youtuber.',
+          'Caja «La lucha por el primer puesto» en los expedientes, con el actual marcado.',
+        ],
+      },
+      {
+        kind: 'Cambiado',
+        items: [
+          'La portada cuenta la lucha por recuperar el primer puesto en Google: el índice junto a la ficha pasa a ser la lucha, en el orden ingeniero, piloto, youtuber, libro e IA.',
+          'La novela pasa a ser el expediente 04, «el libro».',
+          'Regalos, contacto, Lucía y el registro pasan a ser anexos (A–D) y salen del índice.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.8.3',
     date: '2026-10-29',
     note: 'El CSS llega con cada versión.',

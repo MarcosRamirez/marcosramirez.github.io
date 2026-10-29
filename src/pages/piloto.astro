@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CaseIndex from "../components/CaseIndex.astro";
+
+const description = `Expediente 02: Marcos Ramírez, el piloto de Moto2 que se llama como yo y me quitó el primer puesto en Google. Si buscabas al piloto, no es aquí; si buscabas al ingeniero, sí.`;
+---
+
+<Layout
+  title="El piloto — Expediente 02 · Marcos Ramírez"
+  keywords="Marcos Ramírez, Marcos Ramírez piloto, Marcos Ramírez Moto2, piloto Moto2"
+  description={description}
+>
+  <div class="page">
+    <header class="page__head">
+      <p class="label">Expediente <span>02</span> · el piloto</p>
+      <h1>Me ganó un piloto</h1>
+      <p class="page__lede">
+        Buscabas «Marcos Ramírez» y salía yo. Luego llegó un piloto de Moto2 con el mismo
+        nombre y me adelantó por fuera. Ahí sigue: primero.
+      </p>
+    </header>
+
+    <div class="page__cols">
+      <div class="page__main">
+        <section class="sec">
+          <h2>Si buscabas al piloto</h2>
+          <div class="prose">
+            <p>
+              No es aquí. Esto es el fichero de un ingeniero informático que se llama igual y
+              que, de motos, sabe lo justo para no caerse de la bici de montaña. Te deseo
+              suerte con la búsqueda: el primer resultado de Google es suyo, no te costará
+              encontrarlo.
+            </p>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2>Cómo se recupera un primer puesto</h2>
+          <div class="prose">
+            <p>
+              En la pista, imposible. En la web, despacio: con contenido que alguien quiera
+              leer, con años de dominio y con que cada página responda a quien llega. No hay
+              truco ni atajo, y si lo hubiera, Google ya lo habría castigado.
+            </p>
+            <p>
+              Este expediente es parte de eso. Si el piloto te trajo hasta aquí y te pica la
+              curiosidad por el que firma, empieza por <a href="/sobre-mi">el ingeniero</a>.
+              Si te interesa cómo está hecha la contraofensiva, está en el
+              <a href="/inteligencia-artificial">expediente X</a>.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="page__aside">
+        <CaseIndex />
+      </aside>
+    </div>
+  </div>
+</Layout>

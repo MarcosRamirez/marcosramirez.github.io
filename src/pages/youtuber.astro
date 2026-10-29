@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CaseIndex from "../components/CaseIndex.astro";
+
+const description = `Expediente 03: Marcos Ramírez, el youtuber con más de 750.000 seguidores que se llama como yo. Si buscabas su canal, aquí tienes el enlace; si buscabas al ingeniero, ya has llegado.`;
+---
+
+<Layout
+  title="El youtuber — Expediente 03 · Marcos Ramírez"
+  keywords="Marcos Ramírez, Marcos Ramírez youtuber, Marcos Ramírez YouTube, canal de YouTube"
+  description={description}
+>
+  <div class="page">
+    <header class="page__head">
+      <p class="label">Expediente <span>03</span> · el youtuber</p>
+      <h1>Y detrás, un youtuber</h1>
+      <p class="page__lede">
+        Más de 750.000 seguidores y el mismo nombre. Él sube vídeos; yo subo commits. En
+        audiencia no hay color.
+      </p>
+    </header>
+
+    <div class="page__cols">
+      <div class="page__main">
+        <section class="sec">
+          <h2>Si buscabas su canal</h2>
+          <div class="prose">
+            <p>
+              Lo tienes <a href="https://www.youtube.com/channel/UC6XXhLbSsZrUdpWvXW7_4ug" target="_blank" rel="noopener">en YouTube</a>.
+              No hay rencor: él hace lo suyo y lo hace con mucho más público del que yo
+              tendré nunca. Solo compartimos nombre y, de momento, la primera página de
+              Google.
+            </p>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2>Dónde le gano</h2>
+          <div class="prose">
+            <p>
+              En vídeo, en ningún sitio. En texto, en años: escribo para la web desde los 90 y
+              este fichero es la prueba. La pelea por el nombre se libra en lo que cada uno
+              sabe hacer, y lo mío es esto.
+            </p>
+            <p>
+              Si el youtuber te ha traído hasta aquí y quieres saber quién es el otro Marcos,
+              empieza por <a href="/sobre-mi">el ingeniero</a>.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="page__aside">
+        <CaseIndex />
+      </aside>
+    </div>
+  </div>
+</Layout>

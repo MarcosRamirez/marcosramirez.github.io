@@ -3,14 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import Years from '../components/Years.astro';
 import { SITE_VERSION } from '../version';
 import { yearsCoding } from '../data/career';
+import { cases } from '../data/cases';
 
-const description = `Marcos Ramírez, ingeniero informático español con ${yearsCoding} años picando código. Perfil, contacto, la novela homónima de Carlos Luis Fallas y la lista de regalos.`;
+const description = `Marcos Ramírez, ingeniero informático con ${yearsCoding} años picando código, en lucha por recuperar su primer puesto en Google frente a un piloto de Moto2, un youtuber y la novela de Carlos Luis Fallas.`;
 ---
 
 <Layout
   title="Marcos Ramírez — Ingeniero informático · IA, web y cloud"
   description={description}
-  keywords="Marcos Ramírez, ingeniero informático, inteligencia artificial, desarrollo web, cloud computing, Carlos Luis Fallas, novela Marcos Ramírez"
+  keywords="Marcos Ramírez, ingeniero informático, Marcos Ramírez piloto, Marcos Ramírez Moto2, Marcos Ramírez youtuber, novela Marcos Ramírez, Carlos Luis Fallas, inteligencia artificial"
 >
   <div class="home">
     <section class="ficha-grid" aria-labelledby="ficha-nombre">
@@ -43,67 +44,45 @@ const description = `Marcos Ramírez, ingeniero informático español con ${year
         <a class="stamp" href="/changelog" title={`SemVer ${SITE_VERSION}`}>Versión {SITE_VERSION}</a>
       </article>
 
-      <nav class="drawers" aria-label="Expedientes del fichero">
-        <p class="label">Índice de expedientes</p>
+      <nav class="drawers" aria-label="La lucha por el primer puesto">
+        <p class="label">La lucha por el primer puesto</p>
 
-        <a class="drawer" href="/sobre-mi">
-          <span class="drawer__n">01</span>
-          <span>
-            <span class="drawer__t">INGENIERO</span>
-            <span class="drawer__k">Perfil · historia · CV</span>
-          </span>
-        </a>
+        {cases.map((item) => (
+          <a class:list={['drawer', { 'drawer--own': item.own }]} href={item.href}>
+            <span class="drawer__n">{item.n}</span>
+            <span>
+              <span class="drawer__t">{item.title.toUpperCase()}</span>
+              <span class="drawer__k">{item.status}</span>
+            </span>
+          </a>
+        ))}
 
-        <a class="drawer" href="/novela-carlos-luis-fallas">
-          <span class="drawer__n">02</span>
-          <span>
-            <span class="drawer__t">LA NOVELA</span>
-            <span class="drawer__k">Carlos Luis Fallas · 1952</span>
-          </span>
-        </a>
-
-        <a class="drawer" href="/cumpleanos">
-          <span class="drawer__n">03</span>
-          <span>
-            <span class="drawer__t">REGALOS</span>
-            <span class="drawer__k">Wishlist · 3 de febrero</span>
-          </span>
-        </a>
-
-        <a class="drawer" href="/inteligencia-artificial">
-          <span class="drawer__n">X</span>
-          <span>
-            <span class="drawer__t">LA IA</span>
-            <span class="drawer__k">Expediente X · cómo se hizo esta versión</span>
-          </span>
-        </a>
-
-        <p class="drawers__hint">Cuatro expedientes, un solo ingeniero. Abre el que te trajo aquí.</p>
+        <p class="drawers__hint">Tres rivales con mi nombre y un solo ingeniero. Esta web es la contraofensiva.</p>
       </nav>
     </section>
 
     <div class="boards">
       <section class="board" aria-labelledby="homonimos">
         <p class="label">Expediente <span>00</span> — el porqué</p>
-        <h2 id="homonimos">Me ganó un piloto</h2>
+        <h2 id="homonimos">Yo era el primero</h2>
 
         <div class="board__body split">
           <div>
             <p>
-              Si buscas «Marcos Ramírez» en Google, el primero no soy yo: es un piloto de
-              Moto2 que me saca ventaja. Después salen un youtuber y el protagonista de la
-              novela de Carlos Luis Fallas. De los cuatro, el único que soy yo es el que
-              firma esta página.
+              Hubo un tiempo en que buscabas «Marcos Ramírez» en Google y salía yo. Luego
+              llegó un piloto de Moto2 con mi nombre y bastante más velocidad, detrás un
+              youtuber con bastante más audiencia, y la novela de Carlos Luis Fallas, que
+              llevaba ahí desde 1952, terminó de empujarme hacia abajo.
             </p>
             <p>
-              Por eso este dominio hace de índice: quien busca al ingeniero, al libro o una
-              idea de regalo acaba en el mismo sitio. El primer puesto lo tiene él. El
-              fichero, yo.
+              Esta web es la contraofensiva. En la pista o en vídeo no tengo nada que hacer;
+              en la web, que es lo mío desde los 90, sí. Cada expediente es un frente, y el X
+              cuenta con qué armas lo peleo.
             </p>
           </div>
 
           <div>
-            <p class="label">El nombre en la búsqueda</p>
+            <p class="label">Clasificación de hoy</p>
             <div class="rivals__head" aria-hidden="true">
               <span>Puesto</span>
               <span>Quién</span>
@@ -124,8 +103,8 @@ const description = `Marcos Ramírez, ingeniero informático español con ${year
               </li>
             </ul>
             <p class="rivals__note">
-              Búsqueda de «Marcos Ramírez» en Google. El orden cambia con el tiempo; el
-              primer puesto no.
+              Búsqueda de «Marcos Ramírez» en Google. El orden de los rivales cambia; el
+              objetivo, no.
             </p>
           </div>
         </div>
@@ -133,7 +112,7 @@ const description = `Marcos Ramírez, ingeniero informático español con ${year
 
       <section class="board" aria-labelledby="ingeniero">
         <p class="label">Expediente <span>01</span> — el ingeniero</p>
-        <h2 id="ingeniero">Antes de Google</h2>
+        <h2 id="ingeniero">El que estaba antes</h2>
 
         <div class="board__body split">
           <div>
@@ -143,8 +122,9 @@ const description = `Marcos Ramírez, ingeniero informático español con ${year
             </p>
             <p>
               En los 90 andaba en la FCC, programando con líneas telefónicas y montando mis
-              primeros servidores Apache sobre una ADSL de 256k. De ahí no me he movido: sigo
-              en la web, ahora con inteligencia artificial y cloud computing.
+              primeros servidores Apache sobre una ADSL de 256k. Llegué a la web antes que el
+              piloto y que el youtuber, y de ahí no me he movido: ahora, con inteligencia
+              artificial y cloud computing.
             </p>
             <p class="actions">
               <a class="btn btn--solid" href="/sobre-mi">Leer el expediente completo</a>
@@ -160,9 +140,57 @@ const description = `Marcos Ramírez, ingeniero informático español con ${year
         </div>
       </section>
 
+      <section class="board" aria-labelledby="piloto">
+        <p class="label">Expediente <span>02</span> — el piloto</p>
+        <h2 id="piloto">Me ganó un piloto</h2>
+
+        <div class="board__body split">
+          <div>
+            <p>
+              Un piloto de Moto2 que se llama como yo. No competimos en la pista, que lo mío
+              es la bici de montaña y cuesta arriba, pero en Google me adelantó por fuera y
+              ahí sigue: primero.
+            </p>
+            <p class="actions">
+              <a class="btn btn--solid" href="/piloto">Abrir el expediente</a>
+            </p>
+          </div>
+
+          <dl class="board__meta">
+            <div><dt>Disciplina</dt><dd>Moto2</dd></div>
+            <div><dt>Puesto</dt><dd>1.º en Google</dd></div>
+            <div><dt>Parentesco</dt><dd>Ninguno</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="board" aria-labelledby="youtuber">
+        <p class="label">Expediente <span>03</span> — el youtuber</p>
+        <h2 id="youtuber">Y detrás, un youtuber</h2>
+
+        <div class="board__body split">
+          <div>
+            <p>
+              Más de 750.000 seguidores y el mismo nombre. Él sube vídeos; yo subo commits.
+              En audiencia no hay color, así que lo peleo en lo único en que le gano: años
+              escribiendo para la web.
+            </p>
+            <p class="actions">
+              <a class="btn btn--solid" href="/youtuber">Abrir el expediente</a>
+            </p>
+          </div>
+
+          <dl class="board__meta">
+            <div><dt>Plataforma</dt><dd>YouTube</dd></div>
+            <div><dt>Seguidores</dt><dd>Más de 750.000</dd></div>
+            <div><dt>Parentesco</dt><dd>Ninguno</dd></div>
+          </dl>
+        </div>
+      </section>
+
       <section class="board" aria-labelledby="novela">
-        <p class="label">Expediente <span>02</span> — la novela</p>
-        <h2 id="novela">El otro expediente con mi nombre</h2>
+        <p class="label">Expediente <span>04</span> — el libro</p>
+        <h2 id="novela">El rival más viejo</h2>
 
         <div class="board__body split">
           <div>
@@ -173,8 +201,10 @@ const description = `Marcos Ramírez, ingeniero informático español con ${year
               acabando de construir.
             </p>
             <p>
-              Si has llegado buscando el libro y no al ingeniero: está aquí, con sinopsis
-              larga, las demás obras de Fallas y un enlace para comprarlo.
+              Este jugaba con ventaja: llevaba ahí desde antes de que existiera Google. Así
+              que, en vez de pelearme con él, lo acojo. Si has llegado buscando el libro y no
+              al ingeniero, está aquí: sinopsis larga, las demás obras de Fallas y un enlace
+              para comprarlo.
             </p>
             <p class="actions">
               <a class="btn btn--solid" href="/novela-carlos-luis-fallas">Leer la sinopsis</a>
@@ -191,14 +221,44 @@ const description = `Marcos Ramírez, ingeniero informático español con ${year
         </div>
       </section>
 
+      <section class="board" aria-labelledby="ia">
+        <p class="label">Expediente <span>X</span> — la IA</p>
+        <h2 id="ia">Cómo está hecho todo</h2>
+
+        <div class="board__body split">
+          <div>
+            <p>
+              En 1969, una película ponía a un ordenador a abrir puertas solo. Hoy el ordenador
+              me ayuda a recuperar el puesto: la versión {SITE_VERSION} de este fichero la ha
+              escrito un agente de inteligencia artificial, conmigo dictando y decidiendo.
+            </p>
+            <p>
+              En el expediente cuento cómo: el agente, el diseño, las versiones, el camino hasta
+              producción y los errores, con el fuente a la vista.
+            </p>
+            <p class="actions">
+              <a class="btn btn--solid" href="/inteligencia-artificial">Leer el expediente</a>
+              <a class="btn" href="https://blog.marcosramirez.info/el-futuro-que-sonabamos/" target="_blank" rel="noopener">El futuro que soñábamos</a>
+            </p>
+          </div>
+
+          <dl class="board__meta">
+            <div><dt>Código</dt><dd>Un agente de IA</dd></div>
+            <div><dt>Criterio</dt><dd>Marcos</dd></div>
+            <div><dt>Copilot</dt><dd>Desde 2024</dd></div>
+            <div><dt>Versión</dt><dd>{SITE_VERSION}</dd></div>
+          </dl>
+        </div>
+      </section>
+
       <section class="board" aria-labelledby="regalos">
-        <p class="label">Expediente <span>03</span> — regalos</p>
+        <p class="label">Anexo <span>A</span> — regalos</p>
         <h2 id="regalos">El 3 de febrero cumplo años</h2>
 
         <div class="board__body split">
           <div>
             <p>
-              Si has llegado por el expediente de regalos: hay wishlist de libros técnicos,
+              Fuera de la pelea, que también hay vida: hay wishlist de libros técnicos,
               montaña, bici, ropa y chorradas. También vale felicitarme por email, que es
               gratis y se agradece igual.
             </p>
@@ -218,7 +278,7 @@ const description = `Marcos Ramírez, ingeniero informático español con ${year
       </section>
 
       <section class="board" aria-labelledby="contacto">
-        <p class="label">Expediente <span>04</span> — contacto</p>
+        <p class="label">Anexo <span>B</span> — contacto</p>
         <h2 id="contacto">Escríbeme, no muerdo</h2>
 
         <div class="board__body split">
@@ -246,37 +306,6 @@ const description = `Marcos Ramírez, ingeniero informático español con ${year
             <div><dt>Agenda</dt><dd>Cal.com · llamada de 30 min</dd></div>
             <div><dt>Redes</dt><dd>Ninguna activa</dd></div>
             <div><dt>Perfiles</dt><dd>LinkedIn · GitHub · blog</dd></div>
-          </dl>
-        </div>
-      </section>
-
-      <section class="board" aria-labelledby="ia">
-        <p class="label">Expediente <span>X</span> — la IA</p>
-        <h2 id="ia">El ordenador hace cosas solas</h2>
-
-        <div class="board__body split">
-          <div>
-            <p>
-              En 1969, una película ponía a un ordenador a abrir puertas solo. Cuatro décadas
-              después de que yo la viera, el ordenador escribe el CSS de este fichero: la
-              versión {SITE_VERSION} la ha escrito un agente de inteligencia artificial, conmigo
-              dictando y decidiendo.
-            </p>
-            <p>
-              No es una demo: el reparto, los aciertos y los errores están contados en el
-              expediente, con el fuente a la vista.
-            </p>
-            <p class="actions">
-              <a class="btn btn--solid" href="/inteligencia-artificial">Leer el expediente</a>
-              <a class="btn" href="https://blog.marcosramirez.info/el-futuro-que-sonabamos/" target="_blank" rel="noopener">El futuro que soñábamos</a>
-            </p>
-          </div>
-
-          <dl class="board__meta">
-            <div><dt>Código</dt><dd>Un agente de IA</dd></div>
-            <div><dt>Criterio</dt><dd>Marcos</dd></div>
-            <div><dt>Copilot</dt><dd>Desde 2024</dd></div>
-            <div><dt>Versión</dt><dd>{SITE_VERSION}</dd></div>
           </dl>
         </div>
       </section>

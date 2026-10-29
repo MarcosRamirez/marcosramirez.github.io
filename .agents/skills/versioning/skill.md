@@ -61,7 +61,7 @@ aunque no haya commit ni despliegue.
 4. Reflejar la misma entrada, en el mismo orden, en `CHANGELOG.md`.
 5. Ejecutar `npm run version:check`: debe salir en verde.
 6. Comprobar que el sello de la portada muestra `Versión 2.X.X` y que `/changelog`
-   marca esa versión como «En pie».
+   marca esa versión como «En línea».
 
 ### Una entrada por tanda
 Una tanda de trabajo, una versión: los cambios que se entregan en el mismo turno
