@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
 import Years from "../components/Years.astro";
+import CaseIndex from "../components/CaseIndex.astro";
 import { SITE_VERSION } from "../version";
 import { releases } from "../data/changelog";
 
@@ -79,6 +80,8 @@ const description = `Cómo está hecha la versión ${SITE_VERSION} de este sitio
       </div>
 
       <aside class="page__aside">
+        <CaseIndex />
+
         <div>
           <p class="label">El expediente</p>
           <dl class="record">

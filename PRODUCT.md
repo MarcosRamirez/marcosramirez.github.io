@@ -26,6 +26,8 @@ Dominio personal de Marcos Ramírez, ingeniero informático español que program
 
 Una sola URL resuelve todo lo que alguien puede buscar bajo el nombre "Marcos Ramírez": el ingeniero, el lector de la novela y el amigo que quiere hacer un regalo. Ningún homónimo puede cubrir las tres cosas, y ninguna página genérica de portfolio lo intenta.
 
+**Concepto: la lucha por el primer puesto.** Marcos era el primer resultado de "Marcos Ramírez" en Google. Se lo quitaron un piloto de Moto2, un youtuber y la novela de Fallas. La web es la contraofensiva y se cuenta como cinco expedientes en orden (fuente única: `src/data/cases.ts`): 01 el ingeniero (`/sobre-mi`), 02 el piloto (`/piloto`), 03 el youtuber (`/youtuber`), 04 el libro (`/novela-carlos-luis-fallas`) y X la IA (`/inteligencia-artificial`), que cuenta cómo está hecho todo. Regalos, contacto, Lucía y el registro son anexos (A–D), fuera de la historia.
+
 ## Operating Context
 
 - La visita típica empieza en Google con el nombre, en móvil o escritorio, sin contexto previo.
@@ -43,6 +45,8 @@ Rutas que no pueden romperse (posicionamiento ya ganado):
 - `/contacto` — formulario web3forms, widget Cal.com
 - `/cumpleanos` — wishlist con atajos de teclado 1–7
 - `/novela-carlos-luis-fallas` - sinopsis larga, CTA de afiliado Amazon, obras de Fallas
+- `/piloto` - expediente 02, el piloto de Moto2 homónimo
+- `/youtuber` - expediente 03, el youtuber homónimo (enlace a su canal)
 - `/lucia` - ficha de su asistente de IA (ClawBot); no está en el menú
 - `/changelog` - registro de versiones, enlazado desde el sello de la ficha
 - `/404` - página de error con estética terminal

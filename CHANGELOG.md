@@ -12,6 +12,21 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.9.0] - 2026-10-29
+
+La lucha por el primer puesto.
+
+### Añadido
+
+- Expedientes 02 (el piloto) y 03 (el youtuber), con página propia en /piloto y /youtuber.
+- Caja «La lucha por el primer puesto» en los expedientes, con el actual marcado.
+
+### Cambiado
+
+- La portada cuenta la lucha por recuperar el primer puesto en Google: el índice junto a la ficha pasa a ser la lucha, en el orden ingeniero, piloto, youtuber, libro e IA.
+- La novela pasa a ser el expediente 04, «el libro».
+- Regalos, contacto, Lucía y el registro pasan a ser anexos (A–D) y salen del índice.
+
 ## [2.8.3] - 2026-10-29
 
 El CSS llega con cada versión.

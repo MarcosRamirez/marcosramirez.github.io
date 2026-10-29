@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
 import Years from "../components/Years.astro";
+import CaseIndex from "../components/CaseIndex.astro";
 import { yearsCoding } from "../data/career";
 
 const description = `Quién es Marcos Ramírez: informático desde el Dragon 32 y el COBOL de 1988, ${yearsCoding} años picando código, neurodivergente y sin redes sociales.`;
@@ -14,7 +15,7 @@ const description = `Quién es Marcos Ramírez: informático desde el Dragon 32 
 >
   <div class="page">
     <header class="page__head">
-      <p class="label">Expediente <span>01</span> · autor</p>
+      <p class="label">Expediente <span>01</span> · el ingeniero</p>
       <h1>Quién es Marcos Ramírez</h1>
       <p class="page__lede">
         Un informático cuyo primer contacto con un PC fue un <span class="nowrap"
@@ -99,6 +100,8 @@ const description = `Quién es Marcos Ramírez: informático desde el Dragon 32 
       </div>
 
       <aside class="page__aside">
+        <CaseIndex />
+
         <div>
           <p class="label">Datos básicos</p>
           <dl class="record">

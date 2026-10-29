@@ -21,6 +21,28 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.9.0',
+    date: '2026-10-29',
+    note: 'La lucha por el primer puesto.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          'Expedientes 02 (el piloto) y 03 (el youtuber), con página propia en /piloto y /youtuber.',
+          'Caja «La lucha por el primer puesto» en los expedientes, con el actual marcado.',
+        ],
+      },
+      {
+        kind: 'Cambiado',
+        items: [
+          'La portada cuenta la lucha por recuperar el primer puesto en Google: el índice junto a la ficha pasa a ser la lucha, en el orden ingeniero, piloto, youtuber, libro e IA.',
+          'La novela pasa a ser el expediente 04, «el libro».',
+          'Regalos, contacto, Lucía y el registro pasan a ser anexos (A–D) y salen del índice.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.8.3',
     date: '2026-10-29',
     note: 'El CSS llega con cada versión.',
