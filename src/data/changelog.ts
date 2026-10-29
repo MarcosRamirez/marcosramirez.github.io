@@ -21,6 +21,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.8.3',
+    date: '2026-10-29',
+    note: 'El CSS llega con cada versión.',
+    groups: [
+      {
+        kind: 'Corregido',
+        items: ['Los cambios de estilo llegan con el deploy, sin recarga forzada: la hoja se pide con la versión en la URL.'],
+      },
+    ],
+  },
+  {
     version: '2.8.2',
     date: '2026-10-29',
     note: 'El bloque del menú se desliza.',
