@@ -12,6 +12,18 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.12.1] - 2026-10-29
+
+El formulario de contacto confirma en casa.
+
+### Corregido
+
+- Contacto: después de enviar el formulario vuelves a la página con un aviso de «Recibido», en vez de acabar en web3forms.
+
+### Añadido
+
+- Contacto: campo trampa para bots en el formulario.
+
 ## [2.12.0] - 2026-10-29
 
 El libro, en su sitio dentro de la lucha.

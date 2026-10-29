@@ -22,9 +22,15 @@ import Layout from '../layouts/Layout.astro';
         <section class="sec">
           <h2>Formulario</h2>
 
+          <p class="form__status" id="form-status" role="status" hidden>
+            Recibido. Lo leo yo, no un bot, y te contesto en cuanto pueda.
+          </p>
+
           <form action="https://api.web3forms.com/submit" method="POST" class="form">
             <input type="hidden" name="access_key" value="255f9892-5746-425e-a8a2-acdfdd1d8bab" />
-            <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+            <input type="hidden" name="redirect" value="https://marcosramirez.info/contacto/?enviado=1" />
+            <!-- Trampa para bots: web3forms descarta el envío si llega marcada. -->
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" hidden />
 
             <div class="field">
               <label for="name">[ NOMBRE ]</label>
@@ -98,6 +104,17 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 </Layout>
+
+<script>
+  // web3forms devuelve aquí al visitante tras enviar: se confirma en la propia página.
+  if (new URLSearchParams(window.location.search).has('enviado')) {
+    const status = document.getElementById('form-status');
+    if (status) {
+      status.hidden = false;
+      status.scrollIntoView({ block: 'center' });
+    }
+  }
+</script>
 
 <script type="text/javascript" is:inline>
   (function (C, A, L) {

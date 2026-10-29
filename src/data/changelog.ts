@@ -21,6 +21,25 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.12.1',
+    date: '2026-10-29',
+    note: 'El formulario de contacto confirma en casa.',
+    groups: [
+      {
+        kind: 'Corregido',
+        items: [
+          'Contacto: después de enviar el formulario vuelves a la página con un aviso de «Recibido», en vez de acabar en web3forms.',
+        ],
+      },
+      {
+        kind: 'Añadido',
+        items: [
+          'Contacto: campo trampa para bots en el formulario.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.12.0',
     date: '2026-10-29',
     note: 'El libro, en su sitio dentro de la lucha.',
