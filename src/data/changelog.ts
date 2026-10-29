@@ -21,6 +21,23 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.8.0',
+    date: '2026-10-29',
+    note: 'SEO: el sitio se presenta con su dominio de verdad.',
+    groups: [
+      { kind: 'Añadido', items: ['Sitemap generado en cada build (/sitemap-index.xml).', 'robots.txt con enlace al sitemap.'] },
+      {
+        kind: 'Corregido',
+        items: [
+          'Canonical y og:url apuntan a marcosramirez.info en vez de localhost.',
+          'Imagen para redes sociales: el avatar sustituye a una imagen que no existía.',
+          'Los enlaces externos llevan rel="noopener" y nofollow solo cuando se pide.',
+        ],
+      },
+      { kind: 'Quitado', items: ['Enlace a un feed RSS que no existía.', 'Componente ImageText sin uso.'] },
+    ],
+  },
+  {
     version: '2.7.4',
     date: '2026-10-28',
     note: 'Corrección de lenguaje: «En línea» en el registro.',

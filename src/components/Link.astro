@@ -1,15 +1,13 @@
 ---
-const { href, follow } = Astro.props;
-const target = isLocalURL(href) ? "_self" : "_blank";
-const nofollow = follow ? "nofollow" : "";
+const { href, nofollow } = Astro.props;
+const local = isLocalURL(href);
+const target = local ? "_self" : "_blank";
+const rel = [!local && "noopener", nofollow && "nofollow"].filter(Boolean).join(" ") || undefined;
 
 function isLocalURL(url: string) {
   url = String(url);
-  if (url.startsWith("/") || url.startsWith("#")) {
-    return true;
-  }
-  return false;
+  return url.startsWith("/") || url.startsWith("#");
 }
 ---
 
-<a href={href} rel={nofollow} target={target}><slot /></a>
+<a href={href} rel={rel} target={target}><slot /></a>
