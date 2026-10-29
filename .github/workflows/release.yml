@@ -16,30 +16,32 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+        with:
+          # Hace falta el histórico y los tags para encontrar el commit de cada versión.
+          fetch-depth: 0
 
-      - name: Leer la versión
-        id: version
-        run: |
-          version=$(node -p "require('./package.json').version")
-          echo "value=$version" >> "$GITHUB_OUTPUT"
-
-      - name: Ver si el tag ya existe
-        id: tag
-        run: |
-          if git ls-remote --exit-code --tags origin "refs/tags/v${{ steps.version.outputs.value }}" >/dev/null 2>&1; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Publicar la release
-        if: steps.tag.outputs.exists == 'false'
+      # Un merge puede traer varias versiones a la vez: se publica cada una de
+      # las que hay en CHANGELOG.md por encima del último tag, de la más vieja
+      # a la más nueva, sobre el commit que la puso en package.json.
+      - name: Publicar las releases pendientes
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          version="${{ steps.version.outputs.value }}"
-          node scripts/release-notes.mjs "$version" > notas.md
-          gh release create "v$version" \
-            --title "$version" \
-            --notes-file notas.md \
-            --target "$GITHUB_SHA"
+          last=$(git tag --list 'v*' --sort=-v:refname | head -n1 | sed 's/^v//')
+          echo "Último tag: ${last:-ninguno}"
+
+          grep -oP '^## \[\K[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | sort -V | while read -r version; do
+            if [ -n "$last" ] && [ "$(printf '%s\n%s\n' "$version" "$last" | sort -V | tail -n1)" = "$last" ]; then
+              continue
+            fi
+
+            sha=$(git log --reverse --format=%H -G "\"version\": \"$version\"" -- package.json | head -n1)
+            sha=${sha:-$GITHUB_SHA}
+
+            echo "Publicando $version sobre $sha"
+            node scripts/release-notes.mjs "$version" > notas.md
+            gh release create "v$version" \
+              --title "$version" \
+              --notes-file notas.md \
+              --target "$sha"
+          done
