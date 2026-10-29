@@ -21,6 +21,32 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.12.0',
+    date: '2026-10-29',
+    note: 'El libro, en su sitio dentro de la lucha.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          'Expediente 04: cierre «Qué hace este libro aquí», que lo sitúa en la lucha y enlaza al resto de expedientes.',
+        ],
+      },
+      {
+        kind: 'Cambiado',
+        items: [
+          'Expediente 04: los enlaces a Wikipedia se abren con rel="noopener".',
+          'Expediente 04: espaciados en línea pasados a clase.',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'Expediente 04: el enlace «Volver al expediente del autor», que llevaba al ingeniero y no a Fallas.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.11.0',
     date: '2026-10-29',
     note: 'El ingeniero cuenta cómo perdió el primer puesto.',

@@ -12,6 +12,23 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.12.0] - 2026-10-29
+
+El libro, en su sitio dentro de la lucha.
+
+### Añadido
+
+- Expediente 04: cierre «Qué hace este libro aquí», que lo sitúa en la lucha y enlaza al resto de expedientes.
+
+### Cambiado
+
+- Expediente 04: los enlaces a Wikipedia se abren con rel="noopener".
+- Expediente 04: espaciados en línea pasados a clase.
+
+### Quitado
+
+- Expediente 04: el enlace «Volver al expediente del autor», que llevaba al ingeniero y no a Fallas.
+
 ## [2.11.0] - 2026-10-29
 
 El ingeniero cuenta cómo perdió el primer puesto.
