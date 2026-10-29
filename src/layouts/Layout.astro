@@ -2,6 +2,7 @@
 import Footer from '../components/Footer/Footer.astro';
 import Header from '../components/Header.astro';
 import SEO from '../components/SEO.astro';
+import { SITE_VERSION } from '../version';
 
 const { title, description, keywords, image, type } = Astro.props;
 ---
@@ -17,7 +18,8 @@ const { title, description, keywords, image, type } = Astro.props;
     />
     <link rel="preload" href="/fonts/departure-mono-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/courier-prime-400.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css" />
+    {/* La versión en la URL rompe la caché: cada release pide su propia hoja. */}
+    <link rel="stylesheet" href={`/styles.css?v=${SITE_VERSION}`} />
   </head>
   <body>
     <a class="skip" href="#contenido">Saltar al contenido</a>

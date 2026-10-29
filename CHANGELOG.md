@@ -12,6 +12,14 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.8.3] - 2026-10-29
+
+El CSS llega con cada versión.
+
+### Corregido
+
+- Los cambios de estilo llegan con el deploy, sin recarga forzada: la hoja se pide con la versión en la URL.
+
 ## [2.8.2] - 2026-10-29
 
 El bloque del menú se desliza.
