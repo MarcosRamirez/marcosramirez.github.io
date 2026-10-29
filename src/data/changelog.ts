@@ -21,6 +21,26 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.12.3',
+    date: '2026-10-29',
+    note: 'Lucía habla como yo.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'Lucía: «Tecnología» pasa a «Sobre qué corre», en primera persona y sin jerga de folleto.',
+          'Lucía: ya no dice que redacta para redes sociales, que no uso.',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'Lucía: la segunda llamada a contacto, que repetía el botón.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.12.2',
     date: '2026-10-29',
     note: 'Regalos, repasados.',

@@ -12,6 +12,19 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.12.3] - 2026-10-29
+
+Lucía habla como yo.
+
+### Cambiado
+
+- Lucía: «Tecnología» pasa a «Sobre qué corre», en primera persona y sin jerga de folleto.
+- Lucía: ya no dice que redacta para redes sociales, que no uso.
+
+### Quitado
+
+- Lucía: la segunda llamada a contacto, que repetía el botón.
+
 ## [2.12.2] - 2026-10-29
 
 Regalos, repasados.
