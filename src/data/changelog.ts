@@ -21,6 +21,20 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.12.2',
+    date: '2026-10-29',
+    note: 'Regalos, repasados.',
+    groups: [
+      {
+        kind: 'Corregido',
+        items: [
+          'Regalos: los atajos 1–7 tampoco saltan dentro de un desplegable o de un texto editable.',
+          'Regalos: espaciado en línea pasado a clase.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.12.1',
     date: '2026-10-29',
     note: 'El formulario de contacto confirma en casa.',

@@ -1703,6 +1703,10 @@ blockquote {
   color: var(--dim);
 }
 
+.hint--end {
+  margin-top: 36px;
+}
+
 /* Formulario. */
 
 /* Confirmación de envío: el mismo contorno de fósforo que la sección actual del menú. */

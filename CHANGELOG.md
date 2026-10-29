@@ -12,6 +12,15 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.12.2] - 2026-10-29
+
+Regalos, repasados.
+
+### Corregido
+
+- Regalos: los atajos 1–7 tampoco saltan dentro de un desplegable o de un texto editable.
+- Regalos: espaciado en línea pasado a clase.
+
 ## [2.12.1] - 2026-10-29
 
 El formulario de contacto confirma en casa.
