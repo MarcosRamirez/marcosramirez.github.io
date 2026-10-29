@@ -74,9 +74,11 @@ un commit que la representa, y la release apunta a él.
   un commit por versión, en orden, y en cada uno `npm run version:check` en verde.
 - El mensaje termina en `; versión X.Y.Z`
   (`fix(nav): 🐛 Corregido doble bloque en el menú; versión 2.8.1`).
-- Se trabaja en una rama (`fix/…`, `feat/…`) y se integra en `main` con
-  `git merge --no-ff`, **nunca squash**: el squash funde las versiones en un
-  commit y las intermedias se quedan sin release.
+- Se trabaja en una rama (`fix/…`, `feat/…`), se abre un PR contra `main` y se
+  integra con **merge commit** (`gh pr merge --merge --delete-branch`), **nunca
+  squash ni rebase**: el squash funde las versiones en un commit y las
+  intermedias se quedan sin release; el rebase reescribe los commits y la
+  release apuntaría a uno que ya no está en `main`.
 - Al hacer push a `main`, `.github/workflows/release.yml` publica una release
   de GitHub por **cada** versión de `CHANGELOG.md` posterior al último tag,
   sobre el commit que la puso en `package.json`. Si un merge trae tres versiones,
