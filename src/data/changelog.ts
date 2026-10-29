@@ -21,6 +21,19 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.12.4',
+    date: '2026-10-29',
+    note: 'El registro dice lo mismo que su distintivo.',
+    groups: [
+      {
+        kind: 'Corregido',
+        items: [
+          'Registro: la entradilla dice «en línea», como el distintivo de la versión actual.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.12.3',
     date: '2026-10-29',
     note: 'Lucía habla como yo.',

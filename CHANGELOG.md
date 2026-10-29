@@ -12,6 +12,14 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.12.4] - 2026-10-29
+
+El registro dice lo mismo que su distintivo.
+
+### Corregido
+
+- Registro: la entradilla dice «en línea», como el distintivo de la versión actual.
+
 ## [2.12.3] - 2026-10-29
 
 Lucía habla como yo.
