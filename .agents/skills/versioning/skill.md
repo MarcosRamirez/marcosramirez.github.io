@@ -36,6 +36,10 @@ Casos ya resueltos, para no volver a dudar:
 
 Los cambios de solo documentación (`CHANGELOG.md`, `AGENTS.md`, esta skill) **no** suben versión.
 
+**Todo cambio en `public/styles.css` sube versión, sin excepción.** La hoja se pide
+como `/styles.css?v=<versión>` y Cloudflare la cachea 4 horas: sin versión nueva,
+los visitantes reciben el HTML nuevo con la hoja vieja.
+
 ### Desempate
 Ante la duda entre dos niveles, **se elige el mayor**. Quedarse corto es el error
 que ya se cometió: una versión publicada con cambios dentro que no le tocaban.
@@ -93,6 +97,7 @@ un commit que la representa, y la release apunta a él.
 ### Archivos implicados
 - `package.json` — versión.
 - `src/version.ts` — la expone como `SITE_VERSION`.
+- `src/layouts/Layout.astro` — pide `/styles.css?v={SITE_VERSION}` para romper la caché.
 - `src/data/changelog.ts` — lo que renderiza `/changelog`.
 - `CHANGELOG.md` — espejo en Markdown para el repositorio.
 - `src/pages/index.astro` — sello `Versión {SITE_VERSION}` con enlace a `/changelog`.
