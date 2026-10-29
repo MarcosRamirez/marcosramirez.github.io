@@ -1341,6 +1341,11 @@ blockquote {
   margin: 0 0 clamp(34px, 4vw, 52px);
 }
 
+/* Sección a todo el ancho que sigue a un bloque de dos columnas. */
+.sec--after-cols {
+  margin-top: clamp(38px, 4.6vw, 58px);
+}
+
 .sec:last-child {
   margin-bottom: 0;
 }

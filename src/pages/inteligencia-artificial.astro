@@ -6,24 +6,24 @@ import CaseIndex from "../components/CaseIndex.astro";
 import { SITE_VERSION } from "../version";
 import { releases } from "../data/changelog";
 
-const description = `Cómo está hecha la versión ${SITE_VERSION} de este sitio: la IA escribió el código, yo puse el criterio. De un ordenador que abría puertas en una película de 1969 a un agente escribiendo CSS.`;
+const description = `Expediente X: cómo está hecha la versión ${SITE_VERSION} de este sitio y con qué armas peleo por el primer puesto en Google. Un agente de IA escribe el código; yo pongo el criterio.`;
 ---
 
 <Layout
-  title="Inteligencia artificial — cómo se hizo este sitio · Marcos Ramírez"
-  keywords="inteligencia artificial, IA, programar con IA, agentes, Copilot, Claude Code, OpenCode, cómo se hizo"
+  title="Cómo está hecho todo — Expediente X · Marcos Ramírez"
+  keywords="inteligencia artificial, IA, programar con IA, agentes, Claude Code, OpenCode, Impeccable, cómo se hizo, Marcos Ramírez"
   description={description}
 >
   <div class="page">
     <header class="page__head">
       <p class="label">Expediente <span>X</span> · la IA</p>
-      <h1>El ordenador hace cosas solo</h1>
+      <h1>Cómo está hecho todo</h1>
       <p class="page__lede">
         Un niño de los ochenta vio en <em>Mi cerebro es electrónico</em> un ordenador que abría
         puertas, cerraba la ventana porque llovía, dejaba entrar al gato y llamaba a la tienda
         para que nadie tuviera que salir a comprar. Cuatro décadas después, un ordenador escribe
-        el CSS de este fichero. La ciencia ficción se cumplió; con menos robots humanoides y más
-        líneas de código.
+        este fichero y me ayuda a pelear por mi nombre. La ciencia ficción se cumplió; con menos
+        robots humanoides y más líneas de código.
       </p>
     </header>
 
@@ -50,6 +50,17 @@ const description = `Cómo está hecha la versión ${SITE_VERSION} de este sitio
             <p>
               Lo que faltaba por contar es esto: aquel ordenador que hacía cosas solo es el que
               ha escrito esta página.
+            </p>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2>Para qué</h2>
+          <div class="prose">
+            <p>
+              Para recuperar el primer puesto. Contra un piloto, un youtuber y una novela de 1952
+              no gano con audiencia: gano con una web que se escribe, se corrige y se publica a
+              un ritmo que yo solo no sostendría. La IA es el arma; el criterio sigue siendo mío.
             </p>
           </div>
         </section>
@@ -112,6 +123,10 @@ const description = `Cómo está hecha la versión ${SITE_VERSION} de este sitio
               </dd>
             </div>
             <div>
+              <dt>Diseño</dt>
+              <dd>Impeccable, una skill de diseño para el agente</dd>
+            </div>
+            <div>
               <dt>Stack</dt>
               <dd>Astro · CSS propio · GitHub Pages</dd>
             </div>
@@ -137,15 +152,45 @@ const description = `Cómo está hecha la versión ${SITE_VERSION} de este sitio
       </aside>
     </div>
 
-    <section class="sec" style="margin-top: clamp(38px, 4.6vw, 58px)">
+    <section class="sec sec--after-cols">
       <h2>Cómo se hizo la {SITE_VERSION}</h2>
       <div class="prose">
         <p>
           No hay un brief de veinte páginas: hay una frase por cambio. «El subtítulo debe
-          empezar por un informático». «Esto pasa del 00 al 02, arréglalo». «Los años,
-          calcúlalos, no los escribas». De cada frase sale código, una comprobación de tipos,
-          una captura a 1440 y otra a 390, y un veredicto.
+          empezar por un informático». «Esto pasa del 00 al 02, arréglalo». «Que el bloque del
+          menú se deslice». De cada frase sale código, y el código recorre siempre la misma
+          cadena hasta producción:
         </p>
+      </div>
+
+      <ol class="list-rows">
+        <li>
+          <span class="highlight">El dictado</span>
+          <span class="sub">· una frase mía, en castellano y sin especificación</span>
+        </li>
+        <li>
+          <span class="highlight">El agente</span>
+          <span class="sub">· escribe el código en una rama, nunca en la principal</span>
+        </li>
+        <li>
+          <span class="highlight">Impeccable</span>
+          <span class="sub">· revisa el diseño y su detector salta en cada edición de interfaz</span>
+        </li>
+        <li>
+          <span class="highlight">La versión</span>
+          <span class="sub">· cada cambio visible sube SemVer y se anota en el registro, un commit por versión</span>
+        </li>
+        <li>
+          <span class="highlight">El PR</span>
+          <span class="sub">· se integra con merge commit y GitHub publica una release por versión</span>
+        </li>
+        <li>
+          <span class="highlight">El deploy</span>
+          <span class="sub">· GitHub Actions compila con comprobación de tipos y lo sube a Pages</span>
+        </li>
+      </ol>
+
+      <div class="prose">
         <p>
           Un agente escribe rápido y no tiene gusto. El gusto sigue siendo mío. La versión sube
           cuando el cambio entra y queda escrita en el <Link href="/changelog">registro</Link>:
@@ -163,16 +208,12 @@ const description = `Cómo está hecha la versión ${SITE_VERSION} de este sitio
           <dd>{releases.length} desde la 2.0.0</dd>
         </div>
         <div>
-          <dt>Estilo</dt>
-          <dd>11.804 líneas de código</dd>
-        </div>
-        <div>
           <dt>Tipos</dt>
-          <dd>0 errores en astro check</dd>
+          <dd>astro check en cada deploy</dd>
         </div>
         <div>
           <dt>Detector</dt>
-          <dd>0 anti-patrones</dd>
+          <dd>Impeccable en cada edición</dd>
         </div>
       </dl>
     </section>
@@ -180,7 +221,10 @@ const description = `Cómo está hecha la versión ${SITE_VERSION} de este sitio
     <section class="sec">
       <h2>Dónde se equivocó</h2>
       <div class="prose">
-        <p>Esto no es un folleto. La máquina se equivocó, y las tres veces se vio mirando.</p>
+        <p>
+          Esto no es un folleto. La máquina se equivoca, y los errores se ven mirando: unos los
+          caza ella, otros los cazo yo, y alguno solo aparece en producción.
+        </p>
       </div>
       <ul class="list-rows">
         <li>
@@ -197,8 +241,21 @@ const description = `Cómo está hecha la versión ${SITE_VERSION} de este sitio
         <li>
           <span class="highlight">Un salto en la serie</span>
           <span class="sub"
-            >· numeró del expediente 00 al 02 sin decir nada. Lo cazó el dueño del sitio, no la
-            máquina.</span
+            >· numeró del expediente 00 al 02 sin decir nada. Lo cacé yo, no la máquina.</span
+          >
+        </li>
+        <li>
+          <span class="highlight">El menú que no se deslizaba</span>
+          <span class="sub"
+            >· publicó el bloque deslizante del menú con la hoja de estilos de siempre, y la caché
+            servía la vieja. Desde la 2.8.3 la hoja lleva la versión en la URL.</span
+          >
+        </li>
+        <li>
+          <span class="highlight">Dos releases huérfanas</span>
+          <span class="sub"
+            >· el primer merge con tres versiones solo publicó la última. Ahora el flujo publica
+            una release por versión.</span
           >
         </li>
       </ul>

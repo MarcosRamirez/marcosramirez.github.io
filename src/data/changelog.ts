@@ -21,6 +21,28 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.10.0',
+    date: '2026-10-29',
+    note: 'El Expediente X cuenta cómo está hecho todo.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          'Expediente X: sección «Para qué», que lo une a la lucha por el primer puesto.',
+          'Expediente X: la cadena completa del dictado al deploy (agente, Impeccable, versión, PR y release).',
+          'Expediente X: dos errores nuevos en «Dónde se equivocó», el CSS cacheado y las releases huérfanas.',
+        ],
+      },
+      {
+        kind: 'Cambiado',
+        items: [
+          'Expediente X: titular «Cómo está hecho todo» y meta descripción nueva.',
+          'Expediente X: datos fijos que se quedaban viejos («11.804 líneas») cambiados por hechos que no caducan.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.9.0',
     date: '2026-10-29',
     note: 'La lucha por el primer puesto.',

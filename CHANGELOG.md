@@ -12,6 +12,21 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.10.0] - 2026-10-29
+
+El Expediente X cuenta cómo está hecho todo.
+
+### Añadido
+
+- Expediente X: sección «Para qué», que lo une a la lucha por el primer puesto.
+- Expediente X: la cadena completa del dictado al deploy (agente, Impeccable, versión, PR y release).
+- Expediente X: dos errores nuevos en «Dónde se equivocó», el CSS cacheado y las releases huérfanas.
+
+### Cambiado
+
+- Expediente X: titular «Cómo está hecho todo» y meta descripción nueva.
+- Expediente X: datos fijos que se quedaban viejos («11.804 líneas») cambiados por hechos que no caducan.
+
 ## [2.9.0] - 2026-10-29
 
 La lucha por el primer puesto.
