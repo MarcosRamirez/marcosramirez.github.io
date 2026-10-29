@@ -14,7 +14,7 @@ const {
   title,
   description,
   keywords = '',
-  image = '/og-default.png',
+  image = '/images/avatar@2x.png',
   url,
   type = 'website',
   publishedTime,
@@ -22,7 +22,7 @@ const {
 } = Astro.props;
 
 // Use provided url or current page URL, with fallback for site
-const baseUrl = Astro.site ? Astro.site.origin : 'https://marcosramirez.github.io';
+const baseUrl = Astro.site ? Astro.site.origin : 'https://marcosramirez.info';
 const currentUrl = url || Astro.url.href || baseUrl;
 
 // Handle relative URLs by adding base URL
@@ -37,7 +37,7 @@ let socialImageURL;
 try {
   socialImageURL = new URL(image, baseUrl);
 } catch {
-  socialImageURL = new URL('/og-default.png', baseUrl);
+  socialImageURL = new URL('/images/avatar@2x.png', baseUrl);
 }
 ---
 
@@ -81,6 +81,3 @@ try {
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="theme-color" content="#040704" />
-
-<!-- RSS Feed -->
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />

@@ -12,6 +12,43 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.8.2] - 2026-10-29
+
+El bloque del menú se desliza.
+
+### Cambiado
+
+- El bloque encendido del menú se desliza de la sección actual al enlace con hover o foco, invirtiendo las letras a su paso.
+
+## [2.8.1] - 2026-10-29
+
+Un solo bloque encendido en el menú.
+
+### Corregido
+
+- Al pasar por otra sección, la actual pasa a contorno y el bloque se muda al hover: ya no hay dos encendidas.
+- Foco de teclado visible en los enlaces del menú.
+
+## [2.8.0] - 2026-10-29
+
+SEO: el sitio se presenta con su dominio de verdad.
+
+### Añadido
+
+- Sitemap generado en cada build (/sitemap-index.xml).
+- robots.txt con enlace al sitemap.
+
+### Corregido
+
+- Canonical y og:url apuntan a marcosramirez.info en vez de localhost.
+- Imagen para redes sociales: el avatar sustituye a una imagen que no existía.
+- Los enlaces externos llevan rel="noopener" y nofollow solo cuando se pide.
+
+### Quitado
+
+- Enlace a un feed RSS que no existía.
+- Componente ImageText sin uso.
+
 ## [2.7.4]
 
 Corrección de lenguaje: «En línea» en el registro.

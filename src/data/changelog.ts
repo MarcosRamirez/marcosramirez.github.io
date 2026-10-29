@@ -21,6 +21,50 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.8.2',
+    date: '2026-10-29',
+    note: 'El bloque del menú se desliza.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'El bloque encendido del menú se desliza de la sección actual al enlace con hover o foco, invirtiendo las letras a su paso.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.8.1',
+    date: '2026-10-29',
+    note: 'Un solo bloque encendido en el menú.',
+    groups: [
+      {
+        kind: 'Corregido',
+        items: [
+          'Al pasar por otra sección, la actual pasa a contorno y el bloque se muda al hover: ya no hay dos encendidas.',
+          'Foco de teclado visible en los enlaces del menú.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.8.0',
+    date: '2026-10-29',
+    note: 'SEO: el sitio se presenta con su dominio de verdad.',
+    groups: [
+      { kind: 'Añadido', items: ['Sitemap generado en cada build (/sitemap-index.xml).', 'robots.txt con enlace al sitemap.'] },
+      {
+        kind: 'Corregido',
+        items: [
+          'Canonical y og:url apuntan a marcosramirez.info en vez de localhost.',
+          'Imagen para redes sociales: el avatar sustituye a una imagen que no existía.',
+          'Los enlaces externos llevan rel="noopener" y nofollow solo cuando se pide.',
+        ],
+      },
+      { kind: 'Quitado', items: ['Enlace a un feed RSS que no existía.', 'Componente ImageText sin uso.'] },
+    ],
+  },
+  {
     version: '2.7.4',
     date: '2026-10-28',
     note: 'Corrección de lenguaje: «En línea» en el registro.',

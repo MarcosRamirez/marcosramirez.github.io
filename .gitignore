@@ -24,3 +24,7 @@ pnpm-debug.log*
 .opencode/
 .impeccable/
 pr-description.md
+
+# lockfiles de pnpm: el proyecto usa npm (package-lock.json)
+pnpm-lock.yaml
+pnpm-workspace.yaml
