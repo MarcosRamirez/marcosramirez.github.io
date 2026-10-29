@@ -12,6 +12,22 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.11.0] - 2026-10-29
+
+El ingeniero cuenta cómo perdió el primer puesto.
+
+### Añadido
+
+- Expediente 01: sección «El primer puesto», que cuenta cómo lo perdí y enlaza a los rivales.
+
+### Cambiado
+
+- Expediente 01: retoques de texto («Después vinieron», «ultraprocesado», «póker»).
+
+### Quitado
+
+- Expediente 01: el «Más información pronto» del lateral, que prometía y no daba.
+
 ## [2.10.0] - 2026-10-29
 
 El Expediente X cuenta cómo está hecho todo.

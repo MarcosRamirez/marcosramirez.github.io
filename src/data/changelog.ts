@@ -21,6 +21,31 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.11.0',
+    date: '2026-10-29',
+    note: 'El ingeniero cuenta cómo perdió el primer puesto.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          'Expediente 01: sección «El primer puesto», que cuenta cómo lo perdí y enlaza a los rivales.',
+        ],
+      },
+      {
+        kind: 'Cambiado',
+        items: [
+          'Expediente 01: retoques de texto («Después vinieron», «ultraprocesado», «póker»).',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'Expediente 01: el «Más información pronto» del lateral, que prometía y no daba.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.10.0',
     date: '2026-10-29',
     note: 'El Expediente X cuenta cómo está hecho todo.',
