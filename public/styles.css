@@ -1707,6 +1707,10 @@ blockquote {
   margin-top: 36px;
 }
 
+.actions--end {
+  margin-top: 32px;
+}
+
 /* Formulario. */
 
 /* Confirmación de envío: el mismo contorno de fósforo que la sección actual del menú. */

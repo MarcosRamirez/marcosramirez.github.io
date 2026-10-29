@@ -12,6 +12,19 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.12.5] - 2026-10-29
+
+El 404 manda a los otros Marcos Ramírez.
+
+### Añadido
+
+- 404: si buscabas a otro Marcos Ramírez, enlaces al piloto, al youtuber y al libro.
+
+### Corregido
+
+- 404: «Este expediente», no «Esta expediente».
+- 404: espaciados en línea pasados a clase.
+
 ## [2.12.4] - 2026-10-29
 
 El registro dice lo mismo que su distintivo.

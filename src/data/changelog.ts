@@ -21,6 +21,26 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.12.5',
+    date: '2026-10-29',
+    note: 'El 404 manda a los otros Marcos Ramírez.',
+    groups: [
+      {
+        kind: 'Añadido',
+        items: [
+          '404: si buscabas a otro Marcos Ramírez, enlaces al piloto, al youtuber y al libro.',
+        ],
+      },
+      {
+        kind: 'Corregido',
+        items: [
+          '404: «Este expediente», no «Esta expediente».',
+          '404: espaciados en línea pasados a clase.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.12.4',
     date: '2026-10-29',
     note: 'El registro dice lo mismo que su distintivo.',

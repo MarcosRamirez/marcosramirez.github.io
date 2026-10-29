@@ -10,7 +10,7 @@ import Layout from "../layouts/Layout.astro";
   <div class="page">
     <header class="page__head">
       <p class="label">Error <span>404</span> · expediente</p>
-      <h1>Esta expediente no está en el catálogo</h1>
+      <h1>Este expediente no está en el catálogo</h1>
       <p class="page__lede">
         El recurso solicitado no existe o lo han movido de expediente. El índice está incompleto; no
         es culpa tuya.
@@ -23,14 +23,18 @@ import Layout from "../layouts/Layout.astro";
         <li>La URL está mal escrita</li>
         <li>El recurso fue eliminado</li>
         <li>Estás intentando acceder a un sistema operativo de los 90 sin permisos de root</li>
+        <li>
+          Buscabas a otro Marcos Ramírez: <a href="/piloto">el piloto</a>,
+          <a href="/youtuber">el youtuber</a> o <a href="/novela-carlos-luis-fallas">el libro</a>
+        </li>
       </ul>
     </section>
 
-    <p class="actions" style="margin-top: 32px">
+    <p class="actions actions--end">
       <a class="btn btn--solid" href="/">[ VOLVER AL ÍNDICE ]</a>
       <a class="btn" href="/contacto">[ ESCRIBIR ]</a>
     </p>
 
-    <p class="hint" style="margin-top: 28px">Esperando orden</p>
+    <p class="hint hint--end">Esperando orden</p>
   </div>
 </Layout>

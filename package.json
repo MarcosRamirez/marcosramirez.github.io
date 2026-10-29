@@ -1,7 +1,7 @@
 {
   "name": "marcosramirez-github-io",
   "type": "module",
-  "version": "2.12.4",
+  "version": "2.12.5",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
