@@ -26,7 +26,7 @@ Dominio personal de Marcos Ramírez, ingeniero informático español que program
 
 Una sola URL resuelve todo lo que alguien puede buscar bajo el nombre "Marcos Ramírez": el ingeniero, el lector de la novela y el amigo que quiere hacer un regalo. Ningún homónimo puede cubrir las tres cosas, y ninguna página genérica de portfolio lo intenta.
 
-**Concepto: la lucha por el primer puesto.** Marcos era el primer resultado de "Marcos Ramírez" en Google. Se lo quitaron un piloto de Moto2, un youtuber y la novela de Fallas. La web es la contraofensiva y se cuenta como cinco expedientes en orden (fuente única: `src/data/cases.ts`): 01 el ingeniero (`/sobre-mi`), 02 el piloto (`/piloto`), 03 el youtuber (`/youtuber`), 04 el libro (`/novela-carlos-luis-fallas`) y X la IA (`/inteligencia-artificial`), que cuenta cómo está hecho todo. Regalos, contacto, Lucía y el registro son anexos (A–D), fuera de la historia.
+**Concepto: la lucha por el primer puesto.** Marcos era el primer resultado de "Marcos Ramírez" en Google. Se lo quitaron un piloto de Moto2, un youtuber y la novela de Fallas. La web es la contraofensiva y se cuenta como cinco expedientes en orden (fuente única: `src/data/cases.ts`): 01 el ingeniero (`/sobre-mi`), 02 el piloto (`/piloto`), 03 el youtuber (`/youtuber`), 04 el libro (`/novela-carlos-luis-fallas`) y X la IA (`/inteligencia-artificial`), que cuenta cómo está hecho todo. Contacto, regalos, Lucía y el registro son anexos (A–D), fuera de la historia; regalos no sale en la portada.
 
 ## Operating Context
 

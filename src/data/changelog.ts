@@ -21,6 +21,28 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.13.0',
+    date: '2026-11-01',
+    note: 'El texto, repasado entero; regalos sale de la portada.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'Texto repasado en todo el sitio: primera persona, ironía contenida y sin frases de anuncio.',
+          '«Fichero» desaparece del texto: se dice «esta web»; «expediente» queda solo en las etiquetas.',
+          'Fuera las coletillas repetidas entre páginas y las fórmulas del tipo «no es X, es Y».',
+          'Anexos reordenados: contacto pasa a A y regalos a B.',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'El tablero de regalos de la portada: no pegaba con la lucha. La wishlist sigue en el menú.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.12.7',
     date: '2026-10-30',
     note: 'El ingeniero, sin pedir paciencia.',
