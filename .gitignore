@@ -21,6 +21,7 @@ pnpm-debug.log*
 .DS_Store
 
 # herramienta local de diseño y borradores de PR
+.claude/
 .opencode/
 .impeccable/
 pr-description.md
