@@ -21,6 +21,71 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.13.0',
+    date: '2026-11-01',
+    note: 'El texto, repasado entero; regalos sale de la portada.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'Texto repasado en todo el sitio: primera persona, ironía contenida y sin frases de anuncio.',
+          '«Fichero» desaparece del texto: se dice «esta web»; «expediente» queda solo en las etiquetas.',
+          'Fuera las coletillas repetidas entre páginas y las fórmulas del tipo «no es X, es Y».',
+          'Anexos reordenados: contacto pasa a A y regalos a B.',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'El tablero de regalos de la portada: no pegaba con la lucha. La wishlist sigue en el menú.',
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.12.7',
+    date: '2026-10-30',
+    note: 'El ingeniero, sin pedir paciencia.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'Expediente 01: meta descripción nueva, en primera persona.',
+          'Expediente 01: la entradilla cuenta qué fue el Dragon 32 y desde cuándo programo, sin el «sed pacientes».',
+          'Expediente 01: la anécdota del cine entra sin «Y una anécdota:» ni las comillas de «marcó».',
+          'Expediente 01: los doscientos dominios y Slackware, en una frase, sin «como un loco» ni «añorada».',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: ['Expediente 01: el «xD» de la ADSL de 256k.'],
+      },
+    ],
+  },
+  {
+    version: '2.12.6',
+    date: '2026-10-30',
+    note: 'El piloto y el youtuber, sin la pose.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'Piloto y youtuber: meta descripciones nuevas, que dicen quién soy y a quién busca el visitante.',
+          'Expediente 02: entradilla y secciones en primera persona, sin la bici de montaña ni el «ahí sigue: primero».',
+          'Expediente 03: entradilla y secciones en primera persona, sin el «él sube vídeos; yo subo commits».',
+          'Expediente 02: «Cómo se recupera un primer puesto» pasa a «Cómo pienso recuperar el puesto».',
+          'Expediente 03: «Dónde le gano» pasa a «Dónde me defiendo».',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'Piloto y youtuber: el «Expediente 02» y el «Expediente 03» del título de la pestaña.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.12.5',
     date: '2026-10-29',
     note: 'El 404 manda a los otros Marcos Ramírez.',

@@ -12,6 +12,52 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.13.0] - 2026-11-01
+
+El texto, repasado entero; regalos sale de la portada.
+
+### Cambiado
+
+- Texto repasado en todo el sitio: primera persona, ironía contenida y sin frases de anuncio.
+- «Fichero» desaparece del texto: se dice «esta web»; «expediente» queda solo en las etiquetas.
+- Fuera las coletillas repetidas entre páginas y las fórmulas del tipo «no es X, es Y».
+- Anexos reordenados: contacto pasa a A y regalos a B.
+
+### Quitado
+
+- El tablero de regalos de la portada: no pegaba con la lucha. La wishlist sigue en el menú.
+
+## [2.12.7] - 2026-10-30
+
+El ingeniero, sin pedir paciencia.
+
+### Cambiado
+
+- Expediente 01: meta descripción nueva, en primera persona.
+- Expediente 01: la entradilla cuenta qué fue el Dragon 32 y desde cuándo programo, sin el «sed pacientes».
+- Expediente 01: la anécdota del cine entra sin «Y una anécdota:» ni las comillas de «marcó».
+- Expediente 01: los doscientos dominios y Slackware, en una frase, sin «como un loco» ni «añorada».
+
+### Quitado
+
+- Expediente 01: el «xD» de la ADSL de 256k.
+
+## [2.12.6] - 2026-10-30
+
+El piloto y el youtuber, sin la pose.
+
+### Cambiado
+
+- Piloto y youtuber: meta descripciones nuevas, que dicen quién soy y a quién busca el visitante.
+- Expediente 02: entradilla y secciones en primera persona, sin la bici de montaña ni el «ahí sigue: primero».
+- Expediente 03: entradilla y secciones en primera persona, sin el «él sube vídeos; yo subo commits».
+- Expediente 02: «Cómo se recupera un primer puesto» pasa a «Cómo pienso recuperar el puesto».
+- Expediente 03: «Dónde le gano» pasa a «Dónde me defiendo».
+
+### Quitado
+
+- Piloto y youtuber: el «Expediente 02» y el «Expediente 03» del título de la pestaña.
+
 ## [2.12.5] - 2026-10-29
 
 El 404 manda a los otros Marcos Ramírez.

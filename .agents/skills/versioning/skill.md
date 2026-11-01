@@ -74,8 +74,18 @@ Cada versión va en **su propio commit**, con el código, `package.json` y las d
 entradas del registro de esa versión y de ninguna otra. Así cada versión tiene
 un commit que la representa, y la release apunta a él.
 
+- **Todas las versiones quedan en el histórico, siempre.** Nunca se funden dos
+  versiones en una ni se borra una entrada del registro para «simplificar»: si una
+  versión existió, tiene su entrada, su commit y su release.
 - Si se juntan varias versiones sin commitear, se separan antes de integrar:
   un commit por versión, en orden, y en cada uno `npm run version:check` en verde.
+  Aunque toquen los mismos archivos: se reconstruye el estado de cada versión
+  (archivos intermedios) en lugar de meterlas todas en un commit.
+- Antes de crear una rama, `git status`: si hay versiones sin commitear de una
+  sesión anterior, se commitean primero, cada una con la suya, y después se
+  empieza lo nuevo.
+- Las fechas siguen el orden de las versiones: una versión nunca lleva fecha
+  anterior a la que tiene debajo.
 - El mensaje termina en `; versión X.Y.Z`
   (`fix(nav): 🐛 Corregido doble bloque en el menú; versión 2.8.1`).
 - Se trabaja en una rama (`fix/…`, `feat/…`), se abre un PR contra `main` y se
