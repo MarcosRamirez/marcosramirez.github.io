@@ -21,6 +21,29 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.12.6',
+    date: '2026-10-30',
+    note: 'El piloto y el youtuber, sin la pose.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'Piloto y youtuber: meta descripciones nuevas, que dicen quién soy y a quién busca el visitante.',
+          'Expediente 02: entradilla y secciones en primera persona, sin la bici de montaña ni el «ahí sigue: primero».',
+          'Expediente 03: entradilla y secciones en primera persona, sin el «él sube vídeos; yo subo commits».',
+          'Expediente 02: «Cómo se recupera un primer puesto» pasa a «Cómo pienso recuperar el puesto».',
+          'Expediente 03: «Dónde le gano» pasa a «Dónde me defiendo».',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: [
+          'Piloto y youtuber: el «Expediente 02» y el «Expediente 03» del título de la pestaña.',
+        ],
+      },
+    ],
+  },
+  {
     version: '2.12.5',
     date: '2026-10-29',
     note: 'El 404 manda a los otros Marcos Ramírez.',

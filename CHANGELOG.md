@@ -12,6 +12,22 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.12.6] - 2026-10-30
+
+El piloto y el youtuber, sin la pose.
+
+### Cambiado
+
+- Piloto y youtuber: meta descripciones nuevas, que dicen quién soy y a quién busca el visitante.
+- Expediente 02: entradilla y secciones en primera persona, sin la bici de montaña ni el «ahí sigue: primero».
+- Expediente 03: entradilla y secciones en primera persona, sin el «él sube vídeos; yo subo commits».
+- Expediente 02: «Cómo se recupera un primer puesto» pasa a «Cómo pienso recuperar el puesto».
+- Expediente 03: «Dónde le gano» pasa a «Dónde me defiendo».
+
+### Quitado
+
+- Piloto y youtuber: el «Expediente 02» y el «Expediente 03» del título de la pestaña.
+
 ## [2.12.5] - 2026-10-29
 
 El 404 manda a los otros Marcos Ramírez.
