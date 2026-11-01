@@ -21,6 +21,26 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '2.12.7',
+    date: '2026-10-30',
+    note: 'El ingeniero, sin pedir paciencia.',
+    groups: [
+      {
+        kind: 'Cambiado',
+        items: [
+          'Expediente 01: meta descripción nueva, en primera persona.',
+          'Expediente 01: la entradilla cuenta qué fue el Dragon 32 y desde cuándo programo, sin el «sed pacientes».',
+          'Expediente 01: la anécdota del cine entra sin «Y una anécdota:» ni las comillas de «marcó».',
+          'Expediente 01: los doscientos dominios y Slackware, en una frase, sin «como un loco» ni «añorada».',
+        ],
+      },
+      {
+        kind: 'Quitado',
+        items: ['Expediente 01: el «xD» de la ADSL de 256k.'],
+      },
+    ],
+  },
+  {
     version: '2.12.6',
     date: '2026-10-30',
     note: 'El piloto y el youtuber, sin la pose.',

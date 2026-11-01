@@ -12,6 +12,21 @@ renderiza `/changelog`: si cambia uno, cambia el otro.
 cambio de navegación y estructura · **PATCH** corrección de texto, estilo o bug. Los
 cambios de documentación no suben versión.
 
+## [2.12.7] - 2026-10-30
+
+El ingeniero, sin pedir paciencia.
+
+### Cambiado
+
+- Expediente 01: meta descripción nueva, en primera persona.
+- Expediente 01: la entradilla cuenta qué fue el Dragon 32 y desde cuándo programo, sin el «sed pacientes».
+- Expediente 01: la anécdota del cine entra sin «Y una anécdota:» ni las comillas de «marcó».
+- Expediente 01: los doscientos dominios y Slackware, en una frase, sin «como un loco» ni «añorada».
+
+### Quitado
+
+- Expediente 01: el «xD» de la ADSL de 256k.
+
 ## [2.12.6] - 2026-10-30
 
 El piloto y el youtuber, sin la pose.
