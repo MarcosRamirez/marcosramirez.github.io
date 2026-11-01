@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   # Permite relanzarlo a mano desde la pestaña Actions.
   workflow_dispatch:
 
